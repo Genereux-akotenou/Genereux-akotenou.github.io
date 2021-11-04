@@ -1,1 +1,0 @@
-# Genereux-akotenou .github.io
