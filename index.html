@@ -49,13 +49,13 @@
             </div>
         </section>
         <section class="clean-block clean-info dark mb-0 pb-0">
-            <div class="gSession col-10">
+            <div class="gSession col-12 col-md-10">
                 <!-- ------------------------------ -->
                 <h1 class="sessionTitle">Short Bio</h1>
                 <p class="subSession">About me</p>
                 <br>
                 <div class="container p-0">
-                    <p class="gText-left bio">“My name is Généreux Akotenou and I am a junior freelance web developer but also a developer of iot and ai. I am an accomplished coder and programmer, and I love using my skills to contribute to the exciting technological advancements that occur every day. I had my baccalaureate in 2019. And I am in my third year for my license in software engineering at IFRI. During my studies, I had created a competition platform in artificial intelligence, <a target='_blank' href="http://50.116.46.8/">MAIC2021</a>. Also I have coded the <a target="_blank" href="http://genereux-dev.me/tictactoe/">tictactoe</a> games with various difficulty levels for an ia embedded in the games. Do not hesitate to consult my CV or my projects to find out more.</p>
+                    <p class="gText-left bio text-justify">“My name is Généreux Akotenou and I am a junior freelance web developer but also a developer of iot and ai. I am an accomplished coder and programmer, and I love using my skills to contribute to the exciting technological advancements that occur every day. I had my baccalaureate in 2019. And I am in my third year for my license in software engineering at IFRI. During my studies, I had created a competition platform in artificial intelligence, <a target='_blank' href="http://50.116.46.8/">MAIC2021</a>. Also I have coded the <a target="_blank" href="http://genereux-dev.me/tictactoe/">tictactoe</a> games with various difficulty levels for an ia embedded in the games. Do not hesitate to consult my CV or my projects to find out more.</p>
                     <a href="curriculum-vitae.html" style="text-decoration: none !important;">
                         <button class="btn btn-outline-primary btn-lg mt-2 download_cv" type="button">DOWNLOAD MY CV</button>
                     </a>
@@ -69,7 +69,7 @@
                 <br>
                 <!-- ------------------------------ -->
                 <div class="row justify-content-left">
-                    <div class="project col-sm-6 col-lg-4">
+                    <div class="project col-12 col-md-6 col-lg-4">
                         <a target="_blank" href="http://50.116.46.8/">
                             <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/project/maic2021/maic2021.png">
                                 <div class="card-body info">
@@ -360,7 +360,7 @@
                 <!-- ------------------------------ -->
                 <div class="row p-0 m-0">
                     <ul class="testimonials col-12 m-0 p-0 d-flex flex-column flex-md-row" style="justify-content: space-between;">
-                        <li class="testimonial mr-0 mr-md-3">
+                        <li class="testimonial mr-0 mr-md-3 p-2 p-md-5">
                             <div class="testimonial_quote">
                                 <p>
                                     “Généreux is hands down the best colleague and friend I have worked with. He puts an insane amount of passion and energy into everything he does. From assembling teams to finalizing deliverables, he demonstrates precision, openness and promotes teamwork. There is nothing this great man cannot do.”
@@ -376,7 +376,7 @@
                             </div>
                         </li>
 
-                        <li class="testimonial ml-0 ml-md-3">
+                        <li class="testimonial ml-0 ml-md-3 p-2 p-md-5">
                             <div class="testimonial_quote">
                                 <p>
                                     “
@@ -419,6 +419,12 @@
             alert('This project still under development. It has not yet been published.');
             // e.preventDefault();
         }
+        document.addEventListener("DOMContentLoaded", function() {
+            if (document.readyState === "complete") {
+                alert('444444444444');
+            }
+        });
+        // window.onload = function () { alert("It's loaded!") }
     </script>
 </body>
 
