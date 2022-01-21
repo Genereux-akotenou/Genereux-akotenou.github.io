@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Généreux AKOTENOU - Curriculum vitae</title>
+    <link rel="shortcut icon" href="favicon1.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
@@ -12,9 +13,85 @@
     <link rel="stylesheet" href="assets/css/smoothproducts.css">
     <link rel="stylesheet" href="assets/css/gtools.css">
     <link rel="stylesheet" href="assets/css/gQuick.css">
+    <link rel="stylesheet" href="assets/aos/aos.css" />
+    <script src="assets/aos/aos.js"></script>
 </head>
 
 <body>
+    <script>
+        AOS.init({
+          easing: 'ease-in-out-sine'
+        });
+    </script>
+    <!-- ----------------------------------------- -->
+    <style>
+        .circle{
+            position: absolute;
+            border: 3px solid transparent;
+            /* border-top-color: hsl(83, 82%,53%); */
+            border-top-color: #007bff;
+            border-radius: 50%;
+            animation: rotate linear infinite;
+        }
+        .one{
+            height: 50px;
+            width: 50px;
+            left: 50px;
+            top: 50px;
+            animation-duration: 0.85s;
+        }
+        .two{
+            height: 75px;
+            width: 75px;
+            top: 38px;
+            left: 38px;
+            animation-duration: 0.95s;
+        }
+        .three{
+            height: 100px;
+            width: 100px;
+            top: 25px;
+            left: 25px;
+            animation-duration: 1.05s;
+        }
+        @keyframes rotate {
+            from { 
+                transform: rotateZ(360deg);
+            }
+
+            to {
+                transform: rotateZ(0deg);
+            }
+        }
+        .loader{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -90px 0 0 -90px;
+        }
+        .loaderContainer{
+            background-color: #fff;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+            z-index: 1020;
+        }
+
+    </style>
+    <div class="loaderContainer" id="loaderContainer">
+        <div class="loader">
+            <div class="circle one"></div>
+            <div class="circle two"></div>
+            <div class="circle three"></div>
+        </div>
+    </div>
+    <!-- ----------------------------------------- --> 
+
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar gHeader">
         <div class="container">
             <a class="navbar-brand logo myName" href="/">Généreux Akotenou</a>
@@ -35,17 +112,6 @@
     </nav>
     
     <main class="page landing-page">
-        <!-- <section class="clean-block clean-hero" style="background-image:url(&quot;assets/img/tech/header.jpg&quot;);color:rgba(9, 162, 255, 0.85);">
-            <div class="text">
-                <div class='authImage'>
-
-                </div>
-                <br>
-                <h2>Lorem ipsum dolor sit amet.</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
-                <p class="more-about-container"><a href="" class="more-about">Curious to know more ?</a></p>
-            </div>
-        </section> -->
         <section class="clean-block clean-info dark mb-0 pb-0" style="padding-top: 3.5em; margin-top: -2em;">
             <div class="gSession col-10">
                 <!-- ------------------------------ -->
@@ -61,7 +127,7 @@
                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                             <h4 class="education-title block-title text-center text-uppercase mb-4">Education</h4>
                             <div class="education">
-                                <div class="education-box mb-4">
+                                <div data-aos="fade-in" data-aos-duration="600" class="education-box mb-4">
                                     <h5 class="box-title">Software Engineering (3rd year) </h5>
                                     <div class="item-details mb-2 mb-sm-1">
                                         <span class="university d-inline-block mr-3"><i class="fa fa-book mr-2"></i>IFRI (Benin)</span>
@@ -69,7 +135,7 @@
                                     </div>
                                     <p class="box-description">Since Oct 2019 at today, I'm studying Computer Science in Software Engineering at Institute for Training and Research in Computer Science of Benin.</p>
                                 </div>
-                                <div class="education-box mb-4">
+                                <div data-aos="fade-in" data-aos-duration="600" class="education-box mb-4">
                                     <h5 class="box-title">English Course Certificate (Pre- Intermediate Level)</h5>
                                     <div class="item-details mb-2 mb-sm-1">
                                         <span class="university d-inline-block mr-3"><i class="fa fa-book mr-2"></i>TBC (Benin)</span>
@@ -77,7 +143,7 @@
                                     </div>
                                     <p class="box-description">In Apr 2021, I got my second english training achievement testimonial at TBC AFRICA - USA training center.</p>
                                 </div>
-                                <div class="education-box mb-4">
+                                <div data-aos="fade-in" data-aos-duration="600" class="education-box mb-4">
                                     <h5 class="box-title">2nd Scientific Bachelor Degree</h5>
                                     <div class="item-details mb-2 mb-sm-1">
                                         <span class="university d-inline-block mr-3"><i class="fa fa-book mr-2"></i>Benin</span>
@@ -85,7 +151,7 @@
                                     </div>
                                     <p class="box-description">In Jun 2020, I got my second Certificate of Scientific Bachelor Degree at Benin (type D).</p>
                                 </div>
-                                <div class="education-box mb-4">
+                                <div data-aos="fade-in" data-aos-duration="600" class="education-box mb-4">
                                     <h5 class="box-title">English Course Certificate (Beginner I Level)</h5>
                                     <div class="item-details mb-2 mb-sm-1">
                                         <span class="university d-inline-block mr-3"><i class="fa fa-book mr-2"></i>TBC (Benin)</span>
@@ -93,7 +159,7 @@
                                     </div>
                                     <p class="box-description">In Oct 2019, I got my first english training achievement testimonial at TBC AFRICA - USA training center.</p>
                                 </div>
-                                <div class="education-box mb-4">
+                                <div data-aos="fade-in" data-aos-duration="600" class="education-box mb-4">
                                     <h5 class="box-title">1rst Scientific Bachelor Degree</h5>
                                     <div class="item-details mb-2 mb-sm-1">
                                         <span class="university d-inline-block mr-3"><i class="fa fa-book mr-2"></i>Benin</span>
@@ -101,7 +167,7 @@
                                     </div>
                                     <p class="box-description">In Jun 2019, I got my first Certificate of Scientific Bachelor Degree at Benin (type C).</p>
                                 </div>
-                                <div class="education-box mb-4 mb-lg-0">
+                                <div data-aos="fade-in" data-aos-duration="600" class="education-box mb-4 mb-lg-0">
                                     <h5 class="box-title">FirstCycle Certificate</h5>
                                     <div class="item-details mb-2 mb-sm-1">
                                         <span class="university d-inline-block mr-3"><i class="fa fa-book mr-2"></i>Benin</span>
@@ -115,7 +181,7 @@
                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                             <h4 class="experince-title block-title text-center text-uppercase mb-4">Experience</h4>
                             <div class="experince">
-                                <div class="experince-box mb-4">
+                                <div data-aos="fade-in" data-aos-duration="600" class="experince-box mb-4">
                                     <h5 class="box-title">Python scripting and Machine Learning</h5>
                                     <div class="item-details mb-2 mb-sm-1">
                                         <span class="university d-inline-block mr-3"><i class="fa fa-book mr-2"></i>Freecodecamp & Sololearn</span>
@@ -123,7 +189,7 @@
                                     </div>
                                     <p class="box-description">Since Sep 2021, I started to follow online certification training in python, ia, machine learning, deep learning and iot.</p>
                                 </div>
-                                <div class="experince-box mb-4">
+                                <div data-aos="fade-in" data-aos-duration="600" class="experince-box mb-4">
                                     <h5 class="box-title">IFRI AI & IoT Club</h5>
                                     <div class="item-details mb-2 mb-sm-1">
                                         <span class="university d-inline-block mr-3"><i class="fa fa-book mr-2"></i>IFRI (Benin)</span>
@@ -131,7 +197,7 @@
                                     </div>
                                     <p class="box-description">Founding member of the artificial intelligence and Iot club at the Institute for Training and Research in Computer Science of the University of Abomey Calavi (IFRI).</p>
                                 </div>
-                                <div class="experince-box mb-4">
+                                <div data-aos="fade-in" data-aos-duration="600" class="experince-box mb-4">
                                     <h5 class="box-title">Benin Workshop on Artificial Intelligence (BWAI)</h5>
                                     <div class="item-details mb-2 mb-sm-1">
                                         <span class="university d-inline-block mr-3"><i class="fa fa-book mr-2"></i>Abomey-Calavi University</span>
@@ -139,7 +205,7 @@
                                     </div>
                                     <p class="box-description">Constraint programming, k-means algorithms, natural language processing methods, deep learning, machine learning, IoT, algorithmic bias in AI, and abnormal event detection processes were discussed.</p>
                                 </div>
-                                <div class="experince-box mb-4">
+                                <div data-aos="fade-in" data-aos-duration="600" class="experince-box mb-4">
                                     <h5 class="box-title">MiFy Artificial Intelligence Context 2021</h5>
                                     <div class="item-details mb-2 mb-sm-1">
                                         <span class="university d-inline-block mr-3"><i class="fa fa-book mr-2"></i>Calavi (Benin)</span>
@@ -148,7 +214,7 @@
                                     <p class="box-description">
                                         For this edition I was in the <span class="badge badge-success gBack-blue ml-2 p-2">development team</span> of the MAIC competition. I worked to implement the platform to load the ai. As well as the web side games to play the various ia online..</p>
                                 </div>
-                                <div class="experince-box mb-4">
+                                <div data-aos="fade-in" data-aos-duration="600" class="experince-box mb-4">
                                     <h5 class="box-title">Unity Game Dev - Intern</h5>
                                     <div class="item-details mb-2 mb-sm-1">
                                         <span class="university d-inline-block mr-3"><i class="fa fa-book mr-2"></i>Malaika Game</span>
@@ -156,7 +222,7 @@
                                     </div>
                                     <p class="box-description">I did a two-month academic internship in the GameDev department of Adounian Africa Lab company where I developed cash-master game in C# with Unity Editor.</p>
                                 </div>
-                                <div class="experince-box mb-4">
+                                <div data-aos="fade-in" data-aos-duration="600" class="experince-box mb-4">
                                     <h5 class="box-title">MiFi Artificial Intelligence Context 2020</h5>
                                     <div class="item-details mb-2 mb-sm-1">
                                         <span class="university d-inline-block mr-3"><i class="fa fa-book mr-2"></i>Online (Benin)</span>
@@ -174,7 +240,7 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <h4 class="education-title block-title text-center text-uppercase mb-4">OTHERS</h4>
                             <div class="education">
-                                <div class="education-box school-box mb-4 mb-lg-0">
+                                <div data-aos="fade-in" data-aos-duration="600" class="education-box school-box mb-4 mb-lg-0">
                                     <h5 class="box-title">School Achievements</h5>
                                     <div class="item-details mb-2 mb-sm-1">
                                         <span class="university d-inline-block mr-3"><i class="fa fa-book mr-2"></i>IFRI (Benin)</span>
@@ -197,7 +263,7 @@
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <h4 class="education-title block-title text-center text-uppercase mb-4">Skills</h4>
                             <div class="education">
-                                <div class="education-box skills-box mb-4 mb-lg-0">
+                                <div data-aos="fade-in" data-aos-duration="600" class="education-box skills-box mb-4 mb-lg-0">
                                     <h5 class="box-title">programming Languages and Tools</h5>
                                     <div class="item-details mb-2 mb-sm-1"><br></div>
                                     <div class="animate-el-container">
@@ -233,7 +299,7 @@
                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                             <h4 class="education-title block-title text-center text-uppercase mb-4">Languages</h4>
                             <div class="education">
-                                <div class="education-box lang-box mb-4 mb-lg-0">
+                                <div data-aos="fade-in" data-aos-duration="600" class="education-box lang-box mb-4 mb-lg-0">
                                     <h5 class="box-title">Languages</h5>
                                     <div class="item-details mb-2 mb-sm-1"><br></div>
                                     <p class="box-description ">
@@ -248,7 +314,7 @@
                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                             <h4 class="experince-title block-title text-center text-uppercase mb-4">Interests</h4>
                             <div class="experince">
-                                <div class="experince-box int-box mb-4">
+                                <div data-aos="fade-in" data-aos-duration="600" class="experince-box int-box mb-4">
                                     <h5 class="box-title">Interests</h5>
                                     <div class="item-details mb-2 mb-sm-1"><br></div>
                                     <p class="box-description ">
@@ -270,12 +336,12 @@
     <footer class="page-footer dark">
         <div class="linke mt-1">
             <a title="Get a look of my work on github" target="_blank" href="https://github.com/Genereux-akotenou"><i class="icon-social-github"></i></a>
-            <a title="Connect with me on Linkedin" target="_blank" href="https://www.linkedin.com/in/g%C3%A9n%C3%A9reux-akotenou-8b00901b4/"><i class="icon-social-linkedin"></i></a>
+            <a style="color: #6ec8ffd9; font-weight: bold;" title="Connect with me on Linkedin" target="_blank" href="https://www.linkedin.com/in/g%C3%A9n%C3%A9reux-akotenou-8b00901b4/"><i class="icon-social-linkedin"></i></a>
             <a title="Send me an email" target="_blank" href="mailto:genreux.akotenou@gmail?Subject=Hello%20Genereux."><i class="icon-envelope-letter"></i></a>
             <a title="Follow me on Twitter" target="_blank" href="https:///twitter.com/ShadoWa00007763?t=F3JfKvoD-AABcVNv3-1J1w&s=09"><i class="icon-social-twitter"></i></a>
         </div>
         <div class="footer-copyright" style="margin-top: 25px;">
-            <p class="m-1" style='font-size: 0.8em;'>© <script>document.write(new Date().getFullYear());</script> Généreux AKOTENOU - All rights reserved</p>
+            <p class="m-1" style='font-size: 0.8em; opacity: 0.5;'>© <script>document.write(new Date().getFullYear());</script> Généreux AKOTENOU - All rights reserved</p>
         </div>
     </footer>
     <script src="assets/js/jquery.min.js"></script>
@@ -283,6 +349,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="assets/js/smoothproducts.min.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script>
+        window.addEventListener("load", function() {
+            document.getElementById('loaderContainer').style.display = "none";
+        });
+    </script>
 </body>
 
 </html>
