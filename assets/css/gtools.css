@@ -332,6 +332,11 @@ body{
     /* width: 80%;
     background-color: #007bff; */
 }
+.ski{
+    /* min-height: 6em;
+    margin-top: 1em; */
+    position: relative;
+}
 .ski a{
     margin: 0.7em 0.5em;
 }
@@ -342,6 +347,19 @@ body{
 .carousel-item img{
     height: 100%;
 }
+.card{
+    position: relative;
+}
 .card img{
     height: 200px !important;
+}
+.is_loading{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f7f7f7 !important;
+    z-index: 10000 !important;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 8%);
 }

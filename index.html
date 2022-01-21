@@ -83,9 +83,63 @@
             margin: auto;
             z-index: 1050;
         }
+        .is_loading_img{
+            position: absolute;
+            height: 200px;
+            width: 100%;
+            background-color: #eeeeee;
+        }
+        .is_loading_img span{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(157, 155, 155) !important;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .ski_loader{
+            z-index: 1000;
+            height: 6em;
+            content: "Loading";
+            margin-top: 1em;
+        }
+        .ski_loader > .ski_loader_span{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(157, 155, 155) !important;
+            font-weight: bold;
+            font-size: 1.2em;
+            background-color: #eeeeee;
+        }
+        .testimonials_loading{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            /* width: 100vh; */
+            font-size: 1.2em;
+            color: rgb(157, 155, 155) !important;
+            background-color: #eeeeee;
+
+        }
 
     </style>
-    <div class="loaderContainer" id="loaderContainer">
+    <div style="display: none;" class="loaderContainer" id="loaderContainer">
         <div class="loader">
             <div class="circle one"></div>
             <div class="circle two"></div>
@@ -113,10 +167,10 @@
         </div>
     </nav>
     <main class="page landing-page">
-        <section data-aos="fade-up" class="clean-block clean-hero" style="padding-top: 3.5em; margin-top: -2em; background-image:url(&quot;assets/img/tech/header.jpg&quot;);color:rgba(9, 162, 255, 0.85);">
+        <section id="authDashboard" data-aos="fade-up" class="clean-block clean-hero" style="padding-top: 3.5em; margin-top: -2em; background-image:url(&quot;assets/img/tech/header.jpg&quot;);color:rgba(9, 162, 255, 0.85);">
             <div class="text">
                 <div class='authImage'>
-                    <img src="/assets/img/me/genereux1.jpg" alt="">
+                    <img id="authImage" src="/assets/img/me/genereux1.jpg" alt="">
                 </div>
                 <br>
                 <h2>I am Généreux Akotenou.</h2>
@@ -124,9 +178,7 @@
                 <p class="more-about-container"><a href="#bio" class="more-about">Curious to know more ?</a></p>
             </div>
         </section>
-        <!-- <br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+
         <section class="clean-block clean-info dark mb-0 pb-0">
             <div class="gSession col-12 col-md-10">
                 <!-- ------------------------------ -->
@@ -134,7 +186,7 @@
                     <h1 id="bio" class="sessionTitle">Short Bio</h1>
                     <p class="subSession">About me</p>
                     <br>
-                    <div class="container p-0">
+                    <div class="container p-0" style="max-width: 100% !important;">
                         <p class="gText-left bio text-justify">“My name is Généreux Akotenou and I am a junior freelance web and AI developer. I am an accomplished coder and programmer, and I love using my skills to contribute to the exciting technological advancements that occur every day. I had my baccalaureate in 2019. And I am in my third year for my license in software engineering at IFRI. During my studies, I contributed to the creation of a competition platform in artificial intelligence, <a target='_blank' href="http://50.116.46.8/">MAIC2021</a>. Also I have coded the <a target="_blank" href="http://genereux-dev.me/tictactoe/">tictactoe</a> games with various difficulty levels for an ia embedded in the games. Do not hesitate to consult my CV or my projects to find out more.</p>
                         <a href="curriculum-vitae.html" style="text-decoration: none !important;">
                             <button class="btn btn-outline-primary btn-lg mt-2 download_cv" type="button">DOWNLOAD MY CV</button>
@@ -150,9 +202,11 @@
                 <br>
                 <!-- ------------------------------ -->
                 <div class="row justify-content-left">
-                    <div data-aos="fade-in" data-aos-duration="600" class="project col-12 col-md-6 col-lg-4">
+                    <div class="project  col-12 col-md-6 col-lg-4">
                         <a target="_blank" href="http://50.116.46.8/">
-                            <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/project/maic2021/maic2021.png">
+                            <div class="card clean-card text-center">
+                                <div class="is_loading_img"><span>Loading</span></div>
+                                <img class="card-img-top w-100 d-block" src="assets/img/project/maic2021/maic2021.png">
                                 <div class="card-body info">
                                     <h4 class="card-title">MAIC 2021 - development</h4>
                                     <p class="card-text">This project concerns the development of the competition platform for the MAIC 2021 artificial intelligence competition.</p>
@@ -160,9 +214,11 @@
                             </div>
                         </a>
                     </div>
-                    <div data-aos="fade-in" data-aos-duration="600" class="project col-sm-6 col-lg-4">
+                    <div  class="project col-sm-6 col-lg-4">
                         <a target="_blank" href="http://genereux-dev.me/tictactoe/">
-                            <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/project/tictaoctoe/tictactoe.png">
+                            <div class="card clean-card text-center">
+                                <div class="is_loading_img"><span>Loading</span></div>
+                                <img class="card-img-top w-100 d-block" src="assets/img/project/tictaoctoe/tictactoe.png">
                                 <div class="card-body info">
                                     <h4 class="card-title">Smart tictactoe program</h4>
                                     <p class="card-text">I developed with the LUA language and the love2d framework a three-level AI for the tictactoe games.</p>
@@ -170,9 +226,11 @@
                             </div>
                         </a>
                     </div>
-                    <div data-aos="fade-in" data-aos-duration="600" class="project col-sm-6 col-lg-4">
+                    <div  class="project col-sm-6 col-lg-4">
                         <a onclick="dev()" href="">
-                            <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/project/domestica/domestika.png">
+                            <div class="card clean-card text-center">
+                                <div class="is_loading_img"><span>Loading</span></div>
+                                <img class="card-img-top w-100 d-block" src="assets/img/project/domestica/domestika.png">
                                 <div class="card-body info">
                                     <h4 class="card-title">Project DOMESTICA</h4>
                                     <p class="card-text">The goal of this project is the development of a home automation application for the control of household appliances using low cost equipment available on the market.</p>
@@ -180,9 +238,11 @@
                             </div>
                         </a>
                     </div>
-                    <div data-aos="fade-in" data-aos-duration="600" class="project col-sm-6 col-lg-4">
+                    <div  class="project col-sm-6 col-lg-4">
                         <a target="_blank" href="http://school-planner-ifri.herokuapp.com/">
-                            <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/project/planner/scholl-planner.png">
+                            <div class="card clean-card text-center">
+                                <div class="is_loading_img"><span>Loading</span></div>
+                                <img class="card-img-top w-100 d-block" src="assets/img/project/planner/scholl-planner.png">
                                 <div class="card-body info">
                                     <h4 class="card-title">School Planner App</h4>
                                     <p class="card-text">This project allows the teacher to be able to reserve rooms, video projector and / or computers. Students can consult the planning on the platform in offline mode.</p>
@@ -190,9 +250,11 @@
                             </div>
                         </a>
                     </div>
-                    <div data-aos="fade-in" data-aos-duration="600" class="project col-sm-6 col-lg-4">
+                    <div  class="project col-sm-6 col-lg-4">
                         <a  onclick="dev()" href="">
-                            <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/project/pepitarts/pepitarts.png">
+                            <div class="card clean-card text-center">
+                                <div class="is_loading_img"><span>Loading</span></div>
+                                <img class="card-img-top w-100 d-block" src="assets/img/project/pepitarts/pepitarts.png">
                                 <div class="card-body info">
                                     <h4 class="card-title">Pepit'arts web site</h4>
                                     <p class="card-text">With other developers we worked on the showcase site of the NGO Pepit'Arts, a charitable organization promoting traditional dances with the youngest of Adjarra.</p>
@@ -200,9 +262,11 @@
                             </div>
                         </a>
                     </div>
-                    <div data-aos="fade-in" data-aos-duration="600" class="project col-sm-6 col-lg-4">
+                    <div  class="project col-sm-6 col-lg-4">
                         <a target="_blank" href="https://andounianafricalab.com">
-                            <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/project/andounian/andou.png">
+                            <div class="card clean-card text-center">
+                                <div class="is_loading_img"><span>Loading</span></div>
+                                <img class="card-img-top w-100 d-block" src="assets/img/project/andounian/andou.png">
                                 <div class="card-body info">
                                     <h4 class="card-title">AAL Web site</h4>
                                     <p class="card-text">I contributed to the development of the showcase site of the video game studio Andounian Africa Lab during my business immersion internships.</p>
@@ -210,9 +274,11 @@
                             </div>
                         </a>
                     </div>
-                    <div data-aos="fade-in" data-aos-duration="600" class="project col-sm-6 col-lg-4">
+                    <div  class="project col-sm-6 col-lg-4">
                         <a target="_blank" href="cashmaster.andounianafricalab.com">
-                            <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/project/cashmaster/cash_master.png">
+                            <div class="card clean-card text-center">
+                                <div class="is_loading_img"><span>Loading</span></div>
+                                <img class="card-img-top w-100 d-block" src="assets/img/project/cashmaster/cash_master.png">
                                 <div class="card-body info">
                                     <h4 class="card-title">Cash - Master</h4>
                                     <p class="card-text">We have developed a web support in addition to a mobile betting game. This is the cash-master game.</p>
@@ -220,9 +286,11 @@
                             </div>
                         </a>
                     </div>
-                    <div data-aos="fade-in" data-aos-duration="600" class="project col-sm-6 col-lg-4">
+                    <div  class="project col-sm-6 col-lg-4">
                         <a  onclick="dev()" href="">
-                            <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/project/private/private1.png">
+                            <div class="card clean-card text-center">
+                                <div class="is_loading_img"><span>Loading</span></div>
+                                <img class="card-img-top w-100 d-block" src="assets/img/project/private/private1.png">
                                 <div class="card-body info">
                                     <h4 class="card-title">E - commerce web site</h4>
                                     <p class="card-text">Since August 2019 I have been working on an e-commerce development project in an African context.</p>
@@ -230,9 +298,11 @@
                             </div>
                         </a>
                     </div>
-                    <div data-aos="fade-in" data-aos-duration="600" class="project col-sm-6 col-lg-4">
+                    <div  class="project col-sm-6 col-lg-4">
                         <a target="_blank" href="https://github.com/Genereux-akotenou/jee-faqs">
-                            <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="https://raw.githubusercontent.com/Genereux-akotenou/jee-faqs/main/preview/acceuil1.PNG">
+                            <div class="card clean-card text-center">
+                                <div class="is_loading_img"><span>Loading</span></div>
+                                <img class="card-img-top w-100 d-block" src="https://raw.githubusercontent.com/Genereux-akotenou/jee-faqs/main/preview/acceuil1.PNG">
                                 <div class="card-body info">
                                     <h4 class="card-title">IFRI FAQs - JavaEE</h4>
                                     <p class="card-text">I worked to implement a Faqs site based on javaee technology with jpa to ensure data persistence.</p>
@@ -240,9 +310,11 @@
                             </div>
                         </a>
                     </div>
-                    <div data-aos="fade-in" data-aos-duration="600" class="project col-sm-6 col-lg-4">
+                    <div  class="project col-sm-6 col-lg-4">
                         <a target="_blank" href="https://cashmaster.andounianafricalab.com/">
-                            <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/project/cashmaster/background_splash.png">
+                            <div class="card clean-card text-center">
+                                <div class="is_loading_img"><span>Loading</span></div>
+                                <img class="card-img-top w-100 d-block" src="assets/img/project/cashmaster/background_splash.png">
                                 <div class="card-body info">
                                     <h4 class="card-title">CASH MASTER</h4>
                                     <p class="card-text">During my work placement internships, with the AAL team, I had the honor of working as a developer on the cash - master project. <br><br><br></p>
@@ -250,9 +322,11 @@
                             </div>
                         </a>
                     </div>
-                    <div data-aos="fade-in" data-aos-duration="600" class="project col-sm-6 col-lg-4">
+                    <div  class="project col-sm-6 col-lg-4">
                         <a target="_blank" href="https://github.com/Genereux-akotenou/SombaRevenge">
-                            <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="https://raw.githubusercontent.com/Genereux-akotenou/SombaRevenge/main/preview/01-load.png?token=APJFXV2NIQIOOQ2WOAEWL6LB2CY6A">
+                            <div class="card clean-card text-center">
+                                <div class="is_loading_img"><span>Loading</span></div>
+                                <img class="card-img-top w-100 d-block" src="https://raw.githubusercontent.com/Genereux-akotenou/SombaRevenge/main/preview/01-load.png?token=APJFXV2NIQIOOQ2WOAEWL6LB2CY6A">
                                 <div class="card-body info">
                                     <h4 class="card-title">Somba Revenge</h4>
                                     <p class="card-text">The somba revenge project is a platform game developed in lua with the love2d framework. It simulates the colonial conquests in kingdoms of dahomey. This project is still under development.</p>
@@ -279,8 +353,8 @@
                     <div class="row justify-content-left">
                         <div class="col-md-4 feature-box"><i class="fas fa-globe icon"></i>
                             <h4>Web development</h4>
-                            <p class="ski">
-                                
+                            <p class="ski ski_loader">
+                                <span class="ski_loader_span">Loading</span>
                                 <a target="_blank" href="https://vuejs.org">
                                     <img height="25" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg" alt="vuejs">
                                 </a>
@@ -309,7 +383,8 @@
                         </div>
                         <div class="col-md-4 feature-box"><i class="icon-game-controller icon"></i>
                             <h4>Game development</h4>
-                            <p class="ski">
+                            <p class="ski ski_loader">
+                                <span class="ski_loader_span">Loading</span>
                                 <a target="_blank" href="https://unity.com/fr">
                                     <img height="25" src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Unity_2021.svg" alt="unity">
                                 </a>
@@ -327,7 +402,8 @@
                         </div>
                         <div class="col-md-4 feature-box"><i class="icon-screen-smartphone icon"></i>
                             <h4>Desktop & mobile</h4>
-                            <p class="ski">
+                            <p class="ski ski_loader">
+                                <span class="ski_loader_span">Loading</span>
                                 <a target="_blank" href="">
                                     <img height="25" src="https://upload.wikimedia.org/wikipedia/commons/9/92/Android_Studio_Trademark.svg?uselang=fr" alt="android studio">
                                 </a>
@@ -341,7 +417,8 @@
                         </div>
                         <div class="col-md-4 feature-box"><i class="fas fa-brain icon"></i>
                             <h4>Artificial intelligence</h4>
-                            <p class="ski">
+                            <p class="ski ski_loader">
+                                <span class="ski_loader_span">Loading</span>
                                 <a target="_blank" href="https://www.python.org/">
                                     <img height="25" src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg" alt="python">
                                 </a>
@@ -361,7 +438,8 @@
                         </div>
                         <div class="col-md-4 feature-box"><i class="fas fa-laptop-house icon"></i>
                             <h4>Internet of Things</h4>
-                            <p class="ski">
+                            <p class="ski ski_loader">
+                                <span class="ski_loader_span">Loading</span>
                                 <a target="_blank" href="http://arduino.cc">
                                     <img height="25" src="https://upload.wikimedia.org/wikipedia/commons/8/87/Arduino_Logo.svg" alt="arduino">
                                 </a>
@@ -376,7 +454,8 @@
                         </div>
                         <div class="col-md-4 feature-box"><i class="icon-options icon"></i>
                             <h4>Others</h4>
-                            <p class="ski">
+                            <p class="ski ski_loader">
+                                <span class="ski_loader_span">Loading</span>
                                 I am a handyman.
                             </p>
                         </div>
@@ -425,6 +504,10 @@
                 <!-- ------------------------------ -->
                 <div class="row p-0 m-0">
                     <ul class="testimonials col-12 m-0 p-0 d-flex flex-column flex-md-row" style="justify-content: space-between;">
+                        <div class="testimonials_loading">
+                            Loading
+                        </div>
+
                         <li data-aos="fade-in" data-aos-duration="600" class="testimonial mr-0 mr-md-3 p-2 p-md-5">
                             <div class="testimonial_quote">
                                 <p>
@@ -483,9 +566,28 @@
             alert('This project still under development. It has not yet been published.');
             // e.preventDefault();
         }
-        window.addEventListener("load", function() {
-            document.getElementById('loaderContainer').style.display = "none";
+        document.getElementById('authImage').addEventListener("load", function() {
+            // document.getElementById('loaderContainer').style.display = "none";
+            alert('ok');
         });
+        window.addEventListener("load", function() {
+            Array.from(document.getElementsByClassName('is_loading_img')).forEach(preview => {
+                preview.style.display = "none"; 
+            }); 
+            Array.from(document.getElementsByClassName('project')).forEach(project => {
+                project.setAttribute("data-aos", "fade-in");
+                project.setAttribute("data-aos-duration", "600");
+            }); 
+            Array.from(document.getElementsByClassName('ski')).forEach(skill => {
+                skill.children[0].remove();
+                skill.classList.remove("ski_loader");
+            }); 
+            document.getElementsByClassName('testimonials_loading')[0].remove();
+            AOS.init({
+                easing: 'ease-in-out-sine'
+            });
+        });
+        
 
     </script>
 </body>
