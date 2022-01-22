@@ -65,6 +65,7 @@ html{
     /* font-family: Asap, Arial, sans-serif;  */
     line-height: 1.7;
     letter-spacing: .5px;
+    scrollbar-color: #09a2ffd9 #393b44;
 }
 body{
     margin: 0;

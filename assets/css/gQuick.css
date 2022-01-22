@@ -21,7 +21,6 @@ html{
     line-height: 1.7;
     letter-spacing: .5px;
     scroll-behavior: smooth;
-    scrollbar-color: #b74101 #393b44;
     overflow-x: hidden;
 }
 body{
