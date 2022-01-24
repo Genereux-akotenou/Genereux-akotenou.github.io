@@ -13,9 +13,84 @@
     <link rel="stylesheet" href="assets/css/smoothproducts.css">
     <link rel="stylesheet" href="assets/css/gtools.css">
     <link rel="stylesheet" href="assets/css/gQuick.css">
+    <link rel="stylesheet" href="assets/aos/aos.css" />
+    <script src="assets/aos/aos.js"></script>
 </head>
 
 <body>
+    <script>
+        AOS.init({
+          easing: 'ease-in-out-sine'
+        });
+    </script>
+    <!-- ----------------------------------------- -->
+    <style>
+        .circle{
+            position: absolute;
+            border: 3px solid transparent;
+            /* border-top-color: hsl(83, 82%,53%); */
+            border-top-color: #007bff;
+            border-radius: 50%;
+            animation: rotate linear infinite;
+        }
+        .one{
+            height: 50px;
+            width: 50px;
+            left: 50px;
+            top: 50px;
+            animation-duration: 0.85s;
+        }
+        .two{
+            height: 75px;
+            width: 75px;
+            top: 38px;
+            left: 38px;
+            animation-duration: 0.95s;
+        }
+        .three{
+            height: 100px;
+            width: 100px;
+            top: 25px;
+            left: 25px;
+            animation-duration: 1.05s;
+        }
+        @keyframes rotate {
+            from { 
+                transform: rotateZ(360deg);
+            }
+
+            to {
+                transform: rotateZ(0deg);
+            }
+        }
+        .loader{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -90px 0 0 -90px;
+        }
+        .loaderContainer{
+            background-color: #fff;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+            z-index: 1020;
+        }
+
+    </style>
+    <div class="loaderContainer" id="loaderContainer">
+        <div class="loader">
+            <div class="circle one"></div>
+            <div class="circle two"></div>
+            <div class="circle three"></div>
+        </div>
+    </div>
+    <!-- ----------------------------------------- --> 
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar gHeader">
         <div class="container">
             <a class="navbar-brand logo myName" href="/">Généreux Akotenou</a>
@@ -28,7 +103,7 @@
                     <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="projects.html">PROJECTS</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="curriculum-vitae.html">CV</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link pulse active" href="pulse.html"> <span class='gBracket'>{</span> <span class='pulseText'>CODEC</span> <span class='gBracket'>}</span> </a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link pulse active" href="pulse.html"> <span class='gBracket'>{</span> <span class='pulseText'>ABOUT ME</span> <span class='gBracket'>}</span> </a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="contacts.html">CONTACTS</a></li>
                 </ul>
             </div>
@@ -36,7 +111,7 @@
     </nav>
     
     <main class="page landing-page">
-        <section class="clean-block clean-hero" style="padding-top: 3.5em; margin-top: -2em; background-image:url(&quot;assets/img/tech/header.jpg&quot;);color:rgba(9, 162, 255, 0.85);">
+        <section data-aos="fade-in" class="clean-block clean-hero" style="padding-top: 3.5em; margin-top: -2em; background-image:url(&quot;assets/img/tech/header.jpg&quot;);color:rgba(9, 162, 255, 0.85);">
             <div class="text">
                 
                 <br>
@@ -66,8 +141,10 @@
     <script>
         function dev(e) {
             alert('Oops ! This part is still under development. I work to make it available in 2022.');
-            // e.preventDefault();
         }
+        window.addEventListener("load", function() {
+            document.getElementById('loaderContainer').style.display = "none";
+        });
     </script>
 </body>
 
