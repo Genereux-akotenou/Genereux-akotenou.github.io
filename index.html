@@ -520,7 +520,7 @@
                 <div class="row p-0 m-0">
                     <ul class="testimonials col-12 m-0 p-0 d-flex flex-column flex-md-row" style="justify-content: space-between;">
                         <div class="testimonials_loading">
-                            Loading
+                            
                         </div>
 
                         <li data-aos="fade-in" data-aos-duration="600" class="testimonial mr-0 mr-md-3 p-2 p-md-5">
@@ -601,8 +601,27 @@
             AOS.init({
                 easing: 'ease-in-out-sine'
             });
+            // TRACABILITY
+            jQuery(document).ready(function() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSFR-TOKEN': $('meta[name="_token"]').attr('content')
+                    }
+                });
+                jQuery.ajax({
+                    url: "https://genereux-api.herokuapp.com/alert",
+                    method: 'get',
+                    data: {
+                        // range: RANGE,
+                        _token: 'z4z3dk9dNW9P0CSKAmx9kr3ezeU7VnvBqxeJApmU'
+                    },
+                    success: function(result) {
+                        console.log(result);
+                    }  
+                });
+            });
         });
-        
+
 
     </script>
 </body>
