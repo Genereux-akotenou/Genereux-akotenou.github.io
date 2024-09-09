@@ -19,22 +19,26 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '18'  # Specify the version of Node.js you want
 
       # Step 3: Install pnpm
       - name: Install pnpm
         run: |
           npm install -g pnpm
 
-      # Step 4: Install dependencies using pnpm
+      # Step 4: Install sharp globally to handle image transformations
+      - name: Install sharp
+        run: pnpm add sharp
+
+      # Step 5: Install project dependencies using pnpm
       - name: Install dependencies
         run: pnpm install
 
-      # Step 5: Build the project (output to `./dist`)
+      # Step 6: Build the project (output to `./dist`)
       - name: Build project
         run: pnpm run build
 
-      # Step 6: Deploy to GitHub Pages
+      # Step 7: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
