@@ -19,17 +19,22 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Specify the version of Node.js you want
+          node-version: '18'
 
-      # Step 3: Install dependencies
+      # Step 3: Install pnpm
+      - name: Install pnpm
+        run: |
+          npm install -g pnpm
+
+      # Step 4: Install dependencies using pnpm
       - name: Install dependencies
         run: pnpm install
 
-      # Step 4: Build the project (output to `./dist`)
+      # Step 5: Build the project (output to `./dist`)
       - name: Build project
         run: pnpm run build
 
-      # Step 5: Deploy to GitHub Pages
+      # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
