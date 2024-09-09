@@ -11,9 +11,9 @@ interface SiteConfig {
 export const siteConfig: SiteConfig = {
 	author: 'Généreux Akotenou', // Site author
 	title: 'Astro Theme OpenBlog', // Site title.
-	description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', // Description to display in the meta tags
+	description: 'Welcome to Généreux Akotenou\'s blog.', // Description to display in the meta tags
 	lang: 'en-GB',
 	ogLocale: 'en_GB',
-	shareMessage: 'Share this post -', // Message to share a post on social media
+	shareMessage: 'Share this post', // Message to share a post on social media
 	paginationSize: 6 // Number of posts per page
 }
