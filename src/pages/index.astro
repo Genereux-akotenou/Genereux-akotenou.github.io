@@ -11,11 +11,11 @@ const CVInfo = {
   linkedin: "https://www.linkedin.com/in/generoux-akotenou/",
   about: `Hi, I’m Généreux Akotenou, a Software Engineer and Researcher with a passion for bioinformatics, machine learning, and NLP. I have a deep interest in using cutting-edge technology to solve complex problems in genetics and computational biology.`,
   interests: [
-    "Machine Learning",
-    "Bioinformatics",
-    "Natural Language Processing",
-    "Genomic Data Analysis",
-    "Software Engineering"
+    ["Machine Learning", "Description"],
+    ["Bioinformatics", "Description"],
+    ["Natural Language Processing", "Description"],
+    ["Genomic Data Analysis", "Description"],
+    ["Software Engineering", "Description"]
   ],
   education: [
     {
@@ -76,6 +76,10 @@ const CVInfo = {
     -webkit-box-shadow: inset 0 0 20px #636161;
     box-shadow: inset 0 0 20px #636161;
   }
+  .list{
+    list-style-type: circle;
+    margin-left: 2em;
+  }
 </style>
 
 <BaseLayout title='Home'>
@@ -93,8 +97,8 @@ const CVInfo = {
       </p>
       <p>More specifically, My NLP research interests are</p>
       <ul>
-          {CVInfo.interests.map(interest => <li>{interest}</li>)}
-        </ul>
+          {CVInfo.interests.map(interest => <li class='list'><mark>{interest[0]}</mark>, {interest[1]}</li>)}
+      </ul>
       <ul>
         <li>use <mark>symbolic knowledge</mark> (e.g. Regular Expressions) to help NLP models reach better performance and have better interpretability on NLP tasks.</li>
         <li><mark>information extraction</mark>, such as entity typing and named entity recognition.</li>
