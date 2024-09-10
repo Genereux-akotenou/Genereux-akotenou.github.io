@@ -1,38 +1,112 @@
 ---
-import ListCategories from '@/components/ListCategories'
-import ListPosts from '@/components/ListPosts'
-import TitlePage from '@/components/TitlePage'
 import BaseLayout from '@/layouts/BaseLayout'
-import { getPosts } from '@/utils'
 
-const MAX_POSTS = 5 // max number of posts to show on the home page
-const posts = await getPosts(MAX_POSTS)
+const CVInfo = {
+  name: "Généreux Akotenou",
+  title: "Software Engineer and Researcher",
+  email: "contact@generouxakotenou.com",
+  web: "https://generouxakotenou.com",
+  github: "https://github.com/generoux",
+  linkedin: "https://www.linkedin.com/in/generoux-akotenou/",
+  about: `Hi, I’m Généreux Akotenou, a Software Engineer and Researcher with a passion for bioinformatics, machine learning, and NLP. I have a deep interest in using cutting-edge technology to solve complex problems in genetics and computational biology.`,
+  interests: [
+    "Machine Learning",
+    "Bioinformatics",
+    "Natural Language Processing",
+    "Genomic Data Analysis",
+    "Software Engineering"
+  ],
+  education: [
+    {
+      degree: "MSc in Bioinformatics",
+      institution: "University of XYZ",
+      duration: "2019 - 2021"
+    },
+    {
+      degree: "BSc in Computer Science",
+      institution: "University of ABC",
+      duration: "2015 - 2019"
+    }
+  ],
+  publications: [
+    {
+      title: "Ultra-Fine Entity Typing with Neural CRF",
+      venue: "EMNLP 2022",
+      link: "https://example.com/paper"
+    },
+    {
+      title: "Neuralizing Regular Expressions for Slot Filling",
+      venue: "EMNLP 2021",
+      link: "https://example.com/paper"
+    }
+  ]
+}
 ---
 
-<BaseLayout title='Home'>
-	<TitlePage title="Généreux's Blog" />
-	<ListCategories />
+<BaseLayout title='CV - Généreux Akotenou'>
+  <div class="container header-container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 header-left">
+        <h1>{CVInfo.name}</h1>
+        <h2>{CVInfo.title}</h2>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 header-right">
+        <ul class="icons no-print">
+          <li><a href={CVInfo.github} target="_blank" class="button button--sacnite button--round-l">
+            <i class="fab fa-github" title="Github link"></i>
+          </a></li>
+          <li><a href={CVInfo.linkedin} target="_blank" class="button button--sacnite button--round-l">
+            <i class="fab fa-linkedin" title="Linkedin link"></i>
+          </a></li>
+        </ul>
+        <p>Email: <a href={`mailto:${CVInfo.email}`} target="_blank">{CVInfo.email}</a></p>
+        <p>Web: <a href={CVInfo.web} target="_blank">{CVInfo.web}</a></p>
+      </div>
+    </div>
+  </div>
 
-	<div>
-		<h2 class='text-lg font-medium tracking-wide text-end'>Latest Posts</h2>
-		<ListPosts FirstBig={true} posts={posts} />
-	</div>
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      <div class="container intro-container">
+        <h3>About Me</h3>
+        <p>{CVInfo.about}</p>
+        <h4>Research Interests</h4>
+        <ul>
+          {CVInfo.interests.map(interest => <li>{interest}</li>)}
+        </ul>
+      </div>
+
+      <div class="container text-container">
+        <h3>Education</h3>
+        <ul>
+          {CVInfo.education.map(edu => (
+            <li>{edu.degree}, {edu.institution} ({edu.duration})</li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="container list-container">
+        <h3>Publications</h3>
+        {CVInfo.publications.map(pub => (
+          <div class="row clearfix layout layout-left border-no">
+            <div class="col-xs-12 col-sm-4 col-md-3 col-print-12 details">
+              <h4>{pub.venue}</h4>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
+              <p>{pub.title} <a href={pub.link}>(Paper)</a></p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </main>
 </BaseLayout>
 
 <script>
-	import { animate } from 'motion'
-	const showAnimations = localStorage.getItem('animations') === 'true'
+  import { animate } from 'motion'
+  const showAnimations = localStorage.getItem('animations') === 'true'
 
-	if (showAnimations) {
-		animate(
-			'.title',
-			{ y: [80, 0], opacity: [0, 1] },
-			{
-				duration: 2.5,
-				opacity: { duration: 3 },
-
-				offset: [0, 0.55, 0.75]
-			}
-		)
-	}
+  if (showAnimations) {
+    animate('.title', { y: [80, 0], opacity: [0, 1] }, { duration: 2.5, opacity: { duration: 3 }, offset: [0, 0.55, 0.75] })
+  }
 </script>

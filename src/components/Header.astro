@@ -26,6 +26,7 @@ const SOCIALNETWORKS = [
 // Function to determine the active link based on the current page
 const isActive = (path) => {
 	if (typeof window !== 'undefined') {
+		alert(window.location.pathname)
 		return window.location.pathname === path ? 'active' : ''
 	}
 	return ''
@@ -41,9 +42,9 @@ const isActive = (path) => {
 
 	/* Style for the active link */
 	.nav-link.active {
-		color: #ff4500; /* Change this to your desired active color */
+		color: #8118a3; 
 		font-weight: bold;
-		text-decoration: underline;
+		/*text-decoration: underline;*/
 	}
 </style>
 
@@ -98,6 +99,16 @@ const isActive = (path) => {
 	</div>
 </header>
 <script>
+	// Dynamically update active link on page load
+	window.onload = () => {
+		const links = document.querySelectorAll('.nav-link');
+		links.forEach(link => {
+			if (link.getAttribute('href') === window.location.pathname) {
+				link.classList.add('active');
+			}
+		});
+	};
+
 	document.addEventListener('click', (event) => {
 		const menu = document.getElementById('astro-header-drawer')
 		const menuButton = document.getElementById('astro-header-drawer-button')
@@ -111,14 +122,4 @@ const isActive = (path) => {
 			menu?.classList.add('translate-x-96')
 		}
 	});
-
-	// Dynamically update active link on page load
-	window.onload = () => {
-		const links = document.querySelectorAll('.nav-link');
-		links.forEach(link => {
-			if (link.getAttribute('href') === window.location.pathname) {
-				link.classList.add('active');
-			}
-		});
-	};
 </script>
