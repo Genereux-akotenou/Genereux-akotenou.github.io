@@ -53,13 +53,70 @@ const CVInfo = {
     padding-bottom: 3px;
     margin-bottom: 40px;
   }
+  mark {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #fff;
+    background-color: #333;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+  }
+  .profile-img {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    display: block;
+    border-radius: 100px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat, no-repeat;
+    -moz-box-shadow: inset 0 0 20px #636161;
+    -webkit-box-shadow: inset 0 0 20px #636161;
+    box-shadow: inset 0 0 20px #636161;
+  }
 </style>
 
 <BaseLayout title='Home'>
-	<TitleBanner title="Généreux Akotenou" />
+	<TitleBanner title="{CVInfo.name}" />
 
   <!-- section1 -->
   <h3 class="separator">About Me</h3>
+  <div class="row clearfix">
+    <div class="col-xs-12 col-sm-4 col-md-3 no-print">
+      <span class="profile-img" style="background-image: url(/img/genereux-1.jpeg)"></span>
+    </div>
+    <div class="col-xs-12 col-sm-8 col-md-9 col-print-12">
+      <p>
+        {CVInfo.about}
+      </p>
+      <p>More specifically, My NLP research interests are</p>
+      <ul>
+          {CVInfo.interests.map(interest => <li>{interest}</li>)}
+        </ul>
+      <ul>
+        <li>use <mark>symbolic knowledge</mark> (e.g. Regular Expressions) to help NLP models reach better performance and have better interpretability on NLP tasks.</li>
+        <li><mark>information extraction</mark>, such as entity typing and named entity recognition.</li>
+        <li><mark>information retrieval</mark>, familiar with related techniques.</li>
+        <li>investigate the <mark>ontological knowledge</mark> in large pretrained language models.</li>
+      </ul>
+      <font size="5">
+        I'm currently <mark>VERY INTERESTED</mark> at <mark>Large Language Models (LLM)</mark> and keeps exploring and trying related techniques (Instruction Tuning, Meta ICL, Lora, Self-instruct (Alpaca)).
+        I'm <mark>open to the job market this Autumn</mark>, feel free to contact me through my email: jiangchy@shanghaitech.edu.cn 
+      </font>
+    </div>
+  </div>
+
+
+  <div>
+    <div>
+      <img src="https://genereux-akotenou.github.io/img/genereux-1.jpeg" style="border-radius: 100%; width: 10em;"/>
+    </div>
+    <div>
+      <p>{CVInfo.about}</p>
+    </div>
+  </div>
 
   <!-- section1 -->
   <h3 class="separator">Education</h3>
