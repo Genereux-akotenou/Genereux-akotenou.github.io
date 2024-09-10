@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+      <loc>https://genereux-akotenou.github.io/blog/post/first-post</loc>
+      <lastmod>2024-09-10</lastmod>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://genereux-akotenou.github.io/blog/post/second-post</loc>
+      <lastmod>2024-09-10</lastmod>
+      <priority>0.7</priority>
+   </url>
+   <!-- Add more blog posts here -->
+</urlset>
