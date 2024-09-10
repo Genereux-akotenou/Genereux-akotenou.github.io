@@ -79,15 +79,15 @@ const CVInfo = {
 </style>
 
 <BaseLayout title='Home'>
-	<TitleBanner title="{CVInfo.name}" />
+	<TitleBanner :title="CVInfo.name" />
 
   <!-- section1 -->
   <h3 class="separator">About Me</h3>
-  <div class="row clearfix">
-    <div class="col-xs-12 col-sm-4 col-md-3 no-print">
-      <span class="profile-img" style="background-image: url(/img/genereux-1.jpeg)"></span>
+    <div class="row clearfix">
+      <div class="w-full sm:w-1/3 md:w-1/4 print:hidden">
+      <span class="block bg-cover bg-center rounded-full" style="background-image: url(/img/genereux-1.jpeg)"></span>
     </div>
-    <div class="col-xs-12 col-sm-8 col-md-9 col-print-12">
+    <div class="w-full sm:w-2/3 md:w-3/4 print:w-full">
       <p>
         {CVInfo.about}
       </p>
