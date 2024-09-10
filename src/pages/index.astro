@@ -93,8 +93,8 @@ const CVInfo = {
 
   <!-- section1 -->
   <h3 class="separator">About Me</h3>
-  <div class="row clearfix flex md:flex-col">
-    <div class="col-xs-12 col-sm-4 col-md-3 no-print">
+  <div class="row clearfix flex md:flex-row flex-col">
+    <div class="col-xs-12 col-sm-4 col-md-3 no-print me">
       <span class="profile-img" style="background-image: url(/img/genereux-1.jpeg)"></span>
     </div>
     <div class="col-xs-12 col-sm-8 col-md-9 col-print-12">
@@ -122,7 +122,7 @@ const CVInfo = {
   <h3 class="separator">Education</h3>
   <ul>
     {CVInfo.education.map(edu => (
-      <li><mark>{edu.degree}</mark>, {edu.institution} ({edu.duration})</li>
+      <li class="list"><mark>{edu.degree}</mark>, {edu.institution} ({edu.duration})</li>
     ))}
   </ul>
 
