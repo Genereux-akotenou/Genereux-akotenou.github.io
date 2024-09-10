@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <sitemap>
+      <loc>https://genereux-akotenou.github.io/seo/sitemap-root.xml</loc>
+      <lastmod>2024-09-10</lastmod>
+   </sitemap>
+   <sitemap>
+      <loc>https://genereux-akotenou.github.io/seo/sitemap-blog.xml</loc>
+      <lastmod>2024-09-10</lastmod>
+   </sitemap>
+   <!-- <sitemap>
+      <loc>https://genereux-akotenou.github.io/seo/sitemap-post.xml</loc>
+      <lastmod>2024-09-10</lastmod>
+   </sitemap>
+   <sitemap>
+      <loc>https://genereux-akotenou.github.io/seo/sitemap-tags.xml</loc>
+      <lastmod>2024-09-10</lastmod>
+   </sitemap> -->
+   <sitemap>
+      <loc>https://genereux-akotenou.github.io/seo/sitemap-category.xml</loc>
+      <lastmod>2024-09-10</lastmod>
+   </sitemap>
+   <sitemap>
+      <loc>https://genereux-akotenou.github.io/seo/sitemap-fun.xml</loc>
+      <lastmod>2024-09-10</lastmod>
+   </sitemap>
+</sitemapindex>

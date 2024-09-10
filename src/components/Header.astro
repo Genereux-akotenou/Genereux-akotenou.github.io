@@ -22,14 +22,42 @@ const SOCIALNETWORKS = [
 		icon: linkedinIcon
 	},
 ]
+
+// Function to determine the active link based on the current page
+const isActive = (path) => {
+	if (typeof window !== 'undefined') {
+		return window.location.pathname === path ? 'active' : ''
+	}
+	return ''
+}
 ---
+
+<style>
+	/* Default link style */
+	.nav-link {
+		color: #000;
+		text-decoration: none;
+	}
+
+	/* Style for the active link */
+	.nav-link.active {
+		color: #ff4500; /* Change this to your desired active color */
+		font-weight: bold;
+		text-decoration: underline;
+	}
+</style>
 
 <header class='relative flex items-center h-12 font-semibold'>
 	<span style="display: flex; flex-direction: row;" class="text-lg mr-auto">
+		<a class={`nav-link ${isActive('/')}`} href='/'>Home</a>&nbsp;&nbsp;-&nbsp;&nbsp;
+		<a class={`nav-link ${isActive('/blog')}`} href='/blog'>Blog</a>&nbsp;&nbsp;-&nbsp;&nbsp;
+		<a class={`nav-link ${isActive('/fun')}`} href='/fun'>Fun 🎉</a>
+	</span>
+	<!--<span style="display: flex; flex-direction: row;" class="text-lg mr-auto">
 		<a class='text-lg mr-auto' href='/'>Home</a>&nbsp;&nbsp;-&nbsp;&nbsp;
 		<a class='text-lg mr-auto' href='/blog'>Blog</a>&nbsp;&nbsp;-&nbsp;&nbsp;
 		<a class='text-lg mr-auto' href='/fun'>Fun 🎉</a>
-	</span>
+	</span>-->
 
 	<div
 		id='astro-header-drawer'
@@ -41,7 +69,7 @@ const SOCIALNETWORKS = [
 			<div
 				class='flex flex-col gap-4 md:flex-row md:border-r-2 border-black pr-4 dark:border-white'
 			>
-				<HeaderLink href='/tags' class='flex items-center gap-1 text-2xl md:text-base'>
+				<HeaderLink href='/blog/tags' class='flex items-center gap-1 text-2xl md:text-base'>
 					<TagIcon /> Tags
 				</HeaderLink>
 			</div>
@@ -82,5 +110,15 @@ const SOCIALNETWORKS = [
 		} else {
 			menu?.classList.add('translate-x-96')
 		}
-	})
+	});
+
+	// Dynamically update active link on page load
+	window.onload = () => {
+		const links = document.querySelectorAll('.nav-link');
+		links.forEach(link => {
+			if (link.getAttribute('href') === window.location.pathname) {
+				link.classList.add('active');
+			}
+		});
+	};
 </script>
