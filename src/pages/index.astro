@@ -80,6 +80,12 @@ const CVInfo = {
     list-style-type: circle;
     margin-left: 2em;
   }
+  .me{
+    align-items: center;
+    display: flex;
+    margin: 0 3em;
+    text-align: center;
+  }
 </style>
 
 <BaseLayout title='Home'>
@@ -87,7 +93,7 @@ const CVInfo = {
 
   <!-- section1 -->
   <h3 class="separator">About Me</h3>
-  <div class="row clearfix">
+  <div class="row clearfix flex md:flex-col">
     <div class="col-xs-12 col-sm-4 col-md-3 no-print">
       <span class="profile-img" style="background-image: url(/img/genereux-1.jpeg)"></span>
     </div>
@@ -114,6 +120,11 @@ const CVInfo = {
 
   <!-- section2 -->
   <h3 class="separator">Education</h3>
+  <ul>
+    {CVInfo.education.map(edu => (
+      <li><mark>{edu.degree}<mark>, {edu.institution} ({edu.duration})</li>
+    ))}
+  </ul>
 
   <!-- section1 -->
   <h3 class="separator">Research</h3>
