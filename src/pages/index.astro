@@ -224,7 +224,7 @@ const CVInfo = {
       </ul>-->
       <font size="3" style="position: relative; top: 0.6em; font-weight: bold;">
         I'm currently <marks>VERY INTERESTED</marks> at <mark>Large Language Models (LLM)</mark> and keeps exploring and trying related techniques.
-        I'm <mark>open to the job market this Autumn</mark>, feel free to contact me through my email: {CVInfo.email}
+        I'm <mark>open to the job market this Autumn</mark>, feel free to contact me through my email: <a style="color: #477dca;" href="mailto:{{CVInfo.email}}">{CVInfo.email}</a>
       </font>
     </div>
   </div>
@@ -251,11 +251,11 @@ const CVInfo = {
       </tbody>
     </table>
   </div>
-  <ul>
+  <!--<ul>
     {CVInfo.education.map(edu => (
       <li class="list"><mark>{edu.degree}</mark>, {edu.institution} ({edu.duration})</li>
     ))}
-  </ul>
+  </ul>-->
 
   <!-- section3 -->
   <h3 class="separator">Research</h3>
@@ -266,18 +266,17 @@ const CVInfo = {
       </div>
       <div class="col-xs-12 col-sm-9 col-md-9 col-print-12 content">
         <p>
-          <a href={pub.link} style="color: #477dca;">[Paper]</a>
+          <a href={pub.link} style="color: #477dca;">[Paper]</a>&nbsp;
           <span set:html={pub.title}/> 
         </p>
       </div>
     </div>
   ))}
 
-
-
-
-  <!-- section1 -->
+  <!-- section4 -->
   <h3 class="separator">Experience</h3>
+
+
 
   <!-- section1 -->
   <h3 class="separator">Projects</h3>
