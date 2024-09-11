@@ -31,7 +31,7 @@ const CVInfo = {
   ],
   publications: [
     {
-      title: "Ultra-Fine Entity Typing with Neural CRF",
+      title: "Ultra-Fine Entity <b>Typing</b> with Neural CRF",
       venue: "EMNLP 2022",
       link: "https://example.com/paper"
     },
@@ -86,6 +86,11 @@ const CVInfo = {
     margin: 0 3em;
     text-align: center;
   }
+  .layout {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: row;
+  }
 </style>
 
 <BaseLayout title='Home'>
@@ -126,8 +131,21 @@ const CVInfo = {
     ))}
   </ul>
 
-  <!-- section1 -->
+  <!-- section3 -->
   <h3 class="separator">Research</h3>
+  {CVInfo.publications.map(pub => (
+    <div class="row clearfix layout layout-left border-no">
+      <div class="col-xs-12 col-sm-4 col-md-3 col-print-12 details">
+        <h4>{pub.venue}</h4>
+      </div>
+      <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
+        <p>{pub.title} <a href={pub.link}>(Paper)</a></p>
+      </div>
+    </div>
+  ))}
+
+
+
 
   <!-- section1 -->
   <h3 class="separator">Experience</h3>
