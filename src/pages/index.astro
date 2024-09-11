@@ -187,9 +187,9 @@ const CVInfo = {
         <li><mark>information retrieval</mark>, familiar with related techniques.</li>
         <li>investigate the <mark>ontological knowledge</mark> in large pretrained language models.</li>
       </ul>-->
-      <font size="3" style="position: relative; top: 0.5em; font-weight: bold;">
-        I'm currently <mark>VERY INTERESTED</mark> at <mark>Large Language Models (LLM)</mark> and keeps exploring and trying related techniques (Instruction Tuning, Meta ICL, Lora, Self-instruct (Alpaca)).
-        I'm <mark>open to the job market this Autumn</mark>, feel free to contact me through my email: jiangchy@shanghaitech.edu.cn 
+      <font size="3" style="position: relative; top: 0.6em; font-weight: bold;">
+        I'm currently <marks>VERY INTERESTED</marks> at <mark>Large Language Models (LLM)</mark> and keeps exploring and trying related techniques.
+        I'm <mark>open to the job market this Autumn</mark>, feel free to contact me through my email: {email}
       </font>
     </div>
   </div>
@@ -211,8 +211,8 @@ const CVInfo = {
       </div>
       <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
         <p>
-          <span dangerouslySetInnerHTML={{ __html: pub.title }} /> 
-          <a href={pub.link}>(Paper)</a></p>
+          <span set:html={pub.title}/> 
+          <a href={pub.link} style="color: #477dca;">(Paper)</a></p>
       </div>
     </div>
   ))}
