@@ -301,7 +301,7 @@ const CVInfo = {
 </style>
 
 <BaseLayout title='Home'>
-	<TitleBanner title="Généreux Akotenou (in Building)" />
+	<TitleBanner title="Généreux Akotenou" />
 
   <!-- section1 -->
   <h3 class="separator">About Me</h3>
@@ -411,71 +411,6 @@ const CVInfo = {
     </div>
   ))}
 
-
-
-
-
-
-
-
-  
-
-  <div class="container header-container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 header-left">
-        <h1>{CVInfo.name}</h1>
-        <h2>{CVInfo.title}</h2>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 header-right">
-        <ul class="icons no-print">
-          <li><a href={CVInfo.github} target="_blank" class="button button--sacnite button--round-l">
-            <i class="fab fa-github" title="Github link"></i>
-          </a></li>
-          <li><a href={CVInfo.linkedin} target="_blank" class="button button--sacnite button--round-l">
-            <i class="fab fa-linkedin" title="Linkedin link"></i>
-          </a></li>
-        </ul>
-        <p>Email: <a href={`mailto:${CVInfo.email}`} target="_blank">{CVInfo.email}</a></p>
-        <p>Web: <a href={CVInfo.web} target="_blank">{CVInfo.web}</a></p>
-      </div>
-    </div>
-  </div>
-
-  <main class="page-content" aria-label="Content">
-    <div class="wrapper">
-      <div class="container intro-container">
-        <h3>About Me</h3>
-        <p>{CVInfo.about}</p>
-        <h4>Research Interests</h4>
-        <ul>
-          {CVInfo.interests.map(interest => <li>{interest}</li>)}
-        </ul>
-      </div>
-
-      <div class="container text-container">
-        <h3>Education</h3>
-        <ul>
-          {CVInfo.education.map(edu => (
-            <li>{edu.degree}, {edu.institution} ({edu.duration})</li>
-          ))}
-        </ul>
-      </div>
-
-      <div class="container list-container">
-        <h3>Publications</h3>
-        {CVInfo.publications.map(pub => (
-          <div class="row clearfix layout layout-left border-no">
-            <div class="col-xs-12 col-sm-4 col-md-3 col-print-12 details">
-              <h4>{pub.venue}</h4>
-            </div>
-            <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
-              <p>{pub.title} <a href={pub.link}>(Paper)</a></p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </main>
 </BaseLayout>
 
 <script>
