@@ -57,7 +57,7 @@ const CVInfo = {
       link: "https://link.springer.com/chapter/10.1007/978-3-031-39059-3_23"
     }
   ],
-  experience: [
+  experiences: [
     {
       "title": "Professional Internship",
       "institution": "CYBERSPECTOR",
@@ -317,7 +317,7 @@ const CVInfo = {
         <p>{exp.date}</p>
       </div>
       <div className="col-xs-12 col-sm-9 col-md-9 col-print-12 content">
-        <p dangerouslySetInnerHTML={{ __html: exp.description }} />
+        <p set:html={exp.description}/>
       </div>
     </div>
   ))}
