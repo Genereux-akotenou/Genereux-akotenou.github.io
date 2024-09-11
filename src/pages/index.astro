@@ -4,43 +4,59 @@ import TitleBanner from '@/components/TitleBanner'
 
 const CVInfo = {
   name: "Généreux Akotenou",
-  title: "Software Engineer and Researcher",
-  email: "contact@generouxakotenou.com",
-  web: "https://generouxakotenou.com",
-  github: "https://github.com/generoux",
-  linkedin: "https://www.linkedin.com/in/generoux-akotenou/",
-  about: `Hi, I’m Généreux Akotenou, a Software Engineer and Researcher with a passion for bioinformatics, machine learning, and NLP. I have a deep interest in using cutting-edge technology to solve complex problems in genetics and computational biology.`,
-  interests: [
-    ["Machine Learning", "Description"],
-    ["Bioinformatics", "Description"],
-    ["Natural Language Processing", "Description"],
-    ["Genomic Data Analysis", "Description"],
-    ["Software Engineering", "Description"]
+  title: "Data Scientist",
+  email: "Mahouzonssou.AKOTENOU@um6P.ma",
+  web: "https://genereux-akotenou.github.io",
+  github: "https://github.com/genereux-akotenou",
+  linkedin: "https://www.linkedin.com/in/genereux-akotenou/",
+  about: `Hi, I’m Généreux Akotenou, a Data Scientist with a passion for bioinformatics, machine learning, and NLP. I have a deep interest in using cutting-edge technology to solve problems. I’m looking to collaborate with geeky minds on any of these research topics.`,
+  interests = [
+    ["Machine Learning", "Algorithms for data-driven predictions."],
+    ["Natural Language Processing", "Understanding and generating human language."],
+    ["Bioinformatics", "Computational analysis of biological data."],
+    ["Ethical AI", "Ensuring fairness and transparency in AI systems."],
+    ["AI in Finance", "AI applications for financial analysis and management."]
   ],
   education: [
     {
-      degree: "MSc in Bioinformatics",
-      institution: "University of XYZ",
-      duration: "2019 - 2021"
+      degree: "Master in Quantitative and Financial Modeling",
+      institution: "College of Computing, Mohamed Polytechnic VI University",
+      duration: "2023"
     },
     {
-      degree: "BSc in Computer Science",
-      institution: "University of ABC",
-      duration: "2015 - 2019"
+      degree: "Bachelor of Science in Software Engineering",
+      institution: "Institute of Training and Research in Computer Science, National University of Abomey-Calavi, Benin",
+      duration: "2022",
+      thesis: "Implementation of an automatic UML diagram design tool using natural language processing: a case study of the class diagram"
+    },
+    {
+      degree: "Second Prize - MAIC 2020 Artificial Intelligence Competition",
+      institution: "Seega Game AI Development",
+      duration: "2020"
+    },
+    //{
+    //  degree: "Scientific Baccalaureate (Mathematics and Biology Option)",
+    //  institution: "Calavi, Benin",
+    //  duration: "2020"
+    //},
+    {
+      degree: "Scientific Baccalaureate (Mathematics and Physical Sciences Option)",
+      institution: "Calavi, Benin",
+      duration: "2019"
     }
   ],
   publications: [
     {
-      title: "Ultra-Fine Entity <b>Typing</b> with Neural CRF",
-      venue: "EMNLP 2022",
-      link: "https://example.com/paper"
+      title: "<b>GRAILSOLVER, à la dernière itération de l'obtention du graal de la programmation</b> <i>V. R. Houndji, G. Akotenou, A. M. Kousse, K. Bonou Selegbe.</i> <b>Accepted at Journées Francophones de Programmation par Contraintes (JFPC), 2023, Strasbourg, France.</b> GrailSolver is a Constraint Programming (CP) solver that automates the analysis, modeling, and solving processes using a combination of GPT NLP model and Google's OR-Tools CP solver.",
+      venue: "JFPC 2023",
+      link: "https://pfia23.icube.unistra.fr/conferences/jfpc/Actes_CH_PFIA2023__3_.pdf"
     },
     {
-      title: "Neuralizing Regular Expressions for Slot Filling",
-      venue: "EMNLP 2021",
-      link: "https://example.com/paper"
+      title: "<b>UML Designer: An Automatic UML Diagram Design Tool</b> <i>V. R. Houndji, G. Akotenou.</i> <b>In: Conte, D., Fred, A., Gusikhin, O., Sansone, C. (eds) Deep Learning Theory and Applications. DeLTA 2023. Communications in Computer and Information Science, vol 1875. Springer.</b> UMLDesigner is an application of NLP in sofware modeling context. It simplifies functional analyses for development projects by automating the creation of UML class diagrams from textual descriptions of the system to be designed.",
+      venue: "DeLTA 2023",
+      link: "https://link.springer.com/chapter/10.1007/978-3-031-39059-3_23"
     }
-  ]
+  ],
 }
 ---
 
@@ -105,8 +121,8 @@ const CVInfo = {
     font-size: 2rem;
     text-align: center;
     border-bottom: dashed 2px #CCCCCC;
-    padding-bottom: 3px;
-    margin-bottom: 40px;
+    padding-bottom: 6px;
+    margin-bottom: 11px;
   }
   mark {
     padding: 2px 4px;
@@ -142,7 +158,7 @@ const CVInfo = {
     text-align: center;
   }
   .layout {
-    margin-top: 3rem;
+    /*margin-top: 3rem;*/
     display: flex;
     flex-direction: row;
   }
@@ -194,7 +210,9 @@ const CVInfo = {
         <h4>{pub.venue}</h4>
       </div>
       <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
-        <p>{pub.title} <a href={pub.link}>(Paper)</a></p>
+        <p>
+          <span dangerouslySetInnerHTML={{ __html: pub.title }} /> 
+          <a href={pub.link}>(Paper)</a></p>
       </div>
     </div>
   ))}
