@@ -228,7 +228,12 @@ const CVInfo = {
   .education-table tr:hover {
     background-color: #f1f1f1;
   }
-
+  .h4_style {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 </style>
 
 <BaseLayout title='Home'>
@@ -256,7 +261,7 @@ const CVInfo = {
       </ul>-->
       <font size="3" style="position: relative; top: 0.6em; font-weight: bold;">
         I'm currently <marks>VERY INTERESTED</marks> at <mark>Large Language Models (LLM)</mark> and keeps exploring and trying related techniques.
-        I'm <mark>open to the job market this Autumn</mark>, feel free to contact me through my email: <a style="color: #477dca;" href="mailto:{{CVInfo.email}}">{CVInfo.email}</a>
+        I'm <mark>open to the job market this Autumn</mark>, feel free to contact me through my email: <a style="color: #477dca;" href={`mailto:${CVInfo.email}`}>{CVInfo.email}</a>
       </font>
     </div>
   </div>
@@ -294,11 +299,11 @@ const CVInfo = {
   {CVInfo.publications.map(pub => (
     <div class="row clearfix layout layout-left border-no">
       <div class="col-xs-12 col-sm-3 col-md-3 col-print-12 details">
-        <h4>{pub.venue}</h4>
+        <h4 class="h4_style">{pub.venue}</h4>
       </div>
       <div class="col-xs-12 col-sm-9 col-md-9 col-print-12 content">
         <p>
-          <a href={pub.link} style="color: #477dca;">[Paper]</a>&nbsp;
+          <a href={pub.link} target="_blank" style="color: #477dca;">[Paper]</a>&nbsp;
           <span set:html={pub.title}/> 
         </p>
       </div>
@@ -310,7 +315,7 @@ const CVInfo = {
   {CVInfo.experiences.map(exp => (
     <div class="row clearfix layout layout-left border-no" key={exp.title}>
       <div class="col-xs-12 col-sm-3 col-md-3 col-print-12 details">
-        <h4>{exp.title}</h4>
+        <h4 class="h4_style">{exp.title}</h4>
         <p><b>{exp.institution}</b></p>
         <p>{exp.date}</p>
       </div>
