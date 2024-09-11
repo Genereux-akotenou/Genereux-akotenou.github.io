@@ -57,6 +57,38 @@ const CVInfo = {
       link: "https://link.springer.com/chapter/10.1007/978-3-031-39059-3_23"
     }
   ],
+  experience: [
+    {
+      "title": "Professional Internship",
+      "institution": "CYBERSPECTOR",
+      "date": "July 2022 - July 2023",
+      "description": "Held a developer position, working with the internal team on several projects. Technologies used: VueJS, NodeJS."
+    },
+    {
+      "title": "Backend Developer",
+      "institution": "Marketscc cryptocurrencies",
+      "date": "September 2022 - December 2022",
+      "description": "Contributed to the development of a payment and cryptocurrency exchange API for banking and mobile money. Technologies used: PHP, Laravel, Linux Server."
+    },
+    {
+      "title": "Java Developer",
+      "institution": "REMOTE",
+      "date": "July 2022 - December 2022",
+      "description": "Contributed to the development of VisualSearchTree, a desktop software for real-time visualization of the search process of a Constraint Programming solver. Technologies used: Github Action, IntelliJ, Java."
+    },
+    {
+      "title": "Web Developer",
+      "institution": "MAIC Organization",
+      "date": "August 2021 - December 2022",
+      "description": "Helped develop a platform promoting AI among youth through coding competitions. Involved in UI development and API integration. Technologies used: VueJs, ThreeJs, JavaScript, Axios, Git."
+    },
+    {
+      "title": "Company Immersion Internship",
+      "institution": "Malaika Game Studios",
+      "date": "July 2021 - October 2021",
+      "description": "Contributed to the development of CashMaster, a mobile game with Unity3D. Involved in game design and development, and developed a virtual currency payment platform. Technologies used: C#, PHP, HTML, CSS, JS."
+    }
+  ]
 }
 ---
 
@@ -263,6 +295,8 @@ const CVInfo = {
     <div class="row clearfix layout layout-left border-no">
       <div class="col-xs-12 col-sm-3 col-md-3 col-print-12 details">
         <h4>{pub.venue}</h4>
+        <p><b>Alibaba Damo Academy, Hangzhou</b></p>
+        <p>August 2021 -- June 2023</p>
       </div>
       <div class="col-xs-12 col-sm-9 col-md-9 col-print-12 content">
         <p>
@@ -275,6 +309,23 @@ const CVInfo = {
 
   <!-- section4 -->
   <h3 class="separator">Experience</h3>
+  {CVInfo.experiences.map(exp => (
+    <div className="row clearfix layout layout-left border-no" key={exp.title}>
+      <div className="col-xs-12 col-sm-3 col-md-3 col-print-12 details">
+        <h4>{exp.title}</h4>
+        <p><b>{exp.institution}</b></p>
+        <p>{exp.date}</p>
+      </div>
+      <div className="col-xs-12 col-sm-9 col-md-9 col-print-12 content">
+        <p dangerouslySetInnerHTML={{ __html: exp.description }} />
+      </div>
+    </div>
+  ))}
+
+
+
+
+
 
 
 
