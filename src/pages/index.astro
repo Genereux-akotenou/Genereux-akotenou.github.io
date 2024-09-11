@@ -377,25 +377,25 @@ const CVInfo = {
   <!-- section4 -->
   <h3 class="separator">Projects</h3>
   <div class="container">
-    {CVInfo.projects.map(project => `
+    {CVInfo.projects.map(project => (
       <div class="project">
         <div class="project-header">
-          <div class="project-title">${project.title}</div>
-          <div class="project-year">${project.year}</div>
+          <div class="project-title">{project.title}</div>
+          <div class="project-year">{project.year}</div>
         </div>
         <div class="project-description">
-          ${project.description}
+          {project.description}
         </div>
         <div class="project-technologies">
           Technologies: ${project.technologies}
         </div>
         <div class="project-link">
-          <a href="${project.github}" target="_blank">View on GitHub</a>
+          <a href={`${project.github}`} target="_blank">View on GitHub</a>
         </div>
       </div>
-    `).join('')}
+    ))}
   </div>
-    
+
   <!-- section5 -->
   <h3 class="separator">Experience</h3>
   {CVInfo.experiences.map(exp => (
