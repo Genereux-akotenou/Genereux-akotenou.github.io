@@ -172,6 +172,31 @@ const CVInfo = {
     display: flex;
     flex-direction: row;
   }
+  .education-table {
+    margin: 20px 0;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .education-table table {
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  .education-table th, .education-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  .education-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  .education-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  .education-table tr:hover {
+    background-color: #f1f1f1;
+  }
+
 </style>
 
 <BaseLayout title='Home'>
@@ -206,6 +231,26 @@ const CVInfo = {
 
   <!-- section2 -->
   <h3 class="separator">Education</h3>
+  <div class="education-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Degree</th>
+          <th>Institution</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        {CVInfo.education.map(edu => (
+          <tr key={edu.degree + edu.institution}>
+            <td><strong>{edu.degree}</strong></td>
+            <td>{edu.institution}</td>
+            <td>{edu.duration}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
   <ul>
     {CVInfo.education.map(edu => (
       <li class="list"><mark>{edu.degree}</mark>, {edu.institution} ({edu.duration})</li>
