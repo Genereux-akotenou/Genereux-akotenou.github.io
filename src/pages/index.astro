@@ -5,7 +5,7 @@ import TitleBanner from '@/components/TitleBanner'
 const CVInfo = {
   name: "Généreux Akotenou",
   title: "Data Scientist",
-  email: "Mahouzonssou.AKOTENOU@um6P.ma",
+  email: "Mahouzonssou.AKOTENOU@um6p.ma",
   web: "https://genereux-akotenou.github.io",
   github: "https://github.com/genereux-akotenou",
   linkedin: "https://www.linkedin.com/in/genereux-akotenou/",
@@ -74,6 +74,16 @@ const CVInfo = {
   @media (min-width: 768px) {
     .col-sm-4 {
         width: 33.33333333%;
+    }
+  }
+  @media (min-width: 768px) {
+    .col-sm-3 {
+        width: 22%;
+    }
+  }
+  @media (min-width: 768px) {
+    .col-sm-9[data-astro-cid-j7pv25f6] {
+        width: calc(100% - 22%);
     }
   }
   @media (min-width: 768px) {
@@ -206,10 +216,10 @@ const CVInfo = {
   <h3 class="separator">Research</h3>
   {CVInfo.publications.map(pub => (
     <div class="row clearfix layout layout-left border-no">
-      <div class="col-xs-12 col-sm-4 col-md-3 col-print-12 details">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-print-12 details">
         <h4>{pub.venue}</h4>
       </div>
-      <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
+      <div class="col-xs-12 col-sm-9 col-md-9 col-print-12 content">
         <p>
           <span set:html={pub.title}/> 
           <a href={pub.link} style="color: #477dca;">(Paper)</a></p>
