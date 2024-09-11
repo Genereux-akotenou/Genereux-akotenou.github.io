@@ -88,7 +88,31 @@ const CVInfo = {
       "date": "July 2021 - October 2021",
       "description": "Contributed to the development of CashMaster, a mobile game with Unity3D. Involved in game design and development, and developed a virtual currency payment platform. Technologies used: C#, PHP, HTML, CSS, JS."
     }
+  ],
+  projects: [
+    {
+      title: "Bank Review Intelligence - (Team Project)",
+      year: 2024,
+      github: "https://github.com/Genereux-akotenou/BankReviewIntelligence",
+      description: "BankReviewIntelligence is a data-as-a-product platform that provides in-depth analytics and decision-making support based on customer reviews of banks. In this project, we set up a pipeline to collect real-time data from Google Maps and build a data warehouse and dashboarding system for decision support.",
+      technologies: "AIRFLOW, SUPERSET, DATAWAREHOUSE"
+    },
+    {
+      title: "Advanced-Python",
+      year: 2023,
+      github: "https://github.com/Genereux-akotenou/Advanced-Python",
+      description: "Advanced Python Programming & Database Management",
+      technologies: "Profiling, OOP, Thread, Parallel Computing"
+    },
+    {
+      title: "Bayesian Regression",
+      year: 2023,
+      github: "https://github.com/Genereux-akotenou/Bayesian_regression",
+      description: "The primary objective of this project is to develop predictive models for stock market movements using two distinct regression approaches: Simple Regression and Bayesian Regression.",
+      technologies: "ML, Bayesian_regression"
+    }
   ]
+
 }
 ---
 
@@ -234,6 +258,46 @@ const CVInfo = {
     margin-top: 0;
     margin-bottom: 0;
   }
+  .project {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  .project-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+  }
+  .project-year {
+    font-size: 1em;
+    color: #666;
+  }
+  .project-description {
+    margin: 10px 0;
+    color: #444;
+  }
+  .project-technologies {
+    font-style: italic;
+    color: #777;
+  }
+  .project-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .project-link a:hover {
+    text-decoration: underline;
+  }
 </style>
 
 <BaseLayout title='Home'>
@@ -303,7 +367,7 @@ const CVInfo = {
       </div>
       <div class="col-xs-12 col-sm-9 col-md-9 col-print-12 content">
         <p>
-          <a href={pub.link} target="_blank" style="color: #477dca;">[Paper]</a>&nbsp;
+          <a href={pub.link} target="_blank" style="color: #477dca; position: relative; top: -0.1em;">[Paper]</a>&nbsp;
           <span set:html={pub.title}/> 
         </p>
       </div>
@@ -311,6 +375,28 @@ const CVInfo = {
   ))}
 
   <!-- section4 -->
+  <h3 class="separator">Projects</h3>
+  <div class="container">
+    {CVInfo.projects.map(project => `
+      <div class="project">
+        <div class="project-header">
+          <div class="project-title">${project.title}</div>
+          <div class="project-year">${project.year}</div>
+        </div>
+        <div class="project-description">
+          ${project.description}
+        </div>
+        <div class="project-technologies">
+          Technologies: ${project.technologies}
+        </div>
+        <div class="project-link">
+          <a href="${project.github}" target="_blank">View on GitHub</a>
+        </div>
+      </div>
+    `).join('')}
+  </div>
+    
+  <!-- section5 -->
   <h3 class="separator">Experience</h3>
   {CVInfo.experiences.map(exp => (
     <div class="row clearfix layout layout-left border-no" key={exp.title}>
@@ -332,8 +418,7 @@ const CVInfo = {
 
 
 
-  <!-- section1 -->
-  <h3 class="separator">Projects</h3>
+  
 
   <div class="container header-container">
     <div class="row">
