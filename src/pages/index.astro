@@ -259,9 +259,9 @@ const CVInfo = {
     margin-bottom: 0;
   }
   .project {
-    background-color: #fff;
+    background-color: #f3f3f3;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
     margin-bottom: 20px;
     padding: 20px;
     display: flex;
@@ -366,7 +366,7 @@ const CVInfo = {
         <h4 class="h4_style">{pub.venue}</h4>
       </div>
       <div class="col-xs-12 col-sm-9 col-md-9 col-print-12 content">
-        <p>
+        <p style="text-align:justify;">
           <a href={pub.link} target="_blank" style="color: #477dca; position: relative; top: -0.1em;">[Paper]</a>&nbsp;
           <span set:html={pub.title}/> 
         </p>
@@ -383,7 +383,7 @@ const CVInfo = {
           <div class="project-title">{project.title}</div>
           <div class="project-year">{project.year}</div>
         </div>
-        <div class="project-description">
+        <div class="project-description" style="text-align:justify;">
           {project.description}
         </div>
         <div class="project-technologies">
@@ -399,13 +399,13 @@ const CVInfo = {
   <!-- section5 -->
   <h3 class="separator">Experience</h3>
   {CVInfo.experiences.map(exp => (
-    <div class="row clearfix layout layout-left border-no" key={exp.title}>
+    <div class="row clearfix layout layout-left border-no flex md:flex-row flex-col" key={exp.title}>
       <div class="col-xs-12 col-sm-3 col-md-3 col-print-12 details">
         <h4 class="h4_style">{exp.title}</h4>
         <p><b>{exp.institution}</b></p>
         <p>{exp.date}</p>
       </div>
-      <div class="col-xs-12 col-sm-9 col-md-9 col-print-12 content">
+      <div class="col-xs-12 col-sm-9 col-md-9 col-print-12 content" style="text-align:justify;">
         <p set:html={exp.description}/>
       </div>
     </div>
