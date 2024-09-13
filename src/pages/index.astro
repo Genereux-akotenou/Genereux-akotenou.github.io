@@ -51,7 +51,7 @@ const CVInfo = {
       degree: "Second Prize - MAIC 2020 Artificial Intelligence Competition",
       institution: "Seega Game AI Development",
       duration: "2020",
-      image: "/public/assets/maic.jpg",
+      image: "/assets/images/maic.jpg",
       share_link: "",
       skills: []
     },
@@ -138,6 +138,16 @@ const CVInfo = {
         "Python (Programming Language)"
       ]
     },
+    {
+      degree: "Data Analysis with Python",
+      institution: "freeCodeCamp",
+      duration: "Issued Dec 2021",
+      image: "https://media.licdn.com/dms/image/v2/C4E0BAQGLKj3JHcof0w/company-logo_100_100/company-logo_100_100/0/1630639684997/free_code_camp_logo?e=1734566400&v=beta&t=liv-i4sJLSwLRRDRr35GaIlVRU8KxPWfRZO2w5taJAA",
+      share_link: "https://freecodecamp.org/certification/genereux-akotenou/data-analysis-with-python-v7",
+      skills: [
+        "Python (Programming Language)"
+      ]
+    }
   ],
   publications: [
     {
@@ -362,13 +372,13 @@ const CVInfo = {
     margin-bottom: 0;
   }
   .project {
-    background-color: #f3f3f3;
+    background-color: #ffffff; /*#*/
     border-radius: 8px;
-    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
     margin-bottom: 20px;
     padding: 20px;
     display: flex;
     flex-direction: column;
+    border: 1px solid #dddddd;
   }
   .project-header {
     display: flex;
@@ -582,13 +592,13 @@ const CVInfo = {
           <h4 class="certificate-degree">{certificate.degree}</h4>
           <p class="certificate-institution">{certificate.institution}</p>
           <p class="certificate-duration">{certificate.duration}</p>
-          {certificate.skills.length > 0 && (
+          <!--{certificate.skills.length > 0 && (
             <ul class="certificate-skills">
               {certificate.skills.map(skill => (
                 <li class="skill">{skill}</li>
               ))}
             </ul>
-          )}
+          )}-->
           {certificate.share_link && (
             <a href={certificate.share_link} class="share-link" target="_blank">View Credential</a>
           )}
@@ -610,11 +620,13 @@ const CVInfo = {
         <div class="project-description" style="text-align:justify;">
           {project.description}
         </div>
-        <div class="project-technologies">
-          Technologies: {project.technologies}
-        </div>
-        <div class="project-link">
-          <a href={`${project.github}`} target="_blank">View on GitHub</a>
+        <div class="flex justify-between md:flex-row flex-col">
+          <div class="project-technologies">
+            Technologies: {project.technologies}
+          </div>
+          <div class="project-link">
+            <a href={`${project.github}`} target="_blank">View on GitHub</a>
+          </div>
         </div>
       </div>
     ))}
