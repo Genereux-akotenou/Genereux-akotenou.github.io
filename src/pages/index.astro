@@ -288,10 +288,19 @@ const CVInfo = {
     padding: 2px 4px;
     font-size: 90%;
     color: #fff;
-    background-color: #999090; /*#333;*/
+    background-color: #333;
     border-radius: 3px;
     -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
-    /*box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);*/
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+  }
+  mark_1 {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #fff;
+    background-color: #999090 !important; /*#333;*/
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: none !important;
   }
   .profile-img {
     width: 200px;
@@ -399,7 +408,94 @@ const CVInfo = {
     box-sizing: border-box;
     background-clip: content-box;
     border: 4px solid transparent;
-    border-radius: 6px;
+    border-radius: 100%;
+    margin-right: 2px;
+  }
+  .certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    padding: 10px;
+  }
+
+  .certificate-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+
+  .certificate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .certificate-image img {
+    width: 100%;
+    height: 100px;
+    object-fit: contain;
+    padding: 15px;
+    background-color: #fff;
+  }
+
+  .certificate-info {
+    padding: 10px 15px;
+  }
+
+  .certificate-degree {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    margin: 5px 0;
+  }
+
+  .certificate-institution {
+    font-size: 0.95em;
+    color: #555;
+    margin: 5px 0;
+  }
+
+  .certificate-duration {
+    font-size: 0.85em;
+    color: #777;
+  }
+
+  .certificate-skills {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .skill {
+    background-color: #e0e0e0;
+    padding: 3px 8px;
+    border-radius: 15px;
+    font-size: 0.8em;
+  }
+
+  .share-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    font-size: 0.9em;
+    background-color: #0073b1;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+
+  .share-link:hover {
+    background-color: #005f8f;
   }
 </style>
 
@@ -418,7 +514,7 @@ const CVInfo = {
       </p>
       <p style="margin-top: 0.3em;">More specifically, my research interests are: </p>
       <ul>
-          {CVInfo.interests.map(interest => <li class='list'><mark>{interest[0]}</mark>, {interest[1]}</li>)}
+          {CVInfo.interests.map(interest => <li class='list'><mark class="mark_1">{interest[0]}</mark>, {interest[1]}</li>)}
       </ul>
       <!--<ul>
         <li>use <mark>symbolic knowledge</mark> (e.g. Regular Expressions) to help NLP models reach better performance and have better interpretability on NLP tasks.</li>
@@ -447,7 +543,7 @@ const CVInfo = {
       <tbody>
         {CVInfo.education.map(edu => (
           <tr key={edu.degree + edu.institution}>
-            <td><span class="flex"><img class='edu_style' src={`${edu.image}`} /><strong>{edu.degree}</strong></span></td>
+            <td><span class="flex"><!--<img class='edu_style' src={`${edu.image}`} />--><strong>{edu.degree}</strong></span></td>
             <td>{edu.institution}</td>
             <td>{edu.duration}</td>
           </tr>
@@ -455,27 +551,52 @@ const CVInfo = {
       </tbody>
     </table>
   </div>
-  <!--<ul>
-    {CVInfo.education.map(edu => (
-      <li class="list"><mark>{edu.degree}</mark>, {edu.institution} ({edu.duration})</li>
-    ))}
-  </ul>-->
 
   <!-- section3 -->
   <h3 class="separator">Publications</h3>
-  {CVInfo.publications.map(pub => (
-    <div class="row clearfix layout layout-left border-no">
-      <div class="col-xs-12 col-sm-3 col-md-3 col-print-12 details">
-        <h4 class="h4_style">{pub.venue}</h4>
+  <div class="pubblication-section">
+    {CVInfo.publications.map(pub => (
+      <div class="row clearfix layout layout-left border-no">
+        <div class="col-xs-12 col-sm-3 col-md-3 col-print-12 details">
+          <h4 class="h4_style">{pub.venue}</h4>
+        </div>
+        <div class="col-xs-12 col-sm-9 col-md-9 col-print-12 content">
+          <p style="text-align:justify;">
+            <a href={pub.link} target="_blank" style="color: #477dca; position: relative; top: -0.1em;">[Paper]</a>&nbsp;
+            <span set:html={pub.title}/> 
+          </p>
+        </div>
       </div>
-      <div class="col-xs-12 col-sm-9 col-md-9 col-print-12 content">
-        <p style="text-align:justify;">
-          <a href={pub.link} target="_blank" style="color: #477dca; position: relative; top: -0.1em;">[Paper]</a>&nbsp;
-          <span set:html={pub.title}/> 
-        </p>
+    ))}
+  </div>
+
+  <!-- section4 -->
+  <h3 class="separator">Prizes & Certifications</h3>
+  <div class="certificates-grid">
+    {certificates.map(certificate => (
+      <div class="certificate-card">
+        <div class="certificate-image">
+          <img src={certificate.image} alt={certificate.degree} />
+        </div>
+        <div class="certificate-info">
+          <h4 class="certificate-degree">{certificate.degree}</h4>
+          <p class="certificate-institution">{certificate.institution}</p>
+          <p class="certificate-duration">{certificate.duration}</p>
+          {certificate.skills.length > 0 && (
+            <ul class="certificate-skills">
+              {certificate.skills.map(skill => (
+                <li class="skill">{skill}</li>
+              ))}
+            </ul>
+          )}
+          {certificate.share_link && (
+            <a href={certificate.share_link} class="share-link" target="_blank">View Credential</a>
+          )}
+        </div>
       </div>
-    </div>
-  ))}
+    ))}
+  </div>
+
 
   <!-- section4 -->
   <h3 class="separator">Projects</h3>
