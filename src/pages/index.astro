@@ -24,27 +24,26 @@ const CVInfo = {
       degree: "Master in Quantitative and Financial Modeling",
       institution: "College of Computing, Mohamed Polytechnic VI University",
       duration: "2023",
-      image: "/public/assets/um6p_logo.jpeg"
+      image: "/assets/images/um6p_logo.jpeg"
     },
     {
       degree: "Bachelor of Science in Software Engineering",
       institution: "Institute of Training and Research in Computer Science, National University of Abomey-Calavi, Benin",
       duration: "2022",
       thesis: "Implementation of an automatic UML diagram design tool using natural language processing: a case study of the class diagram",
-      image: "/public/assets/uac.jpeg"
+      image: "/assets/images/uac.jpeg"
     },
     //{
     //  degree: "Scientific Baccalaureate (Mathematics and Biology Option)",
     //  institution: "Calavi, Benin",
     //  duration: "2020",
-    //  image: "/public/assets/degree.png"
+    //  image: "/assets/images/degree.png"
     //},
     {
       degree: "Scientific Baccalaureate (Mathematics and Physical Sciences Option)",
       institution: "Calavi, Benin",
       duration: "2019",
-      image: "/public/assets/",
-      image: "/public/assets/degree.png"
+      image: "/assets/images/degree.png"
     }
   ],
   certificates: [
@@ -448,7 +447,7 @@ const CVInfo = {
       <tbody>
         {CVInfo.education.map(edu => (
           <tr key={edu.degree + edu.institution}>
-            <td><img class='edu_style' src={`${edu.image}`} /><strong>{edu.degree}</strong></td>
+            <td><span class="flex"><img class='edu_style' src={`${edu.image}`} /><strong>{edu.degree}</strong></span></td>
             <td>{edu.institution}</td>
             <td>{edu.duration}</td>
           </tr>
