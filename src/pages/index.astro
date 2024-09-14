@@ -163,7 +163,7 @@ const CVInfo = {
   ],
   projects: [
     {
-      title: "Genomics: Use Machine Learning to Classify Protein Sequences in Plant Genomes into Gene Families",
+      title: "Genomics S2 Project",
       year: 2024,
       github: "",
       description: "The goal is to replace the high computational approach of assigning gene function using similarity by leveraging machine learning techniques to classify Protein sequences in plant genomes into different gene families",
@@ -231,13 +231,13 @@ const CVInfo = {
       description: "This summer, I served as a trainer at the academy, delivering courses on MLOps. I focused on teaching automation and management of the end-to-end machine learning lifecycle through code, scripts, and configuration files, covering everything from data ingestion and model training to deployment and monitoring."
     },
     {
-      title: "Coordinator of student AI & IOT Club at IFRI, Abomey-Calavi University",
+      title: "Coordinator of student Club",
       institution: "IFRI-UAC",
       date: "Jan 2021 - Jan 2023 · 2 yrs 1 mo",
       description: "As the Coordinator of the Student AI & IoT Club at IFRI, Abomey-Calavi University, I led and managed activities related to artificial intelligence and the Internet of Things. My responsibilities included organizing workshops and hands-on projects to foster learning and collaboration among students."
     },
     {
-      title: "AI Contest Developer",
+      title: "AI Hackathon Dev",
       institution: "MIFY - Machine Intelligence For You",
       date: "Sep 2021 - Nov 2023 · 2 yrs 3 mos",
       description: "I contributed to developing the MAIC platform, which aimed to promote artificial intelligence among young individuals through the organization of AI development competitions. Participants were allowed to create teams and engage in coding hackathons, focusing on the design of decision-making AI systems for strategy video games. My specific responsibilities encompassed the development of the platform's user interface, where I utilized APIs to implement essential features including registration, AI submission, result tracking. Matches were made viewable in both 2D and 3D environments."
@@ -640,10 +640,10 @@ const CVInfo = {
             Technologies: {project.technologies}
           </div>
           <div class="project-link">
-            <a href="${project.github ? project.github : '#'}" 
-              class="${project.github ? '' : 'empty_link'}" 
+            <a href={project.github ? project.github : '#'}
+              class={project.github ? '' : 'empty_link'}
               target="_blank">
-              ${project.github ? 'View on GitHub' : 'No GitHub Link Available'}
+                {project.github ? 'View on GitHub' : 'View on GitHub'}
             </a>
           </div>
         </div>
