@@ -41,7 +41,7 @@ const CVInfo = {
     //},
     {
       degree: "Scientific Baccalaureate (Mathematics and Physical Sciences Option)",
-      institution: "Calavi, Benin",
+      institution: "Joséphine Bakhita College, Calavi Benin",
       duration: "2019",
       image: "/assets/images/degree.png"
     }
@@ -221,6 +221,31 @@ const CVInfo = {
       institution: "Malaika Game Studios",
       "date": "July 2021 - October 2021",
       "description": "Contributed to the development of CashMaster, a mobile game with Unity3D. Involved in game design and development, and developed a virtual currency payment platform. Technologies used: C#, PHP, HTML, CSS, JS."
+    }
+  ],
+  volunteering: [
+    {
+      "title": "MLOps Trainer",
+      "institution": "Data Afrique Hub",
+      "date": "Jun 2024 - Present · 4 mos",
+      "description": "This summer, I served as a trainer at the academy, delivering courses on MLOps. I focused on teaching automation and management of the end-to-end machine learning lifecycle through code, scripts, and configuration files, covering everything from data ingestion and model training to deployment and monitoring."
+    },
+    {
+      "title": "Coordinator of student AI & IOT Club at IFRI, Abomey-Calavi University",
+      "institution": "IFRI-UAC",
+      "date": "Jan 2021 - Jan 2023 · 2 yrs 1 mo",
+      "description": "As the Coordinator of the Student AI & IoT Club at IFRI, Abomey-Calavi University, I led and managed activities related to artificial intelligence and the Internet of Things. My responsibilities included organizing workshops and hands-on projects to foster learning and collaboration among students."
+    },
+    data = {
+    "title": "AI Contest Developer",
+    "institution": "MIFY - Machine Intelligence For You",
+    "date": "Sep 2021 - Nov 2023 · 2 yrs 3 mos",
+    "description": ("I contributed to developing the MAIC platform, which aimed to promote artificial intelligence "
+                    "among young individuals through the organization of AI development competitions. Participants were "
+                    "allowed to create teams and engage in coding hackathons, focusing on the design of decision-making AI systems "
+                    "for strategy video games. My specific responsibilities encompassed the development of the platform's user interface, "
+                    "where I utilized APIs to implement essential features including registration, AI submission, result tracking. "
+                    "Matches were made viewable in both 2D and 3D environments.")
     }
   ]
 }
@@ -635,6 +660,21 @@ const CVInfo = {
   <!-- section5 -->
   <h3 class="separator">Experience</h3>
   {CVInfo.experiences.map(exp => (
+    <div class="row clearfix border-no flex md:flex-row flex-col" key={exp.title}>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-print-12 details">
+        <h4 class="h4_style">{exp.title}</h4>
+        <p><b>{exp.institution}</b></p>
+        <p>{exp.date}</p>
+      </div>
+      <div class="col-xs-12 col-sm-9 col-md-9 col-print-12 content" style="text-align:justify;">
+        <p set:html={exp.description}/>
+      </div>
+    </div>
+  ))}
+
+  <!-- section5 -->
+  <h3 class="separator">Volunteering</h3>
+  {CVInfo.volunteering.map(exp => (
     <div class="row clearfix border-no flex md:flex-row flex-col" key={exp.title}>
       <div class="col-xs-12 col-sm-3 col-md-3 col-print-12 details">
         <h4 class="h4_style">{exp.title}</h4>
