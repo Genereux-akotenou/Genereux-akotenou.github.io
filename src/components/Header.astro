@@ -25,17 +25,17 @@ const SOCIALNETWORKS = [
 ]
 
 // Function to determine the active link based on the current page
-const isActive = Astro.url.pathname == '' (path) => {
+/*const isActive = Astro.url.pathname == '' (path) => {
 	if (typeof window !== 'undefined') {
 		alert(window.location.pathname)
 		return window.location.pathname === path ? 'active' : ''
 	}
 	return ''
-}
+};*/
 
-const homeIsActive = Astro.url.pathname == '/'
-const blogIsActive = Astro.url.pathname.startsWith('/blog/')
-const funIsActive  = Astro.url.pathname.startsWith('/fun/')
+const homeIsActive = Astro.url.pathname == '/';
+const blogIsActive = Astro.url.pathname.startsWith('/blog/');
+const funIsActive  = Astro.url.pathname.startsWith('/fun/');
 ---
 
 <style>
