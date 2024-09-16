@@ -36,6 +36,7 @@ const SOCIALNETWORKS = [
 const homeIsActive = Astro.url.pathname == '/';
 const blogIsActive = Astro.url.pathname.startsWith('/blog/');
 const funIsActive  = Astro.url.pathname.startsWith('/fun');
+const busIsActive  = Astro.url.pathname.startsWith('/startup');
 ---
 
 <style>
@@ -57,6 +58,7 @@ const funIsActive  = Astro.url.pathname.startsWith('/fun');
 	<span style="display: flex; flex-direction: row;" class="text-lg mr-auto">
 		<a class={cn(`nav-link`, homeIsActive && `active`)} href='/'>Home</a>&nbsp;&nbsp;-&nbsp;&nbsp;
 		<a class={cn(`nav-link`, blogIsActive && `active`)} href='/blog'>Blog</a>&nbsp;&nbsp;-&nbsp;&nbsp;
+		<a class={cn(`nav-link`, busIsActive && `active`)} href='/startup'>Business</a>&nbsp;&nbsp;-&nbsp;&nbsp;
 		<a class={cn(`nav-link`, funIsActive && `active`)} href='/fun'>Fun Coding 🎉</a>
 	</span>
 
