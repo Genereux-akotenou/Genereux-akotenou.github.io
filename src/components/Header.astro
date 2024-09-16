@@ -35,7 +35,7 @@ const SOCIALNETWORKS = [
 
 const homeIsActive = Astro.url.pathname == '/';
 const blogIsActive = Astro.url.pathname.startsWith('/blog/');
-const funIsActive  = Astro.url.pathname.startsWith('/fun/');
+const funIsActive  = Astro.url.pathname.startsWith('/fun');
 ---
 
 <style>
@@ -57,18 +57,8 @@ const funIsActive  = Astro.url.pathname.startsWith('/fun/');
 	<span style="display: flex; flex-direction: row;" class="text-lg mr-auto">
 		<a class={cn(`nav-link`, homeIsActive && `active`)} href='/'>Home</a>&nbsp;&nbsp;-&nbsp;&nbsp;
 		<a class={cn(`nav-link`, blogIsActive && `active`)} href='/blog'>Blog</a>&nbsp;&nbsp;-&nbsp;&nbsp;
-		<a class={cn(`nav-link`, funIsActive && `active`)} href='/fun'>Fun 🎉</a>
+		<a class={cn(`nav-link`, funIsActive && `active`)} href='/fun'>Fun Coding 🎉</a>
 	</span>
-	<!--<span style="display: flex; flex-direction: row;" class="text-lg mr-auto">
-		<a class={`nav-link ${isActive('/')}`} href='/'>Home</a>&nbsp;&nbsp;-&nbsp;&nbsp;
-		<a class={`nav-link ${isActive('/blog')}`} href='/blog'>Blog</a>&nbsp;&nbsp;-&nbsp;&nbsp;
-		<a class={`nav-link ${isActive('/fun')}`} href='/fun'>Fun 🎉</a>
-	</span>-->
-	<!--<span style="display: flex; flex-direction: row;" class="text-lg mr-auto">
-		<a class='text-lg mr-auto' href='/'>Home</a>&nbsp;&nbsp;-&nbsp;&nbsp;
-		<a class='text-lg mr-auto' href='/blog'>Blog</a>&nbsp;&nbsp;-&nbsp;&nbsp;
-		<a class='text-lg mr-auto' href='/fun'>Fun 🎉</a>
-	</span>-->
 
 	<div
 		id='astro-header-drawer'
