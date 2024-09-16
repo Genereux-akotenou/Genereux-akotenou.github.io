@@ -4,7 +4,7 @@ description: >-
   Explore the fundamentals, techniques, and applications of Natural Language Processing (NLP). This guide covers everything from basic concepts to advanced methodologies.
 pubDate: 2024-09-11T22:00:00.000Z
 heroImage: ../../assets/images/66e12f528f8c0fa94f68e8ba.gif
-category: 'AI & Machine Learning'
+category: 'AI'
 tags:
   - NLP
   - Machine Learning

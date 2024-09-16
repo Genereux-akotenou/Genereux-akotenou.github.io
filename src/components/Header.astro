@@ -8,6 +8,7 @@ import MenuIcon from './icons/MenuIcon.astro'
 import Search from '@/components/Search'
 import TagIcon from './icons/TagIcon.astro'
 import ToggleTheme from './ToggleTheme.astro'
+import { cn } from '@/utils'
 
 // ADD YOUR SOCIAL NETWORKS HERE
 const SOCIALNETWORKS = [
@@ -24,13 +25,17 @@ const SOCIALNETWORKS = [
 ]
 
 // Function to determine the active link based on the current page
-const isActive = (path) => {
+const isActive = Astro.url.pathname == '' (path) => {
 	if (typeof window !== 'undefined') {
 		alert(window.location.pathname)
 		return window.location.pathname === path ? 'active' : ''
 	}
 	return ''
 }
+
+const homeIsActive = Astro.url.pathname == '/'
+const blogIsActive = Astro.url.pathname.startsWith('/blog/')
+const funIsActive  = Astro.url.pathname.startsWith('/fun/')
 ---
 
 <style>
@@ -50,10 +55,15 @@ const isActive = (path) => {
 
 <header class='relative flex items-center h-12 font-semibold'>
 	<span style="display: flex; flex-direction: row;" class="text-lg mr-auto">
+		<a class={cn(`nav-link active`, homeIsActive && `nav-link`)} href='/'>Home</a>&nbsp;&nbsp;-&nbsp;&nbsp;
+		<a class={cn(`nav-link active`, blogIsActive && `nav-link`)} href='/blog'>Blog</a>&nbsp;&nbsp;-&nbsp;&nbsp;
+		<a class={cn(`nav-link active`, funIsActive && `nav-link`)} href='/fun'>Fun 🎉</a>
+	</span>
+	<!--<span style="display: flex; flex-direction: row;" class="text-lg mr-auto">
 		<a class={`nav-link ${isActive('/')}`} href='/'>Home</a>&nbsp;&nbsp;-&nbsp;&nbsp;
 		<a class={`nav-link ${isActive('/blog')}`} href='/blog'>Blog</a>&nbsp;&nbsp;-&nbsp;&nbsp;
 		<a class={`nav-link ${isActive('/fun')}`} href='/fun'>Fun 🎉</a>
-	</span>
+	</span>-->
 	<!--<span style="display: flex; flex-direction: row;" class="text-lg mr-auto">
 		<a class='text-lg mr-auto' href='/'>Home</a>&nbsp;&nbsp;-&nbsp;&nbsp;
 		<a class='text-lg mr-auto' href='/blog'>Blog</a>&nbsp;&nbsp;-&nbsp;&nbsp;

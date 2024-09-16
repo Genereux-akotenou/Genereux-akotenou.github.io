@@ -5,11 +5,7 @@ export const CATEGORIES = [
 	// 'Category 3',
 	// 'Category 4',
 	// 'Category 5'
-	'AI & Machine Learning',
-    'Data Science & Analytics',
-    'Deep Learning Research',
-    'Applied AI in Industry',
-    'Data Visualization & Storytelling',
-    'Natural Language Processing',
-    'AI Ethics & Responsibility'
+	'AI',
+	'MLOps',
+	'Bug Hutting',
 ] as const
