@@ -191,6 +191,51 @@ const CVInfo = {
       technologies: "ML, Bayesian_regression"
     }
   ],
+  projects_personal: [
+    {
+      title: "Location Mention Recognition",
+      year: 2024,
+      github: "https://github.com/Genereux-akotenou/MSL-Location-Mention-Recognition",
+      description: "The objective is to do Location Mention Recognition from microblogging posts during emergencies using LLM and BERT.",
+      technologies: "Natural Language Processing, LLM, BERT"
+    },
+    {
+      title: "Drug Discovery with ML",
+      year: 2024,
+      github: "https://github.com/Genereux-akotenou/Drug-Discovery-ML",
+      description: "A bioinformatics project using machine learning techniques to aid in drug discovery and data analysis.",
+      technologies: "Machine Learning, Bioinformatics, Drug Discovery"
+    },
+    {
+      title: "LangAI: Ewe Audio Translation",
+      year: 2024,
+      github: "https://github.com/Genereux-akotenou/LangAI-Ewe-Audio-Translation",
+      description: "TechCabal Ewè Audio Translation Challenge: A project focused on translating Ewè audio using advanced language models.",
+      technologies: "Audio Translation, Natural Language Processing"
+    },
+    {
+      title: "NASA Breath Diagnostics E-nose",
+      year: 2024,
+      github: "https://github.com/Genereux-akotenou/NASA-Breath-Diagnostics-E-nose",
+      description: "The objective of this challenge is to develop a classification model that can accurately diagnose patients with COVID-19 based on data captured using NASA's E-Nose device.",
+      technologies: "Classification Models, Bioinformatics, Sensor Data"
+    },
+    {
+      title: "Amazon Secret Runway Detection",
+      year: 2024,
+      github: "",
+      description: "GeoAI Amazon Basin Secret Runway Detection Challenge: Using geospatial AI techniques to detect hidden runways in the Amazon Basin.",
+      technologies: "GComputer Vision, Remote Sensing"
+    },
+    //{
+    //  title: "Topic-Model-Review",
+    //  year: 2024,
+    //  github: "",
+    //  description: "An exploratory project focusing on topic modeling and text analysis from various review datasets.",
+    //  technologies: "Text Analysis, Topic Modeling, Natural Language Processing"
+    //},
+    
+  ],
   experiences: [
     {
       title: "Professional Internship",
@@ -626,6 +671,7 @@ const CVInfo = {
   <!-- section4 -->
   <h3 class="separator">Recent Projects</h3>
   <div class="container">
+    <ul><li style="list-style-type: disclosure-closed; position: relative; top: -1.3em; left: 1.1em; color: #8118a3;">Academic</li></ul>
     {CVInfo.projects.map(project => (
       <div class="project">
         <div class="project-header">
@@ -647,6 +693,29 @@ const CVInfo = {
         </div>
       </div>
     ))}
+    <ul><li style="list-style-type: disclosure-closed; position: relative; top: -1.3em; left: 1.1em; color: #8118a3;">Personal</li></ul>
+    {CVInfo.projects_personal.map(project => (
+      <div class="project">
+        <div class="project-header">
+          <div class="project-title">{project.title}</div>
+          <div class="project-year">{project.year}</div>
+        </div>
+        <div class="project-description" style="text-align:justify;">
+          {project.description}
+        </div>
+        <div class="flex justify-between md:flex-row flex-col">
+          <div class="project-technologies">
+            Technologies: {project.technologies}
+          </div>
+          <div class="project-link">
+            <a href={project.github ? project.github : '#'} class={project.github ? '' : 'empty_link'} target="_blank">
+              View on GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    ))}
+    <p style="text-align: right;"><a target="_blank"href="https://github.com/Genereux-akotenou">[ View more projects on github ... ]</a></p>
   </div>
 
   <!-- section5 -->
