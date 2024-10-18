@@ -1,11 +1,15 @@
 ---
-title: "The Growing Threat of Deepfakes: Challenges, State of the Art, and Solutions"
+title: 'The Growing Threat of Deepfakes: Challenges, State of the Art, and Solutions'
 description: >-
     Deepfakes are becoming increasingly sophisticated, presenting new challenges in detecting and combating disinformation. This article explores the current state of deepfake technology, its societal risks, and emerging solutions for mitigating these threats."
 pubDate: 2024-10-18T00:00:00.000Z
-heroImage: '../../assets/images/deepfake-threat.webp'
+heroImage: ../../assets/images/deepfake-threat.webp
 category: 'AI Ethics & Responsible Innovation'
-tags: ['Deepfakes', 'AI', 'Cybersecurity', 'Ethics']
+tags: 
+    - Deepfakes
+    - AI
+    - Cybersecurity
+    - Ethics
 ---
 
 ## Introduction
