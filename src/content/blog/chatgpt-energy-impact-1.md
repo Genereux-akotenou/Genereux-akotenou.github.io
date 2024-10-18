@@ -1,7 +1,8 @@
 ---
-title: 'The Environmental and Ethical Impact of Large Language Models: A Case Study on ChatGPT'
-description: 'As AI models like ChatGPT become ubiquitous, we need to understand their environmental footprint and the ethical concerns they raise. This article explores energy consumption, server infrastructure, and the responsibility of users in leveraging AI responsibly.'
-pubDate: 'Oct 18, 2024'
+title: 'Environmental & Ethical Impact of Large Language Models: A Case Study on ChatGPT'
+description: >-
+    As AI models like ChatGPT become ubiquitous, we need to understand their environmental footprint and the ethical concerns they raise. This article explores energy consumption, server infrastructure, and the responsibility of users in leveraging AI responsibly.
+pubDate: 2024-10-18T00:00:00.000Z
 heroImage: '../../assets/images/chatgpt-impact.webp'
 category: 'AI Ethics & Responsible Innovation'
 tags: ['AI', 'ChatGPT', 'Energy Consumption', 'Ethics', 'Responsible AI']
