@@ -1,0 +1,134 @@
+---
+title: 'Bank Reviews Intelligence Project'
+description: >-
+  A comprehensive business intelligence project analyzing African bank customer reviews for strategic insights.
+pubDate: 2024-10-26T22:00:00.000Z
+heroImage: ../../assets/images/BRI/napkin-selection (5).png
+category: Business Intelligence
+tags:
+  - Data Analysis
+  - Business Intelligence
+  - Data Visualization
+  - Web Scraping
+---
+
+# Bank Reviews Intelligence Project
+
+**Authors:**  
+ADEDE Ezéchiel, AKOTENOU Généreux, GBODOGBE Conité, KHLIFI Mohammed
+
+**Field:** Business Intelligence & Knowledge Discovery  
+**Supervisor:** Prof. BENELALLAM Imade
+
+---
+
+## Sommaire
+
+- [Introduction](#introduction)
+- [Overview](#overview)
+- [Data Collection](#data-collection)
+- [Data Transformation](#data-transformation)
+- [Data Warehouse](#data-warehouse)
+- [Visualization and Dashboard Creation](#visualization-and-dashboard-creation)
+- [Conclusion](#conclusion)
+
+---
+
+## Introduction
+
+Customer feedback is essential for banks to make strategic decisions. This project leverages business intelligence (BI) to analyze customer reviews of African banks, specifically using Google Maps reviews. The goal is to help banks in Africa make data-driven strategic decisions based on customer sentiment and topics discussed in reviews.
+
+---
+
+## 1. Overview
+
+**Business Objective:**  
+This project aims to extract and analyze bank customer reviews to uncover insights that inform strategic decision-making. The structured goals are:
+
+1. Analyzing reviews collected from Google Maps for actionable insights.
+2. Storing processed data in a data warehouse for structured access.
+3. Visualizing key findings through interactive dashboards.
+4. Providing strategic recommendations based on analyzed trends and sentiments.
+
+**Scope:**  
+The project focuses on reviews for African banks across six countries: Morocco, Benin, Senegal, Côte d'Ivoire, Ghana, and Kenya. Data collection includes:
+
+- Gathering Google Maps reviews.
+- Data processing, cleaning, and analysis for insights.
+- Conducting sentiment analysis and topic modeling on the collected reviews.
+
+---
+
+## 2. Project Structure
+
+The project involves several interconnected services:
+
+- **Airflow Service**: Orchestration of data workflows.
+- **DAGS Service**: Task scheduling and automation.
+- **Processing Service**: Review data processing and transformation.
+- **Scraping Service**: Data extraction through web scraping.
+- **Superset Service**: Visualization of data insights and dashboard creation.
+
+---
+
+## 3. Data Collection
+
+**Data Sources:**  
+The primary data source for this project is Google Maps reviews of banks in our target regions.
+
+**Tools and Techniques:**  
+Data collection is executed via web scraping with tools like Selenium and BeautifulSoup to automate the retrieval of review content. A video demonstration can be provided for a clearer understanding of this phase.
+
+---
+
+## 4. Data Transformation
+
+The collected data undergoes multiple transformation steps:
+
+1. **Data Extraction**: Retrieving raw data from Google Maps.
+2. **Data Formatting**: Converting timestamps and cleaning review text.
+3. **Text Processing**: Tokenization, removal of stop words, and stemming to prepare text for analysis.
+4. **Sentiment Analysis and Topic Modeling**:
+   - Identifying the main topics discussed by customers.
+   - Determining the sentiment of each topic.
+   - Recognizing subtopics relevant to banking services.
+
+Transformed data is organized in a macro table for structured access.
+
+### Transformation Approaches
+
+1. **Topification via LSA (Latent Semantic Analysis)**: Identifies recurring themes in reviews.
+2. **Topification via LLAMA 3**: Provides advanced topic modeling for nuanced insights.
+
+---
+
+## 5. Data Warehouse
+
+The project’s data warehouse design consists of:
+
+- **Fact Table**: Storing detailed review data.
+- **Dimension Tables**: Covering time, region, sentiment, subtopics, topics, reviewer details, bank information, and more.
+
+This structure is essential to provide a relational foundation for comprehensive data analysis and visualization.
+
+### Data Dictionary
+
+A data dictionary is developed to document the structure, contents, and relationships between data elements. A data mart is also created to facilitate focused analytics on specific business questions.
+
+---
+
+## 6. Visualization and Dashboard Creation
+
+Our visualizations and dashboards provide real-time, interactive insights based on review sentiment and topic analysis. Using Superset, we create tailored dashboards to track metrics like customer satisfaction and common complaints. These dashboards support actionable insights for strategic decisions by bank stakeholders.
+
+---
+
+## Conclusion
+
+This project delivers a comprehensive analysis of African bank customer reviews, enabling banks to make strategic decisions based on real customer sentiment and topical trends. Further expansions will focus on incorporating additional regions and refining topic modeling to capture emerging themes in customer feedback.
+
+---
+
+## Demo
+
+A live demo will be presented to showcase the data flow from collection to visualization. Additional batches are anticipated to enhance and validate insights across broader datasets.
