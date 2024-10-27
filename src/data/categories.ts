@@ -9,7 +9,7 @@ export const CATEGORIES = [
 	'MLOps',
 	'Bug Hutting',
 	'Bug Hutting',
-	'AI Ethics & Responsible Innovation',
+	'Ethics & Responsible AI',
 	'Business Intelligence',
 	'Category 4'
 ] as const
