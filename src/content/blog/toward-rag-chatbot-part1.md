@@ -47,12 +47,24 @@ This section outlines the development of the Data Ingestion pipeline, which form
 ---
 ###  Objectives
 - Build a Data Ingestion pipeline to process new documents.
-- Automate the detection and processing of documents using Apache Airflow.
 - Extract text from various document formats and convert them into manageable chunks.
 - Index these chunks and generate embedding vectors to store in a database.
 
 ###  Setup
-Let's install and import utils
+
+In our root directory, we will create a development folder to house all our scripts. For the initial processing step, we will create a new .ipynb file that will contain the complete data processing pipeline.
+
+```diff
+ ├─┬ DEV
++   ├── 1_Data_Ingestion.ipynb
+    ├── 2_Context_Retrieval.ipynb
+    ├── database
+    ├─┬ documents
+    │ └── *.pdf(Folder to add new documents)
+```
+
+
+In this section we edit the `Data_Ingestion.ipynb` file. Let's install and import utils
 
 ```python
 %pip install llama-index-readers-file pymupdf
@@ -153,8 +165,9 @@ vector_store = PGVectorStore.from_params(
     embed_dim=1024,  # (384) openai embedding dimension
 )
 ```
+###  Load Data
 
-1. Load Data: We have folder named `documents` which contain .pdf documents. This spinet of code extract text from each pdf and store them as list of docements.
+We have folder named `documents` which contain .pdf documents. This spinet of code extract text from each pdf and store them as list of docements.
 ```python
 from pathlib import Path
 from llama_index.readers.file import PyMuPDFReader
@@ -173,7 +186,9 @@ for file_path in pdf_files:
     file_path.rename(treated_file_path)
 ```
 
-2. Create document chuncks: Chunking plays a crucial role in building RAG. Since the documents can be large, it’s necessary to split them into manageable sizes to ensure efficient indexing and retrieval. We must define a chunk_size, which specifies the number of tokens each chunk will contain.
+###  Create document chuncks
+
+Chunking plays a crucial role in building RAG. Since the documents can be large, it’s necessary to split them into manageable sizes to ensure efficient indexing and retrieval. We must define a chunk_size, which specifies the number of tokens each chunk will contain.
 
 ```python
 from llama_index.core.node_parser import SentenceSplitter
@@ -189,7 +204,7 @@ for doc_idx, doc in enumerate(documents):
     doc_idxs.extend([doc_idx] * len(cur_text_chunks))
 ```
 
-3. Let's link each chunck to document sources metadata (Node Chunk)
+Let's link each chunck to document sources metadata (Node Chunk)
 ```python
 from llama_index.core.schema import TextNode
 
@@ -203,7 +218,8 @@ for idx, text_chunk in enumerate(text_chunks):
     nodes.append(node)
 ```
 
-4. Generate embeddings for each Node
+### Generate embeddings for each Node
+
 ```python
 for node in tqdm(nodes, ncols=100, desc="Generating embedding: "):
     node_embedding = embed_model.get_text_embedding(
@@ -211,7 +227,9 @@ for node in tqdm(nodes, ncols=100, desc="Generating embedding: "):
     )
     node.embedding = node_embedding
 ```
-Generating embedding: 100%|███████████████████████████████████████| 166/166 [01:14<00:00,  2.24it/s]
+Generating embedding: 100%|████████████████████| 166/166 [01:14<00:00,  2.24it/s]
+
+We cna get a look quick of the content of the first node: 
 ```pyhton
 nodes[0].dict().keys()
 ```
@@ -255,7 +273,219 @@ len(nodes[0].dict()['embedding'])
 ```
 1024
 
-5. Store embedding vector into PostgresSQL DB
+5. Store embedding vector into PostgresSQL DB: 
+
+Finally, we store the generated embeddings for each document chunk in the database. This setup ensures that when we initiate the retrieval process for a given query, we can efficiently access the vector that best matches the input, enabling quick and accurate information retrieval.
+
 ```python
 vector_store.add(nodes)
 ```
+
+## Retrieval and Generation pipeline
+
+In this section we will edit `2_Data_Ingestion.ipynb` file.
+
+```diff
+ ├─┬ DEV
+    ├── 1_Data_Ingestion.ipynb
++   ├── 2_Context_Retrieval.ipynb
+    ├── database
+    ├─┬ documents
+    │ └── *.pdf(Folder to add new documents)
+```
+### Context Retrieval
+
+Let's say we have on query which is about to now `How we can joiin career center in my university, UM6P?` The first step is to build an embedding vector corresponding to our query as show in the above cell of code
+
+```python
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+
+embed_model = HuggingFaceEmbedding(model_name="manu/bge-m3-custom-fr")
+query_str   = "Comment contacter le carrier center ?"
+query_embedding = embed_model.get_query_embedding(query_str)
+```
+
+Then the next step is to query our vector database to search for the chunck of docuement that match the best our query. The following code will search to top 2 matchiing  docuement using `cosine similarity`.
+
+```python
+from llama_index.core.vector_stores import VectorStoreQuery
+
+query_mode = "default" # "sparse" or "hybrid"
+
+vector_store_query = VectorStoreQuery(
+    query_embedding=query_embedding, similarity_top_k=2, mode=query_mode
+)
+```
+
+As we are doing this in new notebook we need to connect to our Database are retrieve our vector store so we can lauch our similarity search.
+
+```python
+from llama_index.vector_stores.postgres import PGVectorStore
+
+# DB Parameters
+db_name = "rag_vector_db"
+host = "localhost"
+password = "rag_password"
+port = "5433"
+user = "rag_user"
+
+vector_store = PGVectorStore.from_params(
+    database=db_name,
+    host=host,
+    password=password,
+    port=port,
+    user=user,
+    table_name="rag_paper_fr",
+    embed_dim=1024,
+)
+
+# Similarity search
+query_result = vector_store.query(vector_store_query)
+```
+```python
+query_result.ids
+```
+Here we have ids of matching documents: 
+['0d538711-cf99-46b1-af72-1aff9f98474b',
+ 'c4e5c5b5-9134-4c25-a84f-76c89ab4aff9']
+
+We can even look at similarityes score :
+```python
+query_result.similarities
+```
+[0.62223181459782, 0.5314870793513788]
+
+```python
+query_result.nodes
+```
+The ouput should look like this:
+```log
+[TextNode(id_='0d538711-cf99-46b1-af72-1aff9f98474b', embedding=None, metadata={'total_pages': 2, 'file_path': 'documents/UM6P-Phone_contact.pdf', 'source': '1'}, excluded_embed_metadata_keys=[], excluded_llm_metadata_keys=[], relationships={}, text='62\nCONTACTS\xa0:\nAdresse email\nTéléphone\nCareer Center\nComplexe sportif \nFacilities\nHealth Center\nHelpdesk informatique\nLanguage Lab\nLearning Center / \nBibliothèque\nMahir center\nBenguerir : Career.center@um6p.ma \nRabat : SCALE\nPole.sport@um6p.ma pour le \ncampus de Benguerir\nPole.sportcr@um6p.ma pour le \ncampus de Rabat\nHébergement : housingrequest@um6p.ma\nRestauration : cateringrequest@um6p.ma\nConsultation à distance\nAstreinte Health Center 7j/7\net 24H/24\nhealth.center@um6p.ma \nBenguérir : helpdesk@um6p.ma \nAstreinte 7j/7 et 24H/24\nIT Support RABAT:\nit-support-rabat@um6p.ma\nlanguagelab@um6p.ma \nBenguérir : lc@um6p.ma\nPortail : https://learningcenter.um6p.ma\nBureaux des aides documentalistes :\nBureau 1\nBureau 2\nRabat : bibliotheque.fgses@um6p.ma\nhttps://biblio.fgses-um6p.ma/\nmahircenter@um6p.ma \n05 25 07 27 00\n05 25 07 27 10\n06 16 14 01 93\n06 66 96 80 08\n05 25 07 32 04\n06 78 82 69 33 \n05 30 43 15 15\n05 25 07 28 97 \n05 25 07 32 00', mimetype='text/plain', start_char_idx=None, end_char_idx=None, text_template='{metadata_str}\n\n{content}', metadata_template='{key}: {value}', metadata_seperator='\n'),
+ TextNode(id_='c4e5c5b5-9134-4c25-a84f-76c89ab4aff9', embedding=None, metadata={'total_pages': 2, 'file_path': 'documents/UM6P-Phone_contact.pdf', 'source': '2'}, excluded_embed_metadata_keys=[], excluded_llm_metadata_keys=[], relationships={}, text='63\nRegistrariat\nSOLE (Student \nOrganizations, Leadership \nand Engagement)\nSAC (Student Activities \nCenter)\nStartgate\n1337 - école de \ncodage\nBenguerir : anas.benyoussef@um6p.ma\nRabat : bennaceur.baahmad@um6p.ma\nregistrariat@um6p.ma \nsole@um6p.ma\nsac@um6p.ma\nhello@startgate.ma\nhttps://startgate.ma/ \nhind@1337.ma; Yassir@1337.ma', mimetype='text/plain', start_char_idx=None, end_char_idx=None, text_template='{metadata_str}\n\n{content}', metadata_template='{key}: {value}', metadata_seperator='\n')]
+```
+
+As we could see this have selmect the best chunck of document containing the response or related contact information to carreer center. This defenitively will be a good context for generation part
+
+
+### Augemented Generation
+
+Now that we have a context that can contain the best response for the query, we need to use a LLM to make prompt so it generate response using this context. Here we use Llama2.
+
+```python
+from llama_index.llms.llama_cpp import LlamaCPP
+model_url = "https://huggingface.co/TheBloke/Llama-2-13B-chat-GGUF/resolve/main/llama-2-13b-chat.Q4_0.gguf"
+
+llm = LlamaCPP(
+    model_url=model_url,
+    model_path=None,
+    temperature=0.1,
+    max_new_tokens=256,
+    context_window=3900, #up to 4096
+    generate_kwargs={},
+    model_kwargs={"n_gpu_layers": 1},
+    verbose=True,
+)
+```
+
+We will build a retiever that wwill help us to automatically retreive context and send to our llm as query context.
+
+```python
+from llama_index.core import QueryBundle
+from llama_index.core.retrievers import BaseRetriever
+from typing import Any, List
+
+
+class VectorDBRetriever(BaseRetriever):
+    """Retriever over a postgres vector store."""
+
+    def __init__(
+        self,
+        vector_store: PGVectorStore,
+        embed_model: Any,
+        query_mode: str = "default",
+        similarity_top_k: int = 2,
+    ) -> None:
+        """Init params."""
+        self._vector_store = vector_store
+        self._embed_model = embed_model
+        self._query_mode = query_mode
+        self._similarity_top_k = similarity_top_k
+        super().__init__()
+
+    def _retrieve(self, query_bundle: QueryBundle) -> List[NodeWithScore]:
+        """Retrieve."""
+        query_embedding = embed_model.get_query_embedding(
+            query_bundle.query_str
+        )
+        vector_store_query = VectorStoreQuery(
+            query_embedding=query_embedding,
+            similarity_top_k=self._similarity_top_k,
+            mode=self._query_mode,
+        )
+        query_result = vector_store.query(vector_store_query)
+
+        nodes_with_scores = []
+        for index, node in enumerate(query_result.nodes):
+            score: Optional[float] = None
+            if query_result.similarities is not None:
+                score = query_result.similarities[index]
+            nodes_with_scores.append(NodeWithScore(node=node, score=score))
+
+        return nodes_with_scores
+```
+
+Here is the pipeline:
+
+
+```python
+retriever = VectorDBRetriever(
+    vector_store, embed_model, query_mode="default", similarity_top_k=2
+)
+```
+```python
+from llama_index.core.query_engine import RetrieverQueryEngine
+query_engine = RetrieverQueryEngine.from_args(retriever, llm=llm)
+```
+```python
+query_str = "Comment contacter le carrier center ?"
+response = query_engine.query(query_str)
+print(str(response))
+```
+And here is the response. Youpi !!!
+
+> Le carrier center est accessible par téléphone au 05 25 07 27 00 et par email à career.center@um6p.ma. Vous pouvez également contacter le helpdesk informatique à l'adresse helpdesk@um6p.ma pour obtenir des informations supplémentaires.
+
+## Conclusion
+So that is RAG. It can be simplified as an prompt engenerring technics that make possible for LLM to be good on private document.
+
+------
+## Automation for production-stage
+
+This is like an
+
+**What is Apache Airflow?**
+
+Apache Airflow is a powerful, open-source platform designed for programmatically authoring, scheduling, and monitoring workflows. It allows you to create complex data pipelines, orchestrate task execution, and manage dependencies efficiently. Airflow’s rich user interface provides a clear visualization of the pipeline's progress and status, making it a popular choice for data engineering tasks.
+
+**Our Approach to Automation**
+
+The goal is to deploy Apache Airflow using Docker and set up a system that automates the data ingestion pipeline. We will create a dedicated folder where new documents can be added at any time. Airflow will be configured to detect any changes in this folder and automatically launch the Python script that handles the entire processing pipeline, including the storage of document embeddings in the database.
+
+**Folder Structure**
+
+We will create a main folder named `PROD`, which will contain all necessary files and subdirectories for the pipeline. Here's the proposed folder architecture:
+
+#### Directory
+```diff
++ ├── DEV
+  ├─┬ PROD
+    ├── docker-compose.yml
+    ├─┬ documents
+    │ └── *.pdf(Folder to add new documents)
+    └─┬ processing
+      └── *.py(Python processing scripts)
+    └─┬ processing
+      └── *.log(monitoring and debugging)
+```
+
+
