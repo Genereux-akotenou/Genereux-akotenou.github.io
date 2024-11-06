@@ -120,7 +120,7 @@ We then start our Docker container to provision the database server:
 ```
 Expected output:
 
-```text
+```plaintext
 [+] Running 1/0
  ✔ Container rag_vector_db  Running 
  ```
@@ -285,10 +285,14 @@ vector_store.add(nodes)
 
 ## Retrieval and Generation pipeline
 
-In this section we will edit `2_Data_Ingestion.ipynb` file.
+![RAG Architecture](../../assets/images/RAG/Capture_19.39.16.png)  
+<!-- **Image 3: Model Parameter Selection for RAG Workflow** -->
+
+
+In this section we will edit `2_Data_Ingestion.ipynb` file:
 
 ```diff
- ├─┬ DEV
+  ├─┬ DEV
     ├── 1_Data_Ingestion.ipynb
 +   ├── 2_Context_Retrieval.ipynb
     ├── database
@@ -297,7 +301,7 @@ In this section we will edit `2_Data_Ingestion.ipynb` file.
 ```
 ### Context Retrieval
 
-Let's say we have one query about `how we can join the career center at UM6P`. The first step is to build an embedding vector corresponding to our query, as shown in the code cell above.
+Let's say we have one query about `how we can join the career center at UM6P ?` The first step is to build an embedding vector corresponding to our query, as shown in the code cell above.
 
 ```python
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
@@ -361,7 +365,7 @@ query_result.similarities
 query_result.nodes
 ```
 The ouput should look like this:
-```text
+```plaintext
 [TextNode(id_='0d538711-cf99-46b1-af72-1aff9f98474b', embedding=None, metadata={'total_pages': 2, 'file_path': 'documents/UM6P-Phone_contact.pdf', 'source': '1'}, excluded_embed_metadata_keys=[], excluded_llm_metadata_keys=[], relationships={}, text='62\nCONTACTS\xa0:\nAdresse email\nTéléphone\nCareer Center\nComplexe sportif \nFacilities\nHealth Center\nHelpdesk informatique\nLanguage Lab\nLearning Center / \nBibliothèque\nMahir center\nBenguerir : Career.center@um6p.ma \nRabat : SCALE\nPole.sport@um6p.ma pour le \ncampus de Benguerir\nPole.sportcr@um6p.ma pour le \ncampus de Rabat\nHébergement : housingrequest@um6p.ma\nRestauration : cateringrequest@um6p.ma\nConsultation à distance\nAstreinte Health Center 7j/7\net 24H/24\nhealth.center@um6p.ma \nBenguérir : helpdesk@um6p.ma \nAstreinte 7j/7 et 24H/24\nIT Support RABAT:\nit-support-rabat@um6p.ma\nlanguagelab@um6p.ma \nBenguérir : lc@um6p.ma\nPortail : https://learningcenter.um6p.ma\nBureaux des aides documentalistes :\nBureau 1\nBureau 2\nRabat : bibliotheque.fgses@um6p.ma\nhttps://biblio.fgses-um6p.ma/\nmahircenter@um6p.ma \n05 25 07 27 00\n05 25 07 27 10\n06 16 14 01 93\n06 66 96 80 08\n05 25 07 32 04\n06 78 82 69 33 \n05 30 43 15 15\n05 25 07 28 97 \n05 25 07 32 00', mimetype='text/plain', start_char_idx=None, end_char_idx=None, text_template='{metadata_str}\n\n{content}', metadata_template='{key}: {value}', metadata_seperator='\n'),
  TextNode(id_='c4e5c5b5-9134-4c25-a84f-76c89ab4aff9', embedding=None, metadata={'total_pages': 2, 'file_path': 'documents/UM6P-Phone_contact.pdf', 'source': '2'}, excluded_embed_metadata_keys=[], excluded_llm_metadata_keys=[], relationships={}, text='63\nRegistrariat\nSOLE (Student \nOrganizations, Leadership \nand Engagement)\nSAC (Student Activities \nCenter)\nStartgate\n1337 - école de \ncodage\nBenguerir : anas.benyoussef@um6p.ma\nRabat : bennaceur.baahmad@um6p.ma\nregistrariat@um6p.ma \nsole@um6p.ma\nsac@um6p.ma\nhello@startgate.ma\nhttps://startgate.ma/ \nhind@1337.ma; Yassir@1337.ma', mimetype='text/plain', start_char_idx=None, end_char_idx=None, text_template='{metadata_str}\n\n{content}', metadata_template='{key}: {value}', metadata_seperator='\n')]
 ```
