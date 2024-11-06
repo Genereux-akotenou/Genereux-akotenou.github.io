@@ -1,5 +1,5 @@
 ---
-title: 'Building a Retrieval-Augmented Generation (RAG) ChatBot'
+title: 'Building a Retrieval-Augmented Generation (RAG) ChatBot - Part I (Development stage)'
 description: >-
   Explore the design and implementation of a Retrieval-Augmented Generation (RAG) ChatBot
   for assisting students at university. This RAG-powered ChatBot provides information about
@@ -45,17 +45,17 @@ The main goal of this paper is to develop a RAG-powered ChatBot following the ar
 This section outlines the development of the Data Ingestion pipeline, which forms the first component of our architecture (see Image 1). We begin by implementing a Python script to orchestrate the data ingestion process and later automate this workflow using tools like Apache Airflow. Here is a breakdown of our objectives and the steps involved:
 
 ---
+
 ###  Objectives
 - Build a Data Ingestion pipeline to process new documents.
 - Extract text from various document formats and convert them into manageable chunks.
 - Index these chunks and generate embedding vectors to store in a database.
 
 ###  Setup
-
-In our root directory, we will create a development folder to house all our scripts. For the initial processing step, we will create a new .ipynb file that will contain the complete data processing pipeline.
+In our root directory, we will create a development folder to house all our scripts. For the initial processing step, we will create a new `.ipynb` file that will contain the complete data processing pipeline.
 
 ```diff
- ├─┬ DEV
+  ├─┬ DEV
 +   ├── 1_Data_Ingestion.ipynb
     ├── 2_Context_Retrieval.ipynb
     ├── database
@@ -64,7 +64,7 @@ In our root directory, we will create a development folder to house all our scri
 ```
 
 
-In this section we edit the `Data_Ingestion.ipynb` file. Let's install and import utils
+In this section we edit the `1_Data_Ingestion.ipynb` file. Let's install and import utils
 
 ```python
 %pip install llama-index-readers-file pymupdf
@@ -90,13 +90,13 @@ We then create an instance of our embedding model using the following code:
 ```python
 embed_model = HuggingFaceEmbedding(model_name="manu/bge-m3-custom-fr")
 ```
-Once we have the embedding model, we need a storage database to store the vectors of document chunks that our chatbot will use.
+Once we have the embedding model ready, we need a database to store the vectors of document chunks that our chatbot will use.
 
 ```bash
 # Let's create database folder to setup our DB
 ! mkdir database
 ```
-We then need to create a `docker-compose.yml` file to provision a PostgreSQL database that supports `pgvector`. This support is important because `pgvector` allows us to efficiently handle and query vector data within our database.
+Next, we need to create a `docker-compose.yml` file to provision a PostgreSQL database that supports `pgvector`. This support is essential because `pgvector` allows us to efficiently handle and query vector data within our database.
 ```yaml
 %%writefile database/docker-compose.yml
 version: '3.8'
@@ -150,6 +150,7 @@ with conn.cursor() as c:
     c.execute(f"DROP DATABASE IF EXISTS {db_name}")
     c.execute(f"CREATE DATABASE {db_name}")
 ```
+
 Next, we set up **PGVectorStore**, which provides functionality for writing and querying vector data in PostgreSQL:
 
 ```python
@@ -167,7 +168,8 @@ vector_store = PGVectorStore.from_params(
 ```
 ###  Load Data
 
-We have folder named `documents` which contain .pdf documents. This spinet of code extract text from each pdf and store them as list of docements.
+We have a folder named `documents` that contains .pdf documents. This snippet of code extracts text from each PDF and stores them as a list of documents:
+
 ```python
 from pathlib import Path
 from llama_index.readers.file import PyMuPDFReader
@@ -188,7 +190,7 @@ for file_path in pdf_files:
 
 ###  Create document chuncks
 
-Chunking plays a crucial role in building RAG. Since the documents can be large, it’s necessary to split them into manageable sizes to ensure efficient indexing and retrieval. We must define a chunk_size, which specifies the number of tokens each chunk will contain.
+Chunking plays a crucial role in building RAG. Since documents can be large, it’s necessary to split them into manageable sizes to ensure efficient indexing and retrieval. We must define a `chunk_size`, which specifies the number of tokens each chunk will contain.
 
 ```python
 from llama_index.core.node_parser import SentenceSplitter
@@ -295,7 +297,7 @@ In this section we will edit `2_Data_Ingestion.ipynb` file.
 ```
 ### Context Retrieval
 
-Let's say we have on query which is about to now `How we can joiin career center in my university, UM6P?` The first step is to build an embedding vector corresponding to our query as show in the above cell of code
+Let's say we have one query about `how we can join the career center at UM6P`. The first step is to build an embedding vector corresponding to our query, as shown in the code cell above.
 
 ```python
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
@@ -305,7 +307,7 @@ query_str   = "Comment contacter le carrier center ?"
 query_embedding = embed_model.get_query_embedding(query_str)
 ```
 
-Then the next step is to query our vector database to search for the chunck of docuement that match the best our query. The following code will search to top 2 matchiing  docuement using `cosine similarity`.
+The next step is to query our vector database to search for the document chunk that best matches our query. The following code will search for the top 2 matching documents using `cosine similarity`.
 
 ```python
 from llama_index.core.vector_stores import VectorStoreQuery
@@ -317,7 +319,7 @@ vector_store_query = VectorStoreQuery(
 )
 ```
 
-As we are doing this in new notebook we need to connect to our Database are retrieve our vector store so we can lauch our similarity search.
+As we are doing this in a new notebook, we need to connect to our database and retrieve our vector store so we can launch our similarity search.
 
 ```python
 from llama_index.vector_stores.postgres import PGVectorStore
@@ -364,12 +366,12 @@ The ouput should look like this:
  TextNode(id_='c4e5c5b5-9134-4c25-a84f-76c89ab4aff9', embedding=None, metadata={'total_pages': 2, 'file_path': 'documents/UM6P-Phone_contact.pdf', 'source': '2'}, excluded_embed_metadata_keys=[], excluded_llm_metadata_keys=[], relationships={}, text='63\nRegistrariat\nSOLE (Student \nOrganizations, Leadership \nand Engagement)\nSAC (Student Activities \nCenter)\nStartgate\n1337 - école de \ncodage\nBenguerir : anas.benyoussef@um6p.ma\nRabat : bennaceur.baahmad@um6p.ma\nregistrariat@um6p.ma \nsole@um6p.ma\nsac@um6p.ma\nhello@startgate.ma\nhttps://startgate.ma/ \nhind@1337.ma; Yassir@1337.ma', mimetype='text/plain', start_char_idx=None, end_char_idx=None, text_template='{metadata_str}\n\n{content}', metadata_template='{key}: {value}', metadata_seperator='\n')]
 ```
 
-As we could see this have selmect the best chunck of document containing the response or related contact information to carreer center. This defenitively will be a good context for generation part
+As we can see, this has selected the best document chunk containing the response or contact information related to the career center. This will be a good context for the generation part.
 
 
 ### Augemented Generation
 
-Now that we have a context that can contain the best response for the query, we need to use a LLM to make prompt so it generate response using this context. Here we use Llama2.
+Now that we have a context that likely contains the best response for the query, we need to use a LLM to generate a response based on this context. Here, we use Llama2.
 
 ```python
 from llama_index.llms.llama_cpp import LlamaCPP
@@ -387,7 +389,7 @@ llm = LlamaCPP(
 )
 ```
 
-We will build a retiever that wwill help us to automatically retreive context and send to our llm as query context.
+We will build a retriever that will help us automatically retrieve context and send it to our LLM as query context.
 
 ```python
 from llama_index.core import QueryBundle
@@ -451,41 +453,32 @@ query_str = "Comment contacter le carrier center ?"
 response = query_engine.query(query_str)
 print(str(response))
 ```
-And here is the response. Youpi !!!
 
+And here is the response: Youpi !!!
+
+> <>
 > Le carrier center est accessible par téléphone au 05 25 07 27 00 et par email à career.center@um6p.ma. Vous pouvez également contacter le helpdesk informatique à l'adresse helpdesk@um6p.ma pour obtenir des informations supplémentaires.
+> <>
 
 ## Conclusion
-So that is RAG. It can be simplified as an prompt engenerring technics that make possible for LLM to be good on private document.
+So, that is RAG. It can be simplified as a prompt engineering technique that enables LLMs to handle private documents effectively.
 
 ------
 ## Automation for production-stage
 
-This is like an
+![RAG Architecture](../../assets/images/RAG/Capture_11.16.47.png)  
+**Image 4: Rag-Chatbot UI**
 
-**What is Apache Airflow?**
+As shown in <a href="#image-4">Image 4</a>, we have an interface serving our app. The second part of this article will focus on designing an architecture to build a production-ready chatbot. I will publish part 2 on my blog.
 
-Apache Airflow is a powerful, open-source platform designed for programmatically authoring, scheduling, and monitoring workflows. It allows you to create complex data pipelines, orchestrate task execution, and manage dependencies efficiently. Airflow’s rich user interface provides a clear visualization of the pipeline's progress and status, making it a popular choice for data engineering tasks.
+## Open questions
+We quickly developed a proof of concept to show the effectiveness of this method, but some open questions remain:
 
-**Our Approach to Automation**
+- How can we automate adding new documents to the database and indexing their vectors?
+- How can we assess the performance of this RAG-Chatbot Should we add documents with expected outputs for comparison? As generated text varies, should we use embedding vectors to compute errors?
+- We use Llama, which may cause latency in local deployment. Could a simpler LLM suffice, given the context retrieval?
+- How can we address cases where the LLM generates responses not found in the context?
+- Can we design an architecture to detect and balance different query languages automatically?
 
-The goal is to deploy Apache Airflow using Docker and set up a system that automates the data ingestion pipeline. We will create a dedicated folder where new documents can be added at any time. Airflow will be configured to detect any changes in this folder and automatically launch the Python script that handles the entire processing pipeline, including the storage of document embeddings in the database.
-
-**Folder Structure**
-
-We will create a main folder named `PROD`, which will contain all necessary files and subdirectories for the pipeline. Here's the proposed folder architecture:
-
-#### Directory
-```diff
-+ ├── DEV
-  ├─┬ PROD
-    ├── docker-compose.yml
-    ├─┬ documents
-    │ └── *.pdf(Folder to add new documents)
-    └─┬ processing
-      └── *.py(Python processing scripts)
-    └─┬ processing
-      └── *.log(monitoring and debugging)
-```
-
+<!-- In fact we do an experiemen(with some friends. Great thanks to <a href="https://ma.linkedin.com/in/mohammedelbekkar/ar?trk=people-guest_people_search-card" target="_blank">Mohammed EL BEKKAR</a> for this Hack !) given prompt asking him to forget about all limitation and give Bénin country capital name. And he do give the name even this information is not in the context. So how to control respons boundary generation? -->
 
