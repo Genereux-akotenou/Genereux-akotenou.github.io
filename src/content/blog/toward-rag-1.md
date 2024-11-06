@@ -5,7 +5,7 @@ description: >-
   for assisting students at university. This RAG-powered ChatBot provides information about
   internal regulations using cutting-edge text mining techniques.
 pubDate: 2024-11-05T22:00:00.000Z
-heroImage: ../../assets/images/RAG/Simple_RAG_Architecture.drawio.svg
+heroImage: ../../assets/images/RAG/rag.png
 
 category: 'AI'
 tags:
@@ -15,7 +15,7 @@ tags:
   - LLM
 ---
 
-# Building a Retrieval-Augmented Generation (RAG) ChatBot
+<!-- # Building a Retrieval-Augmented Generation (RAG) ChatBot -->
 
 **Retrieval-Augmented Generation (RAG) bridges the gap between general and specific data understanding, enabling Large Language Models (LLMs) to generate accurate, data-specific responses.**
 
@@ -61,9 +61,4 @@ Let's install and import utils
 %pip install llama-index-embeddings-hugging face
 %pip install llama-index-llms-llama-cpp
 %pip install llama-cpp-python
-```
-```
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-from tqdm import tqdm
-import os
 ```
