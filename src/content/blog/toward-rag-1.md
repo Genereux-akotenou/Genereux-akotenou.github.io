@@ -15,7 +15,7 @@ tags:
   - LLM
 ---
 
-## Building a Retrieval-Augmented Generation (RAG) ChatBot
+# Building a Retrieval-Augmented Generation (RAG) ChatBot
 
 **Retrieval-Augmented Generation (RAG) bridges the gap between general and specific data understanding, enabling Large Language Models (LLMs) to generate accurate, data-specific responses.**
 
