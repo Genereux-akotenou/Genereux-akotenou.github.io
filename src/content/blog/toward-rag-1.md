@@ -67,8 +67,3 @@ from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from tqdm import tqdm
 import os
 ```
-
-We need to convert text into vectors as a key functionality. Our goal is to build a chatbot for French documents, so we researched embedding models available on Hugging Face. Using the leaderboard at [this link](https://huggingface.co/spaces/mteb/leaderboard), we selected `bge-m3-custom-fr` for its optimal balance between computational efficiency and performance. Refer to <a href="#image-2">Image 2</a> below, which illustrates the model parameters we considered for this choice.
-
-![RAG Architecture](../../assets/images/RAG/model.png)  
-**Image 2: Model Parameter Selection for RAG Workflow**
