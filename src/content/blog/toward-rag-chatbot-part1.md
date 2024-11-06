@@ -1,5 +1,5 @@
 ---
-title: 'Building a Retrieval-Augmented Generation (RAG) ChatBot - Part I (Development stage)'
+title: 'Building a Retrieval-Augmented Generation ChatBot - Part I (Development stage)'
 description: >-
   Explore the design and implementation of a Retrieval-Augmented Generation (RAG) ChatBot
   for assisting students at university. This RAG-powered ChatBot provides information about
