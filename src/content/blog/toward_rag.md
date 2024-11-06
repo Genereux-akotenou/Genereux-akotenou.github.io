@@ -5,7 +5,7 @@ description: >-
   for assisting students at university. This RAG-powered ChatBot provides information about
   internal regulations using cutting-edge text mining techniques.
 pubDate: 2024-11-05T22:00:00.000Z
-heroImage: ../../assets/images/RAG/rag.png
+heroImage: ../../assets/images/RAG/Simple_RAG_Architecture.drawio.svg
 
 category: 'AI'
 tags:
@@ -56,10 +56,3 @@ This section outlines the development of the Data Ingestion pipeline, which form
 #####  Setup
 Let's install and import utils
 
-```astro
-%pip install llama-index-readers-file pymupdf
-%pip install llama-index-vector-stores-postgres
-%pip install llama-index-embeddings-hugging face
-%pip install llama-index-llms-llama-cpp
-%pip install llama-cpp-python
-```
