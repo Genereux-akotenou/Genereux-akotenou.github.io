@@ -55,14 +55,14 @@ This section outlines the development of the Data Ingestion pipeline, which form
 
 #####  Setup
 Let's install and import utils
-```python
+```
 %pip install llama-index-readers-file pymupdf
 %pip install llama-index-vector-stores-postgres
 %pip install llama-index-embeddings-hugging face
 %pip install llama-index-llms-llama-cpp
 %pip install llama-cpp-python
 ```
-```python
+```
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from tqdm import tqdm
 import os
