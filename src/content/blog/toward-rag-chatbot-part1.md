@@ -5,7 +5,7 @@ description: >-
   for assisting students at university. This RAG-powered ChatBot provides information about
   internal regulations using cutting-edge text mining techniques.
 pubDate: 2024-11-05T22:00:00.000Z
-heroImage: ../../assets/images/RAG/Simple_RAG_Architecture.drawio.svg
+heroImage: ../../assets/images/RAG/rag.png
 
 category: 'AI'
 tags:
