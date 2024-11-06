@@ -55,7 +55,8 @@ This section outlines the development of the Data Ingestion pipeline, which form
 
 #####  Setup
 Let's install and import utils
-```
+
+```astro
 %pip install llama-index-readers-file pymupdf
 %pip install llama-index-vector-stores-postgres
 %pip install llama-index-embeddings-hugging face
