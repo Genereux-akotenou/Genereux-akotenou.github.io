@@ -479,7 +479,7 @@ As shown in <a href="#image-4">Image 4</a>, we have an interface serving our app
 We quickly developed a proof of concept to show the effectiveness of this method, but some open questions remain:
 
 - How can we automate adding new documents to the database and indexing their vectors?
-- How can we assess the performance of this RAG-Chatbot Should we add documents with expected outputs for comparison? As generated text varies, should we use embedding vectors to compute errors?
+- How can we assess the performance of this RAG-Chatbot ? Should we add documents with expected outputs for comparison? As generated text varies, should we use embedding vectors to compute errors?
 - We use Llama, which may cause latency in local deployment. Could a simpler LLM suffice, given the context retrieval?
 - How can we address cases where the LLM generates responses not found in the context?
 - Can we design an architecture to detect and balance different query languages automatically?
