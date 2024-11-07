@@ -38,6 +38,30 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render()
 const disqusEnabled = disqusConfig.enabled
 ---
 
+<style>
+@media (min-width: 768px) {
+    .md\:text-6xl {
+        font-size: 3rem !important;
+        line-height: 1;
+    }
+}
+@media (min-width: 768px) {
+    .md\:prose-xl :where(h1):not(:where([class~=not-prose],[class~=not-prose] *)) {
+        font-size: 2em !important;
+        margin-top: 0;
+        margin-bottom: .8571429em;
+        line-height: 1;
+    }
+}
+@media (min-width: 768px) {
+    .md\:prose-xl :where(h2):not(:where([class~=not-prose],[class~=not-prose] *)) {
+        font-size: 1.3em !important;
+        margin-top: 1.5555556em;
+        margin-bottom: .8888889em;
+        line-height: 1.1111111;
+    }
+}
+</style>
 <BlogPost
 	id={post.id}
 	data={post.data}
@@ -48,7 +72,7 @@ const disqusEnabled = disqusConfig.enabled
 		<!-- aside  -->
 		<aside class='md:flex flex-col gap-8 hidden'>
 			<Share />
-			<a href="#disqus_thread">Link</a>
+			<!--<a href="#disqus_thread">Link</a>-->
 			<div class='sticky top-24 self-start hidden md:block transition-all duration-200'>
 				{headings && headings.length > 0 && <TableOfContents {headings} />}
 			</div>
@@ -56,7 +80,7 @@ const disqusEnabled = disqusConfig.enabled
 
 		<!-- post -->
 		<article class='max-w-full w-full'>
-			<div style="transform: scale(0.9); transform-origin: top;">
+			<div style_="transform: scale(0.9); transform-origin: top;">
 			<div class='prose prose-lg md:prose-xl dark:prose-invert mb-12 min-w-full'>
 				<Content components={{ pre: Code, SButton }} />
 			</div>
