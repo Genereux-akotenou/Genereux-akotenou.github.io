@@ -4,6 +4,6 @@ interface DisqusConfig {
 }
 
 export const disqusConfig: DisqusConfig = {
-	enabled: false,
-	shortname: ''
+	enabled: true,
+	shortname: 'genereux-akotenou'
 }
