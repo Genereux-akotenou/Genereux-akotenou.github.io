@@ -41,13 +41,20 @@
 
 @media (min-width: 768px) {
 	.md\:text-6xl {
-		font-size: 1em !important;
-		color: red;
+		font-size: 1.7em !important;
 		line-height: 1;
 	}
 }
 .prose :where(a):not(:where([class~=not-prose],[class~=not-prose] *)) {
-    color: #483cfc !important;
+    color: #1ea1f1 !important;
     text-decoration: underline;
     font-weight: 500;
+}
+.cite_style{
+	position: relative;
+	top: -0.4em;
+	left: -0.2em;
+	font-size: 0.8em;
+	color: #1ea1f1 !important;
+	text-decoration: none;
 }
