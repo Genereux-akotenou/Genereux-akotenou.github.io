@@ -2,11 +2,16 @@
 title: 'A Review of Generative Adversarial Network'
 description: >
   A comprehensive review of Generative Adversarial Networks (GANs), exploring their architecture, functioning, and various applications in fields like image generation, text synthesis, and data augmentation.
-pubDate: 2022-07-01T22:00:00.000Z
-heroImage: ../../assets/images/GAN/GAN.png
+pubDate: 2024-11-08T22:00:00.000Z
+heroImage: ../../assets/images/GAN/painting_dalle.webp
 category: 'AI'
 tags:
-  - AI
+  - GAN
+  - Image Synthesis and Modificatio
+  - Text-to-Image Synthesis
+  - Deepfake Generation
+  - Data Augmentation
+draft: true
 ---
 
 ## Introduction
