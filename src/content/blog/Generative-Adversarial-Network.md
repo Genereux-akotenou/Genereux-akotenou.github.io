@@ -3,7 +3,7 @@ title: 'A Review of Generative Adversarial Network'
 description: >
   A comprehensive review of Generative Adversarial Networks (GANs), exploring their architecture, functioning, and various applications in fields like image generation, text synthesis, and data augmentation.
 pubDate: 2024-11-08T22:00:00.000Z
-heroImage: ../../assets/images/GAN/painting_dalle.webp
+heroImage: ../../assets/images/GAN/Edmond_de_Belamy_chunk1.webp #Edmond_de_Belamy.png
 category: 'AI'
 tags:
   - GAN
@@ -13,10 +13,31 @@ tags:
   - Data Augmentation
 draft: false
 ---
-
 ## Introduction
 
+Do you recognize the image placeholder in this article? The image, signed with mathematical formulas, is a portion of Image 1: the **Portrait of Edmond Belamy**. This artwork, created with an AI algorithm known as a <a href="#reference-2" class="cst">GAN (Generative Adversarial Network)</a>, was crafted by the Paris-based collective Obvious, which includes members Hugo Caselles-Dupre, Pierre Fautrel, and Gauthier Vernier. The portrait was auctioned by Christie’s in New York from Oct 23 to 25, with an estimated sale price of \$7,000 to \$10,000<a href="#reference-1" class="cst">[1]</a>. The mathematical code signed within the image is part of the GAN’s **loss function**, contributing to its creation.
+
+![Portrait of Edmond Belamy](../../assets/images/GAN/Edmond_de_Belamy_2.webp)  
+**Image 1: Portrait of Edmond Belamy**
+
+Generative Adversarial Networks (GANs) are a groundbreaking AI technique developed by Ian Goodfellow and his team in 2014<a href="#reference-2" class="cst">[2]</a>. The name "Belamy" in the portrait title also hints at "Bel ami," which translates from French as "Good friend," a nod to GAN creator Mr. Goodfellow.
+
+But how did this technique, which seemingly gives imagination to computers, come to be? Let’s take a look.
+
+## StoryTime
+
+In 2014, while celebrating a friend’s graduation at Les 3 Brasseurs in Montreal, Ian Goodfellow was asked for help on a challenging project: creating computer-generated photos. Traditional neural networks, used as generative models, often produced blurry or incomplete images. Goodfellow initially doubted his friends' approach, as it required extensive computation. However, over a beer, he conceived a different idea: pitting two neural networks against each other. 
+
+Later that night, he coded his idea and tested it. To his surprise, it worked on the first try. This innovation became known as a GAN, a breakthrough that opened new possibilities in artificial intelligence, particularly in fields like image synthesis, video generation, text-to-image creation, and data augmentation.
+
+## How GANs Work
+
+
+------- DRAFT
+
 Generative Adversarial Networks (GANs) are a revolutionary AI technique developed by Ian Goodfellow and his team in 2014<a href="#reference-1" class="cst">[1]</a>. GANs are unique in that they involve two neural networks—the Generator and the Discriminator—working in tandem to create realistic data imitations. This innovative approach has opened new possibilities in artificial intelligence, particularly in fields like image synthesis, video generation, text-to-image creation, and data augmentation.
+
+## How GANs Work
 
 <!-- ## How GANs Work
 
@@ -61,4 +82,6 @@ Generative Adversarial Networks represent a breakthrough in machine learning, pu
 
 ## References
 
-1. <span id="reference-1">Goodfellow, Ian, Pouget-Abadie, Jean, Mirza, Mehdi, Xu, Bing, Warde-Farley, David, Ozair, Sherjil, Courville, Aaron, & Bengio, Y. (2014). Generative Adversarial Networks. *Advances in Neural Information Processing Systems*, 3. https://doi.org/10.1145/3422622.</span>
+1. <span id="reference-2">https://fr.wikipedia.org/wiki/Portrait_d%27Edmond_de_Belamy</span>
+
+2. <span id="reference-2">Goodfellow, Ian, Pouget-Abadie, Jean, Mirza, Mehdi, Xu, Bing, Warde-Farley, David, Ozair, Sherjil, Courville, Aaron, & Bengio, Y. (2014). Generative Adversarial Networks. *Advances in Neural Information Processing Systems*, 3. https://doi.org/10.1145/3422622.</span>
