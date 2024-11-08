@@ -11,7 +11,7 @@ tags:
 
 ## Introduction
 
-Generative Adversarial Networks (GANs) are a revolutionary AI technique developed by Ian Goodfellow and his team in 2014<a href="#reference-1">[1]</a>. GANs are unique in that they involve two neural networks—the Generator and the Discriminator—working in tandem to create realistic data imitations. This innovative approach has opened new possibilities in artificial intelligence, particularly in fields like image synthesis, video generation, text-to-image creation, and data augmentation.
+Generative Adversarial Networks (GANs) are a revolutionary AI technique developed by Ian Goodfellow and his team in 2014<a href="#reference-1" class="cst">[1]</a>. GANs are unique in that they involve two neural networks—the Generator and the Discriminator—working in tandem to create realistic data imitations. This innovative approach has opened new possibilities in artificial intelligence, particularly in fields like image synthesis, video generation, text-to-image creation, and data augmentation.
 
 <!-- ## How GANs Work
 
