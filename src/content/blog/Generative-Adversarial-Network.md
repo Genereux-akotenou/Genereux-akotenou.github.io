@@ -11,7 +11,7 @@ tags:
   - Text-to-Image Synthesis
   - Deepfake Generation
   - Data Augmentation
-draft: true
+draft: false
 ---
 
 ## Introduction
