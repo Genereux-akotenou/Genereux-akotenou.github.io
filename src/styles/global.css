@@ -26,13 +26,6 @@
 	  color: var(--shiki-dark) !important;
 	  background-color: theme(colors.gray.900) !important;
 	}
-	@media (min-width: 768px) {
-		.md\:text-6xl {
-			font-size: 1em !important;
-			color: red;
-			line-height: 1;
-		}
-	}
 }
 
 .glass {
@@ -46,3 +39,15 @@
 	box-shadow: -5px 3px 8px 1px rgba(0, 0, 0, 0.12);
 }
 
+@media (min-width: 768px) {
+	.md\:text-6xl {
+		font-size: 1em !important;
+		color: red;
+		line-height: 1;
+	}
+}
+.prose :where(a):not(:where([class~=not-prose],[class~=not-prose] *)) {
+    color: #483cfc !important;
+    text-decoration: underline;
+    font-weight: 500;
+}
