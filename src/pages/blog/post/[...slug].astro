@@ -86,12 +86,7 @@ const disqusEnabled = disqusConfig.enabled
 			</div>
 
 			<!-- related posts -->
-
-			<footer>
-				<h2 class='font-bold text-lg dark:text-white mb-6'>Related Posts</h2>
-				<ListRelatedPosts posts={relatedPosts} />
-			</footer>
-			<div id="disqus_thread"></div>
+			<!--<div id="disqus_thread"></div>
 			<script>
 				/**
 				*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -109,10 +104,15 @@ const disqusEnabled = disqusConfig.enabled
 				(d.head || d.body).appendChild(s);
 				})();
 			</script>
-			<script id="dsq-count-scr" src="//genereux-akotenou.disqus.com/count.js" async></script>
+			<script id="dsq-count-scr" src="//genereux-akotenou.disqus.com/count.js" async></script>-->
+			<footer>
+				<h2 class='font-bold text-lg dark:text-white mb-6'>Related Posts</h2>
+				<ListRelatedPosts posts={relatedPosts} />
+			</footer>
+			{disqusEnabled && <Disqus />}
 			</div>
 		</article>
 	</div>
 
-	{disqusEnabled && <Disqus />}
+	
 </BlogPost>
