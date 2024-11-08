@@ -38,3 +38,11 @@
 .shadow {
 	box-shadow: -5px 3px 8px 1px rgba(0, 0, 0, 0.12);
 }
+
+@media (min-width: 768px) {
+    .md\:text-6xl {
+        font-size: xx-large;
+		color: red;
+        line-height: 1;
+    }
+}
