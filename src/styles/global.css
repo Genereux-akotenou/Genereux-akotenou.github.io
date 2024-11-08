@@ -58,3 +58,21 @@
 	color: #1ea1f1 !important;
 	text-decoration: none;
 }
+@media (min-width: 768px) {
+    .md\:prose-xl :where(h1):not(:where([class~=not-prose],[class~=not-prose] *)) {
+        font-size: 1.4em !important;
+    }
+}
+@media (min-width: 768px) {
+    .md\:prose-xl :where(h2):not(:where([class~=not-prose],[class~=not-prose] *)) {
+        font-size: 1.3em !important;
+    }
+}
+@media (min-width: 768px) {
+    .md\:prose-xl :where(h3):not(:where([class~=not-prose],[class~=not-prose] *)) {
+        font-size: 1.2em;
+        margin-top: 1.6em;
+        margin-bottom: .6666667em;
+        line-height: 1.3333333;
+    }
+}
