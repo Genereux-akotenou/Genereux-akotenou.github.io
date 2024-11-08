@@ -1,9 +1,14 @@
 ---
 import { disqusConfig } from '@/data/disqus.config'
 ---
-
+<style>
+.embed-refresh-v2 .nav-primary--refresh {
+    margin-bottom: 24px;
+    border-bottom: 1px solid #c2c6cc !important;
+}
+</style>
 <div class='mx-auto max-w-3xl pt-8 md:pt-4 pb-12 md:pb-20'>
-	<div id='disqus_thread'></div>
+	<div id='disqus_thread' style='background: #e2e8f0; padding: 1em; border-radius: 0.7em;'></div>
 	<script define:vars={{ shortname: disqusConfig.shortname }}>
 		var d = document,
 			s = d.createElement('script')
