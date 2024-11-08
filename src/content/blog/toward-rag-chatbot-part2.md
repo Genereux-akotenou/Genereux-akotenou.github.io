@@ -12,6 +12,8 @@ tags:
   - ChatBot
   - Text Mining
   - LLM
+  
+draft: false
 ---
 
 In this second part of the project, we’ll focus on setting up a web application interface for the Retrieval-Augmented Generation (RAG) ChatBot. We'll create a UI for users to interact with the chatbot, process their requests, and receive responses based on the RAG system.

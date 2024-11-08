@@ -13,6 +13,8 @@ tags:
   - ChatBot
   - Text Mining
   - LLM
+  
+draft: false
 ---
 
 **Retrieval-Augmented Generation (RAG) bridges the gap between general and specific data understanding, enabling Large Language Models (LLMs) to generate accurate, data-specific responses.**
