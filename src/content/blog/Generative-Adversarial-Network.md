@@ -123,7 +123,7 @@ During training, both networks are presented with a mix of real images (from the
 
 This competitive process ultimately leads to a balance, where the generator creates highly convincing samples and the discriminator’s ability to spot fakes is optimized.
 
-![Basic GAN Illustration](../../assets/images/GAN/GAN_simple_illustration.png)
+![Basic GAN Illustration](../../assets/images/GAN/GAN_architecture.drawio.png)
 
 
 
