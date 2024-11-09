@@ -12,13 +12,13 @@ tags:
   - Deepfake Generation
   - Data Augmentation
   
-draft: true
+draft: false
 ---
 ## Introduction
 
 Do you recognize the image placeholder in this article? The image, signed with mathematical formulas, is a portion of Image 1: the **Portrait of Edmond Belamy**. This artwork, created with an AI algorithm known as a <a href="#reference-2" class="cst">GAN (Generative Adversarial Network)</a>, was crafted by the Paris-based collective Obvious, which includes members Hugo Caselles-Dupre, Pierre Fautrel, and Gauthier Vernier. The portrait was auctioned by Christie’s in New York from Oct 23 to 25, with an estimated sale price of \$7,000 to \$10,000<a href="#reference-1" class="cst">[1]</a>. The mathematical code signed within the image is part of the GAN’s **loss function**, contributing to its creation.
 
-<div class="slideshow-container">
+<!-- <div class="slideshow-container">
   <div class="mySlides fade">
     <img src="../../assets/images/GAN/Edmond_de_Belamy_1.webp" style="width:100%">
   </div>
@@ -81,9 +81,9 @@ Do you recognize the image placeholder in this article? The image, signed with m
     slides[slideIndex-1].style.display = "block";  
     setTimeout(showSlides, 3000); // Change image every 3 seconds
   }
-</script>
+</script> -->
 
-<!-- ![Portrait of Edmond Belamy](../../assets/images/GAN/Edmond_de_Belamy_2.webp)   -->
+![Portrait of Edmond Belamy](../../assets/images/GAN/Edmond_de_Belamy_2.webp)  
 **Image 1: Portrait of Edmond Belamy (The overall collection is available <a href="https://obvious-art.com/la-famille-belamy/" target="_blank">here</a>)**
 
 Generative Adversarial Networks (GANs) are a groundbreaking AI technique developed by Ian Goodfellow and his team in 2014<a href="#reference-2" class="cst">[2]</a>. The name "Belamy" in the portrait title also hints at "Bel ami," which translates from French as "Good friend," a nod to GAN creator Mr. Goodfellow.
