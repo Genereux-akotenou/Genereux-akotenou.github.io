@@ -3,7 +3,7 @@ title: "A Deep Dive into Encoder-Decoder Architecture: How Neural Networks Under
 description: >
   This article explores the core components of Encoder-Decoder models, their applications in sequence-to-sequence tasks, and how they enable powerful deep learning solutions for text translation, summarization, and more.
 pubDate: 2024-11-08T22:00:00.000Z
-heroImage: ../../assets/images/Encoder_Decoder/architecture_illustration.webp
+heroImage: ../../assets/images/generic/prog.png
 category: "Deep Learning"
 tags:
   - Encoder-Decoder

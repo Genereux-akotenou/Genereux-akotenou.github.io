@@ -3,7 +3,7 @@ title: "Creating Images from Text Descriptions with Conditional GANs"
 description: >
   This article walks through the process of implementing a text-to-image generation model using Conditional GANs (cGAN), exploring the key steps in transforming text descriptions into realistic images.
 pubDate: 2024-11-11T22:00:00.000Z
-heroImage: ../../assets/images/Text_to_Image/cGAN_text2image_illustration.webp
+heroImage: ../../assets/images/generic/prog.png
 category: "Generative AI"
 tags:
   - Text-to-Image

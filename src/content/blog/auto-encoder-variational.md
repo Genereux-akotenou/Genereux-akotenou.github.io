@@ -3,7 +3,7 @@ title: 'Unlocking the Power of Variational Autoencoders (VAE): An In-Depth Guide
 description: >
   A comprehensive review of Variational Autoencoders (VAEs), delving into their architecture, mechanisms, and applications in fields such as image synthesis, anomaly detection, and data compression.
 pubDate: 2024-11-08T22:00:00.000Z
-heroImage: ../../assets/images/VAE/vae_illustration.webp
+heroImage: ../../assets/images/generic/prog.png
 category: 'AI'
 tags:
   - VAE
