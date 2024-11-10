@@ -65,7 +65,7 @@ pass -->
 
 GANs have numerous applications across different domains. Below, we explore some of the prominent use cases of GANs and how they are implemented.
 
-#### 1. **Text-to-Image Synthesis**
+### 1. **Text-to-Image Synthesis**
 
 One of the fascinating applications of GANs is the ability to generate images based on textual descriptions. In this process, a GAN model translates a text description (e.g., "a sunset over a mountain") into a corresponding image. This application holds significant promise for fields like graphic design, creative content generation, and digital art creation, allowing artists and content creators to generate visuals directly from their ideas.
 
@@ -93,22 +93,22 @@ For example, the Generator first creates rough shapes of a white cat, a green fi
 
 In this article, I will dive deep into implementing a text-to-image example from scratch using Conditional GANs (cGAN). You can read the full guide here: [Text-to-Image with cGAN](https://genereux-akotenou.github.io/blog/post/text2image-with-cgan/).
 
-#### 2. **Image Synthesis and Modification**
+### 2. **Image Synthesis and Modification**
 
 GANs are widely used for generating high-quality, realistic images, often indistinguishable from actual photos. This application can be broken down into several sub-use cases:
    - **Image Generation**: GANs can create new, realistic images from scratch. For instance, platforms like "<a href="https://thispersondoesnotexist.com/" target="_blank">This Person Does Not Exist</a>" generate faces that look real but do not belong to any actual person.
    - **Image Super-Resolution**: GANs can increase the resolution of low-quality images, a technique often used to improve old or pixelated images.
    - **Image Inpainting**: GANs can fill in missing parts of an image, commonly used for restoration in media where parts of the data are corrupted or lost.
 
-#### 3. **Data Augmentation**
+### 3. **Data Augmentation**
 
 Data augmentation with GANs addresses one of the most pressing issues in machine learning: data scarcity. GANs generate synthetic data samples to supplement real datasets, making them invaluable in fields where acquiring real data is difficult or expensive. For instance, in medical imaging, GANs generate additional MRI or X-ray images to enhance model training. This application has been crucial in fields like healthcare and scientific research, where real-world data is limited.
 
-#### 4. **Deepfake Generation**
+### 4. **Deepfake Generation**
 
 GANs can create highly realistic videos known as "deepfakes," where the faces or voices of individuals are manipulated to create lifelike, synthetic portrayals. While deepfakes are used creatively in fields like entertainment, they also raise ethical and security concerns as they can be used to produce misinformation. Examples include recreating historical figures in modern settings or creating lifelike animated videos of popular public figures.
 
-#### 5. **Style Transfer and Artistic Creation**
+### 5. **Style Transfer and Artistic Creation**
 
 GANs enable style transfer, where the style of one image (e.g., the brushstrokes of Van Gogh's Starry Night) is applied to another image. This technique has been widely adopted in digital art, allowing artists to blend styles and create unique visuals. GANs like StyleGAN are specifically designed for high-quality image generation and have been instrumental in modern digital art and design.
 
