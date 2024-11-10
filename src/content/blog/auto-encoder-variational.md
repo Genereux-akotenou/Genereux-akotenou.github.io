@@ -18,7 +18,7 @@ draft: true
 
 Variational Autoencoders (VAEs) represent a remarkable advancement in unsupervised learning and generative modeling, combining the concepts of probabilistic graphical models with deep learning. Originally introduced by Kingma and Welling in 2013, VAEs have become a powerful tool for creating high-quality images, compressing data, and detecting anomalies. By blending the power of neural networks with probabilistic inference, VAEs have paved the way for a variety of applications across AI and data science.
 
-![Basic VAE Illustration](../../assets/images/VAE/vae_architecture.png)  
+![Basic VAE Illustration](../../assets/images/generic/prog.png)  
 **Image 1: A simplified view of VAE architecture**
 
 In this article, we’ll explore the fundamental workings of VAEs, the mathematics behind them, and their impactful applications.
