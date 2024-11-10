@@ -11,77 +11,13 @@ tags:
   - Text-to-Image Synthesis
   - Deepfake Generation
   - Data Augmentation
+  - cGAN
   
 draft: false
 ---
 ## Introduction
 
 Do you recognize the image placeholder in this article? The image, signed with mathematical formulas, is a portion of Image 1: the **Portrait of Edmond Belamy**. This artwork, created with an AI algorithm known as a <a href="#reference-2" class="">GAN (Generative Adversarial Network)</a>, was crafted by the Paris-based collective Obvious, which includes members Hugo Caselles-Dupre, Pierre Fautrel, and Gauthier Vernier. The portrait was auctioned by Christie’s in New York from Oct 23 to 25, with an estimated sale price of \$7,000 to \$10,000<a href="#reference-1" class="cst">[1]</a>. The mathematical code signed within the image is part of the GAN’s **loss function**, contributing to its creation.
-
-<!-- <div class="slideshow-container">
-  <div class="mySlides fade">
-    <img src="../../assets/images/GAN/Edmond_de_Belamy_1.webp" style="width:100%">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="../../assets/images/GAN/Edmond_de_Belamy_1.webp" style="width:100%">
-  </div>
-
-  <div class="mySlides fade">
-    <img src="../../assets/images/GAN/Edmond_de_Belamy_1.webp" style="width:100%">
-  </div>
-</div>
-
-<style>
-  .slideshow-container {
-    position: relative;
-    max-width: 100%;
-    margin: auto;
-  }
-  
-  .mySlides {
-    display: none;
-  }
-  
-  .mySlides img {
-    width: 100%;
-    height: auto;
-  }
-
-  /* Optional: Add animation */
-  .fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
-  
-  @-webkit-keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-  }
-  
-  @keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-  }
-</style>
-
-<script>
-  let slideIndex = 0;
-  showSlides();
-
-  function showSlides() {
-    let slides = document.getElementsByClassName("mySlides");
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
-    slides[slideIndex-1].style.display = "block";  
-    setTimeout(showSlides, 3000); // Change image every 3 seconds
-  }
-</script> -->
 
 ![Portrait of Edmond Belamy](../../assets/images/GAN/Edmond_de_Belamy_2.webp)  
 **Image 1: Portrait of Edmond Belamy (The overall collection is available <a href="https://obvious-art.com/la-famille-belamy/" target="_blank">here</a>)**
@@ -100,6 +36,9 @@ Later that night, he coded his idea and tested it. To his surprise, it worked on
 
 ### Intuition behind
 
+![Basic GAN Illustration](../../assets/images/GAN/GAN_architecture.drawio.png)
+**Image 2: GAN Architecture**
+
 The main idea behind GANs is to create a system where two networks work together to generate realistic data. This process involves a **latent space**, where the input data (whether images, text, music, or other types) is transformed into vectors that capture its core features in a simplified form. This latent space allows GANs to generate realistic variations of the data they are trained on, acting as a kind of “universal translator” of patterns and structures across data types.
 
 A GAN has two key components: the **Generator (G)** and the **Discriminator (D)**. 
@@ -113,63 +52,61 @@ This interaction between the two networks forms a competitive learning loop:
 - The generator tweaks its output to make it harder for the discriminator to spot as fake.
 - The discriminator, in turn, becomes more adept at identifying fakes, leading to more refined feedback for the generator.
 
->Example:
-
-Imagine the discriminator (D) is an image classifier trained to recognize images of animals. The generator (G) tries to create images that resemble these animals but adds small variations to make the images slightly different, introducing features that don’t quite match real animals. For example, the generator might create a cat with an extra eye. The discriminator would likely recognize this image as fake, prompting the generator to adjust its approach.
-
 > Training cycle
 
 During training, both networks are presented with a mix of real images (from the training data) and fake images (created by the generator). The generator’s goal is to "fool" the discriminator into thinking its outputs are real, while the discriminator's goal is to detect which images are fake. The feedback loop continues, with each network improving over time until the generator can produce data so realistic that the discriminator struggles to tell it apart from the original data.
 
 This competitive process ultimately leads to a balance, where the generator creates highly convincing samples and the discriminator’s ability to spot fakes is optimized.
 
-![Basic GAN Illustration](../../assets/images/GAN/GAN_architecture.drawio.png)
-
-
-
-
-
-<!-- ----
-
-The intuition is to develop and algorithms involved take input data and recast it as vectors in something called Latent Space. Here, all data is of a similar nature, whether it be images, text, music, or any other material. Because of this zero-level of interpretation, the model can be a kind of ‘Universal Translator’, and cross boundaries that humans could not. These processes will then inspire and inform artists in entirely new ways, allowing them to create completely original artworks.
-
-According  <a href="#reference-2" class="cst">[2]</a> the idea of a GAN is that you train a network (G) to look for patterns in a specific dataset (like pictures of 18th century portraits or .. or ...) and get it to generate copies. Then, a second network called a discriminator (D) judges its work, and if it can spot the difference between the originals and the new sample, it sends it back. The first network then tweaks its data and tries to sneak it past the discriminator again. It repeats this until the generator network is creating passable fakes. 
-
-![Portrait of Edmond Belamy](../../assets/images/GAN/GAN_Architecture.png) 
-
-The first neural net is called the Discriminator (D) and is the net that has to undergo training. D is the classifier that will do the heavy lifting during the normal operation once the training is complete. The second network is called the Generator (G) and is tasked to generate random samples that resemble real samples with a twist rendering them as fake samples.
-
-As an example, consider an image classifier (D) designed to identify a series of images depicting various animals or birds or things . Now consider an adversary (G) with the mission to fool (D) using carefully crafted images that look almost right but not quite. This is done by picking a legitimate sample randomly from training set (latent space) and synthesiging a new image by randomly altering its features (by adding random noise). As an example, G can fetch the image of a cat and can add an extra eye to the image converting it to a false sample. The result is an image very similar to a normal cat with the exception of the number of eye
-
-![Portrait of Edmond Belamy](../../assets/images/GAN/GAN_simple_illustration.png) 
-
-During training, D is presented with a random mix of legitimate images from training data as well as fake images generated by G. Its task is to identify correct and fake inputs. Based on the outcome, both machines try to fine-tune their parameters and become better in what they do. If D makes the right prediction, G updates its parameters in order to generate better fake samples to fool D. If D’s prediction is incorrect, it tries to learn from its mistake to avoid similar mistakes in the future. The reward for net D is the number of right predictions and the reward for G is the number D’s errors. This process continues until an equilibrium is established and D’s training is optimized. -->
-
-### Mathematical perspective
-pass
+<!-- ### Mathematical perspective
+pass -->
 
 ## Applications of GANs
 
 GANs have numerous applications across different domains. Below, we explore some of the prominent use cases of GANs and how they are implemented.
 
-#### 1. **Image Synthesis and Modification**
-
-GANs are widely used for generating high-quality, realistic images, often indistinguishable from actual photos. This application can be broken down into several sub-use cases:
-   - **Image Generation**: GANs can create new, realistic images from scratch. For instance, platforms like "This Person Does Not Exist" generate faces that look real but do not belong to any actual person.
-   - **Image Super-Resolution**: GANs can increase the resolution of low-quality images, a technique often used to improve old or pixelated images.
-   - **Image Inpainting**: GANs can fill in missing parts of an image, commonly used for restoration in media where parts of the data are corrupted or lost.
-
-#### 2. **Text-to-Image Synthesis**
+#### 1. **Text-to-Image Synthesis**
 
 One of the fascinating applications of GANs is the ability to generate images based on textual descriptions. In this process, a GAN model translates a text description (e.g., "a sunset over a mountain") into a corresponding image. This application holds significant promise for fields like graphic design, creative content generation, and digital art creation, allowing artists and content creators to generate visuals directly from their ideas.
 
-#### 3. **Deepfake Generation**
 
-GANs can create highly realistic videos known as "deepfakes," where the faces or voices of individuals are manipulated to create lifelike, synthetic portrayals. While deepfakes are used creatively in fields like entertainment, they also raise ethical and security concerns as they can be used to produce misinformation. Examples include recreating historical figures in modern settings or creating lifelike animated videos of popular public figures.
+> - Example: Generating an Image from Text with a Text-to-Image GAN
+>Let’s start with a sample input text description:  
+**Input Text**: “A small white cat with blue eyes, sitting on a green field with flowers.”
+> 1. Text Processing (Input to Embedding)
+>- The input text, “A small white cat with blue eyes, sitting on a green field with flowers,” is converted into a numerical form.
+>- This is done using a text embedding model (like Word2Vec, GloVe, or a transformer-based model). The text embedding captures the meaning of the sentence in a format the GAN can understand.
+> 1. Text Embedding to GAN (Conditioned Input)
+>- The text embedding is then fed into the Generator of the GAN as a condition.
+>- The GAN model used here is a **Conditional GAN (cGAN)**, which means the Generator and Discriminator are both conditioned on the text embedding to guide the image generation process.
+> 3. Image Generation (Generator Network)
+>- The **Generator** takes the text embedding along with random noise and begins generating a rough version of the image.
+>- As training progresses, the Generator learns to turn random noise (a latent vector) and the text embedding into more realistic images based on the description. 
+For example, the Generator first creates rough shapes of a white cat, a green field, and flowers based on the prompt.
+> 4. Evaluation (Discriminator Network)
+>- The **Discriminator** evaluates the image generated by the Generator, comparing it with real images that match similar descriptions.
+>- The Discriminator also has access to the text embedding, so it evaluates how well the generated image matches the description.
+>5. Feedback Loop
+>- The Discriminator gives feedback to the Generator on how realistic and accurate the image is. Through back-and-forth training, the Generator gets better at producing images that resemble the description more closely.
+>6. Refinement (Fine-Tuning Details)
+>- With repeated iterations, the Generator learns to add finer details. It now knows that the cat should be small, have blue eyes, and be on a green field with flowers, ensuring that each part of the image is consistent with the text.
 
-#### 4. **Data Augmentation**
+In this article, I will dive deep into implementing a text-to-image example from scratch using Conditional GANs (cGAN). You can read the full guide here: [Text-to-Image with cGAN](https://genereux-akotenou.github.io/blog/post/text2image-with-cgan/).
+
+#### 2. **Image Synthesis and Modification**
+
+GANs are widely used for generating high-quality, realistic images, often indistinguishable from actual photos. This application can be broken down into several sub-use cases:
+   - **Image Generation**: GANs can create new, realistic images from scratch. For instance, platforms like "<a href="https://thispersondoesnotexist.com/" target="_blank">This Person Does Not Exist</a>" generate faces that look real but do not belong to any actual person.
+   - **Image Super-Resolution**: GANs can increase the resolution of low-quality images, a technique often used to improve old or pixelated images.
+   - **Image Inpainting**: GANs can fill in missing parts of an image, commonly used for restoration in media where parts of the data are corrupted or lost.
+
+#### 3. **Data Augmentation**
 
 Data augmentation with GANs addresses one of the most pressing issues in machine learning: data scarcity. GANs generate synthetic data samples to supplement real datasets, making them invaluable in fields where acquiring real data is difficult or expensive. For instance, in medical imaging, GANs generate additional MRI or X-ray images to enhance model training. This application has been crucial in fields like healthcare and scientific research, where real-world data is limited.
+
+#### 4. **Deepfake Generation**
+
+GANs can create highly realistic videos known as "deepfakes," where the faces or voices of individuals are manipulated to create lifelike, synthetic portrayals. While deepfakes are used creatively in fields like entertainment, they also raise ethical and security concerns as they can be used to produce misinformation. Examples include recreating historical figures in modern settings or creating lifelike animated videos of popular public figures.
 
 #### 5. **Style Transfer and Artistic Creation**
 
