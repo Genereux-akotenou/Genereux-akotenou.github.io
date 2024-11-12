@@ -645,7 +645,7 @@ const CVInfo = {
   <h3 class="separator">Prizes & Certifications</h3>
   <div class="certificates-grid">
     {CVInfo.certificates.map(certificate => (
-      <div class="certificate-card">
+      <div class="certificate-card" style={{ background: certificate.share_link ? 'none' : '#d5f0ff' }}>
         <div class="certificate-image">
           <img src={certificate.image} alt={certificate.degree} />
         </div>
@@ -666,7 +666,7 @@ const CVInfo = {
         </div>
       </div>
     ))}
-  </div>
+  </div>     background: #d5f0ff;
 
   <!-- section4 -->
   <h3 class="separator">Recent Projects</h3>

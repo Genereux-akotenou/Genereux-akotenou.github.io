@@ -1,5 +1,5 @@
 ---
-title: 'The Birth of AI Art: A Deep Dive into Generative Adversarial Networks (GAN)'
+title: 'A Deep Dive into Generative Adversarial Networks (GAN)'
 description: >
   A comprehensive review of Generative Adversarial Networks (GANs), exploring their architecture, functioning, and various applications in fields like image generation, text synthesis, and data augmentation.
 pubDate: 2024-11-08T22:00:00.000Z
