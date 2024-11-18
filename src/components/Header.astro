@@ -37,6 +37,7 @@ const homeIsActive = Astro.url.pathname == '/';
 const blogIsActive = Astro.url.pathname.startsWith('/blog/');
 const funIsActive  = Astro.url.pathname.startsWith('/fun');
 const busIsActive  = Astro.url.pathname.startsWith('/startup');
+const travelIsActive  = Astro.url.pathname.startsWith('/travel');
 ---
 
 <style>
@@ -60,8 +61,8 @@ const busIsActive  = Astro.url.pathname.startsWith('/startup');
 		<a class={cn(`nav-link`, homeIsActive && `active`)} href='/'>Resume</a>&nbsp;&nbsp;&nbsp;
 		<a class={cn(`nav-link`, blogIsActive && `active`)} href='/blog'>Blog</a>&nbsp;&nbsp;&nbsp;
 		<!--<a class={cn(`nav-link`, busIsActive && `active`)} href='/startup'>Business</a>&nbsp;&nbsp;-&nbsp;&nbsp;-->
-		<a class={cn(`nav-link`, funIsActive && `active`)} href='/fun'>Fun Coding</a>&nbsp;&nbsp;&nbsp;
-		<a class={cn(`nav-link`, funIsActive && `active`)} href='/fun'>Travel 🎉</a>
+		<a class={cn(`nav-link`, funIsActive && `active`)} href='/fun'>Coding</a>&nbsp;&nbsp;&nbsp;
+		<a class={cn(`nav-link`, travelIsActive && `active`)} href='/travel'>Travel 🎉</a>
 	</span>
 
 	<div
