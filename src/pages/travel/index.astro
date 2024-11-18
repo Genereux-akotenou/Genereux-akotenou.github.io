@@ -10,11 +10,29 @@ const posts = await getPosts(MAX_POSTS)
 ---
 
 <BaseLayout title='Fun'>
-  <div class="coming-soon">
+  <div class="gallery-container">
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200" alt="Travel Location 1">
+      <div class="gallery-caption">Beautiful Sunset at Location 1</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200" alt="Travel Location 2">
+      <div class="gallery-caption">Mountain Hike in Location 2</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200" alt="Travel Location 3">
+      <div class="gallery-caption">City Lights at Location 3</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200" alt="Travel Location 4">
+      <div class="gallery-caption">Beach Walk at Location 4</div>
+    </div>
+  </div>
+  <!--<div class="coming-soon">
     <div class="content-com">
       <h1>Coming Soon</h1>
     </div>
-  </div>
+  </div>-->
 
   <style>
     .coming-soon {
@@ -33,6 +51,42 @@ const posts = await getPosts(MAX_POSTS)
       background: #ffffff;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+      font-size: 1em;
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+    .gallery-item:hover .gallery-caption {
+      opacity: 1;
     }
   </style>
 </BaseLayout>
