@@ -5,11 +5,12 @@ description: >-
   learning, covering their working principles, differences, and applications.
 pubDate: 2024-11-26
 author: "Prof. Younes Jabrane"
-category: Reinforcement Learning
+category: "AI"
 tags:
   - Q-Learning
   - SARSA
   - Reinforcement Learning
+draft: true
 ---
 
 # Q-Learning and SARSA

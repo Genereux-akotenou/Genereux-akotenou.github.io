@@ -6,11 +6,12 @@ description: >-
   balancing exploration and exploitation using ε-greedy strategies.
 pubDate: 2024-11-05
 author: "Prof. Younes Jabrane"
-category: Reinforcement Learning
+category: "AI"
 tags:
   - Monte Carlo
   - Reinforcement Learning
   - Machine Learning
+draft: true
 ---
 
 # Monte Carlo Methods for Reinforcement Learning

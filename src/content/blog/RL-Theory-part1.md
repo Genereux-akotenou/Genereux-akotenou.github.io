@@ -7,11 +7,12 @@ description: >-
   machine learning paradigm.
 pubDate: 2024-09-24
 author: "Prof. Younes Jabrane"
-category: Machine Learning
+category: "AI"
 tags:
   - Reinforcement Learning
   - Machine Learning
   - Artificial Intelligence
+draft: true
 ---
 
 # Introduction to Reinforcement Learning

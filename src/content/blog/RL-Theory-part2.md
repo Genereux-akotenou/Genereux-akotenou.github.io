@@ -6,11 +6,12 @@ description: >-
   in Reinforcement Learning (RL).
 pubDate: 2024-10-15
 author: "Prof. Younes Jabrane"
-category: Machine Learning
+category: "AI"
 tags:
   - Markov Decision Process
   - Bellman Equations
   - Reinforcement Learning
+draft: true
 ---
 
 # Markov Decision Processes and Bellman Equations

@@ -6,11 +6,12 @@ description: >-
   Programming (DP) techniques.
 pubDate: 2024-11-19
 author: "Prof. Younes Jabrane"
-category: Reinforcement Learning
+category: "AI"
 tags:
   - Temporal Difference
   - Reinforcement Learning
   - Machine Learning
+draft: true
 ---
 
 # Temporal Difference (TD) Methods for Reinforcement Learning
