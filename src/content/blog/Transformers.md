@@ -11,11 +11,12 @@ tags:
   - Sequence-to-Sequence
   - Self-Attention
   - Neural Networks
-draft: true
+draft: false
 ---
 
 ## Introduction
 
+[#### draft ####]
 The Transformer model, introduced by Vaswani et al. in "Attention Is All You Need," has revolutionized sequence-to-sequence learning by discarding recurrence and convolution in favor of an entirely attention-based mechanism. This blog post unpacks its Encoder-Decoder architecture, self-attention mechanism, and positional encodings.
 
 ## What Is the Encoder-Decoder Architecture?
