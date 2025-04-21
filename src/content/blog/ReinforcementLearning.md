@@ -19,7 +19,7 @@ draft: false
 
 Reinforcement Learning (RL) has emerged as a powerful paradigm in artificial intelligence, enabling agents to learn optimal behaviors through interaction with their environment. In this blog page I present a short review of RL algorithms and their implementation in gaming environments, with particular focus on the RLs project implementation.
 
-### Literature Review
+## Literature Review
 
 The foundation of modern RL can be traced back to the work of Sutton and Barto (2018), who formalized the Markov Decision Process (MDP) framework. In this framework, an agent interacts with an environment through states, actions, and rewards, aiming to maximize cumulative rewards over time.
 
@@ -47,7 +47,7 @@ Policy gradient methods, such as REINFORCE (Williams, 1992) and PPO (Schulman et
 
 Model-based RL methods learn a model of the environment dynamics. Dyna-Q (Sutton, 1990) combines real experience with simulated experience from the learned model. Monte Carlo Tree Search (MCTS), popularized by Silver et al. (2016) in AlphaGo, uses simulation and tree search to plan actions.
 
-### Implementation: RLs Project
+## Implementation: RLs Project
 
 The RLs project demonstrates these RL methods in practice through a modular framework designed for experimentation in gaming environments. The source code is available at: [https://github.com/Genereux-akotenou/RLs](https://github.com/Genereux-akotenou/RLs)
 
@@ -135,7 +135,7 @@ class DQNAgent:
 3. Benchmark multiple algorithms on the same environment.
 4. Enable distributed training and visualization logs.
 
-### References
+## References
 
 1. Sutton, R. S., & Barto, A. G. (2018). *Reinforcement Learning: An Introduction*. MIT Press.
 2. Mnih, V. et al. (2015). Human-level control through deep reinforcement learning. *Nature*.
