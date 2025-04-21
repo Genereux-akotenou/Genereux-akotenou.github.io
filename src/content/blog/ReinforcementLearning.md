@@ -3,7 +3,7 @@ title: "Reinforcement Learning: Theory and Implementation in Gaming Environments
 description: >
   A scientific exploration of reinforcement learning algorithms and their practical implementation in gaming environments, with focus on model-free and model-based approaches.
 pubDate: 2024-11-08T22:00:00.000Z
-heroImage: ../../assets/images/RLs/introp.jpg
+heroImage: ../../assets/images/RLs/intro.jpg
 category: "AI"
 tags:
   - Reinforcement Learning
