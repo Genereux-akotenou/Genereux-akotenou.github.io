@@ -148,9 +148,18 @@ const CVInfo = {
       share_link: "https://cdn-lfs-us-1.hf.co/repos/f2/34/f2344151f60f6027c436821dc61cf3f27a46435de57df8df50ad02b5acca7c07/bc0de1a4d59a3eb02dd6c2c985ddeb5bce978af962a72f7d071c60554007a27d?response-content-disposition=inline%3B+filename*%3DUTF-8%27%272025-03-10.png%3B+filename%3D%222025-03-10.png%22%3B&response-content-type=image%2Fpng&Expires=1743034584&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc0MzAzNDU4NH19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLWxmcy11cy0xLmhmLmNvL3JlcG9zL2YyLzM0L2YyMzQ0MTUxZjYwZjYwMjdjNDM2ODIxZGM2MWNmM2YyN2E0NjQzNWRlNTdkZjhkZjUwYWQwMmI1YWNjYTdjMDcvYmMwZGUxYTRkNTlhM2ViMDJkZDZjMmM5ODVkZGViNWJjZTk3OGFmOTYyYTcyZjdkMDcxYzYwNTU0MDA3YTI3ZD9yZXNwb25zZS1jb250ZW50LWRpc3Bvc2l0aW9uPSomcmVzcG9uc2UtY29udGVudC10eXBlPSoifV19&Signature=RId8CYYj69tYFMiHofnow6loyIJH8N6ccckbTu9m0YxB9JaIWlrAsIBUeZpPwGZqXcTUdDJmFQt1ReirR5Whq5-TcH9A4G5VDWHlug3VI8PfTnY05rJn8TLsbMYrgLOFWHF5zy9RVOD9zJhJ%7EIJdTjzDhtOefiIrX74mQINswtgfGMh0rPAQEE9xXRGtvD90C2CcdhmLEF-a%7EhS73MwhPDD-HtusOV2gbfQWoU2KK1LPz3Fa1gINGburDnRInJm4xLA%7E1tvUWCtdwUgs1cw0Lnxazw0hnlq8xznTW8xf5RHuXaOJSJXreQaLuXdvpUT8yk44AVVTIpGZfzrbjj34Pg__&Key-Pair-Id=K24J24Z295AEI9",
       skills: ["AI Agent", "smolagents", "LangChain", "LlamaIndex"]
     },
-    
+  ],
+  prizes: [
     {
-      degree: "54 /1045 -  Microsoft Learn Location Mention Recognition Challenge (LLM)",
+      degree: "Top 5 - among 25 Teams of engineering students from across Morocco during National Data Science Competition 2025",
+      institution: "NDSC - Voice Privacy challenge",
+      duration: "2025",
+      image: "/assets/images/prizes/ndsc.png",
+      share_link: "",
+      skills: []
+    },
+    {
+      degree: "54 /1045 Teams -  Microsoft Learn Location Mention Recognition Challenge (LLM)",
       institution: "Zindi (Data context platform)",
       duration: "2024",
       image: "/assets/images/zindi.svg",
@@ -165,7 +174,6 @@ const CVInfo = {
       share_link: "",
       skills: []
     },
-    
   ],
   publications: [
     {
@@ -693,7 +701,32 @@ const CVInfo = {
   ))}
 
   <!-- section4 -->
-  <h3 class="separator">Prizes & Certifications</h3>
+  <h3 class="separator">Prizes</h3>
+  <div class="certificates-grid">
+    {CVInfo.prizes.map(certificate => (
+      <div class="certificate-card" style={{ background: certificate.share_link ? 'none' : '#d5f0ff' }}>
+        <div class="certificate-image">
+          <img src={certificate.image} alt={certificate.degree} />
+        </div>
+        <div class="certificate-info">
+          <h4 class="certificate-degree">{certificate.degree}</h4>
+          <p class="certificate-institution">{certificate.institution}</p>
+          <p class="certificate-duration">{certificate.duration}</p>
+          <!--{certificate.skills.length > 0 && (
+            <ul class="certificate-skills">
+              {certificate.skills.map(skill => (
+                <li class="skill">{skill}</li>
+              ))}
+            </ul>
+          )}-->
+          {certificate.share_link && (
+            <a href={certificate.share_link} class="share-link" target="_blank">View Credential</a>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+  <h3 class="separator">Certifications</h3>
   <div class="certificates-grid">
     {CVInfo.certificates.map(certificate => (
       <div class="certificate-card" style={{ background: certificate.share_link ? 'none' : '#d5f0ff' }}>
