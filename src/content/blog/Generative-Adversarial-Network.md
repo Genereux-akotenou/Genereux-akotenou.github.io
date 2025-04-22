@@ -2,7 +2,7 @@
 title: 'Generative Adversarial Networks (GAN)'
 description: >
   A comprehensive review of Generative Adversarial Networks (GANs), exploring their architecture, functioning, and various applications in fields like image generation, text synthesis, and data augmentation.
-pubDate: 2024-11-08T22:00:00.000Z
+pubDate: 2024-12-18T22:00:00.000Z
 heroImage: ../../assets/images/GAN/Edmond_de_Belamy_chunk1.webp #Edmond_de_Belamy.png
 category: 'AI'
 tags:

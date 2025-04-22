@@ -4,7 +4,7 @@ description: >-
   Explore the design and implementation of a Retrieval-Augmented Generation (RAG) ChatBot
   for assisting students at university. This RAG-powered ChatBot provides information about
   internal regulations using cutting-edge text mining techniques.
-pubDate: 2024-11-05T22:00:00.000Z
+pubDate: 2024-11-08T22:00:00.000Z
 heroImage: ../../assets/images/RAG/Capture_11.16.47.png
 category: 'AI'
 tags:

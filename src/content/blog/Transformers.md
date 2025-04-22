@@ -2,7 +2,7 @@
 title: "Transformers: The Revolutionary Architecture Powering Modern AI"
 description: >
   A comprehensive guide to Transformer architecture, from its fundamental components to cutting-edge applications. Learn about self-attention, positional encodings, and how Transformers are reshaping AI across multiple domains.
-pubDate: 2024-11-08T22:00:00.000Z
+pubDate: 2024-11-24T22:00:00.000Z
 heroImage: ../../assets/images/generic/transformers.png
 category: "AI"
 tags:
