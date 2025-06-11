@@ -193,6 +193,7 @@ const CVInfo = {
       steps: [
         ["(Briefings in Bioinformatics)", "None"],
         ["Submited in BiB 05/03", "None"],
+        ["First Reveiw 20/05", "None"],
         ["Accepted 09/06 ", "CONFETI"]
       ],
     },
@@ -716,35 +717,40 @@ const CVInfo = {
             {pub.steps.map((step, index) => (
               step.length > 0 && (
                 <li key={index} style="margin-bottom: 0.3em;">
-                  <strong>{step[0]}</strong> —
-                  <span style="position: relative; display: inline-block; margin-left: 0.5em;">
-                    <a id={`confetti-trigger-${index}`} style="color: #007bff; font-weight: bold; cursor: pointer;">🎉 Congrats!</a>
-                    <canvas id={`confetti-canvas-${index}`} width="200" height="80"
-                      style="position: absolute; top: -40px; left: 0; pointer-events: none;"></canvas>
-                  </span>
-                  <script type="module">
-                    setTimeout(() => {
-                      const trigger = document.getElementById("confetti-trigger-{index}");
-                      const canvas = document.getElementById("confetti-canvas-{index}");
-                      if (!trigger || !canvas || !window.confetti) return;
+                  {step[1] === "None" && <strong>{step[0]}</strong>}
+                  {step[1] === "CONFETI" && (
+                    <>
+                      <strong>{step[0]}</strong> —
+                      <span style="position: relative; display: inline-block; margin-left: 0.5em;">
+                        <a id={`confetti-trigger-${index}`} style="color: #007bff; font-weight: bold; cursor: pointer;">Congrats!</a>
+                        <canvas id={`confetti-canvas-${index}`} width="200" height="80"
+                          style="position: absolute; top: -40px; left: 0; pointer-events: none;"></canvas>
+                      </span>
+                      <script type="module">
+                        setTimeout(() => {
+                          const trigger = document.getElementById("confetti-trigger-{index}");
+                          const canvas = document.getElementById("confetti-canvas-{index}");
+                          if (!trigger || !canvas || !window.confetti) return;
 
-                      // Create confetti instance linked to local canvas
-                      const myConfetti = window.confetti.create(canvas, {
-                        resize: false, // because it's a local area
-                        useWorker: true
-                      });
+                          // Create confetti instance linked to local canvas
+                          const myConfetti = window.confetti.create(canvas, {
+                            resize: false,
+                            useWorker: true
+                          });
 
-                      // Trigger animation on hover
-                      trigger.addEventListener("mouseenter", () => {
-                        myConfetti({
-                          particleCount: 70,
-                          spread: 70,
-                          startVelocity: 25,
-                          origin: { y: 0.5 },
-                        });
-                      });
-                    }, 300);
-                  </script>
+                          // Trigger animation on hover
+                          trigger.addEventListener("mouseenter", () => {
+                            myConfetti({
+                              particleCount: 70,
+                              spread: 70,
+                              startVelocity: 25,
+                              origin: { y: 0.5 },
+                            });
+                          });
+                        }, 300);
+                      </script>
+                    </>
+                  )}
                 </li>
               )
             ))}
