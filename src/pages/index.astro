@@ -191,9 +191,9 @@ const CVInfo = {
       type: "Preprint",
       github: "https://github.com/Bioinformatics-UM6P/GeneLM",
       steps: [
-        ["Briefings in Bioinformatics", "None"],
+        ["(Briefings in Bioinformatics)", "None"],
         ["Submited in BiB 05/03", "None"],
-        ["1rst Reveiw 20/05", "None"],
+        ["First Reveiw 20/05", "None"],
         ["Accepted 09/06 ", "CONFETI"]
       ],
     },
@@ -713,7 +713,7 @@ const CVInfo = {
       <div class="col-xs-12 col-sm-3 col-md-3 col-print-12 details">
         <h4 class="h4_style">{pub.venue}</h4>
         {pub.steps && pub.steps.length > 0 && (
-          <ul style="padding-left: 1.2em; margin-top: 0.5em;">
+          <ul style="padding-left: 1.2em; margin-top: 0.5em;font-size: .8em;font-weight: 100; list-style: circle;">
             {pub.steps.map((step, index) => (
               step.length > 0 && (
                 <li key={index} style="margin-bottom: 0.3em;">
@@ -721,7 +721,7 @@ const CVInfo = {
                   {step[1] === "CONFETI" && (
                     <>
                       <strong>{step[0]}</strong> — 
-                      <a style="color: #007bff; font-weight: bold; margin-left: 0.4em;" href="#">🎉 Congratulations!</a>
+                      <a style="color: #007bff; font-weight: bold; margin-left: 0.4em;" href="#">Congratulations!</a>
                       <span id={`confetti-container-${index}`} style="display: inline-block; margin-left: 5px;"></span>
                       <script>
                         setTimeout(() => {
@@ -909,6 +909,7 @@ const CVInfo = {
 
 </BaseLayout>
 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script>
   import { animate } from 'motion'
   const showAnimations = localStorage.getItem('animations') === 'true'
