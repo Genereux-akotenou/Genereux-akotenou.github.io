@@ -194,7 +194,7 @@ const CVInfo = {
         ["Briefings in Bioinformatics", "None"]
         ["Submited in BiB 05/03", "None"],
         ["1rst Reveiw 20/05", "None"],
-        []"Accepted 09/06 ", "CONFETI"]
+        ["Accepted 09/06 ", "CONFETI"]
       ]
     },
     {
@@ -202,14 +202,16 @@ const CVInfo = {
       venue: "JFPC 2023",
       link: "https://pfia23.icube.unistra.fr/conferences/jfpc/Actes_CH_PFIA2023__3_.pdf",
       type: "Conference",
-      github: "https://github.com/orgs/grail-solver/repositories"
+      github: "https://github.com/orgs/grail-solver/repositories",
+      steps: [],
     },
     {
       title: "<b>UML Designer: An Automatic UML Diagram Design Tool</b> <i>V. R. Houndji, G. Akotenou.</i> <b>In: Conte, D., Fred, A., Gusikhin, O., Sansone, C. (eds) Deep Learning Theory and Applications. DeLTA 2023. Communications in Computer and Information Science, vol 1875. Springer.</b> UMLDesigner is an application of NLP in sofware modeling context. It simplifies functional analyses for development projects by automating the creation of UML class diagrams from textual descriptions of the system to be designed.",
       venue: "DeLTA 2023",
       link: "https://link.springer.com/chapter/10.1007/978-3-031-39059-3_23",
       type: "Conference",
-      github: "https://github.com/Genereux-akotenou/uda-api"
+      github: "https://github.com/Genereux-akotenou/uda-api",
+      steps: [],
     },
   ],
   projects: [
@@ -218,7 +220,7 @@ const CVInfo = {
       year: 2025,
       github: "https://github.com/Bioinformatics-UM6P/GeneLM",
       description: "This project explores the use of Genomic Language Models (gLMs), inspired by Large Language Models (LLMs), to improve gene prediction and translation initiation site (TIS) identification in bacterial genomes. Using a transformer-based architecture (DNABERT), the model was fine-tuned on curated bacterial genome sequences to capture complex contextual dependencies within DNA. The two-stage framework first identifies coding sequences (CDS) and then refines the prediction by accurately locating TIS positions. Results demonstrate that our approach outperforms traditional tools like Prodigal, showcasing the potential of LLM-inspired models in genomic annotation tasks.",
-      technologies: "BERT, LLM"
+      technologies: "BERT, LLM",
     },
     {
       title: "A Deep Learning Framework for Comprehensive Classification of Plant Transcription Factors in plants protein",
@@ -714,8 +716,34 @@ const CVInfo = {
           <ul style="padding-left: 1.2em; margin-top: 0.5em;">
             {pub.steps.map((step, index) => (
               step.length > 0 && (
-                <li key={index}>
-                  <strong>{step[0]}</strong>{step[1] && ` — ${step[1]}`}
+                <li key={index} style="margin-bottom: 0.3em;">
+                  {step[1] === "None" && <strong>{step[0]}</strong>}
+                  {step[1] === "CONFETI" && (
+                    <>
+                      <strong>{step[0]}</strong> — 
+                      <a style="color: #007bff; font-weight: bold; margin-left: 0.4em;" href="#">🎉 Congratulations!</a>
+                      <span id={`confetti-container-${index}`} style="display: inline-block; margin-left: 5px;"></span>
+                      <script>
+                        setTimeout(() => {
+                          const run = () => {
+                            const canvas = document.createElement('canvas');
+                            canvas.style.position = 'fixed';
+                            canvas.style.top = '0';
+                            canvas.style.left = '0';
+                            canvas.style.pointerEvents = 'none';
+                            canvas.width = window.innerWidth;
+                            canvas.height = window.innerHeight;
+                            document.body.appendChild(canvas);
+                            const myConfetti = window.confetti.create(canvas, { resize: true, useWorker: true });
+                            myConfetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+                            setTimeout(() => canvas.remove(), 2000);
+                          };
+                          run();
+                          setInterval(run, 5000);
+                        }, 500);
+                      </script>
+                    </>
+                  )}
                 </li>
               )
             ))}
