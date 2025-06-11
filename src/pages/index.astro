@@ -192,7 +192,7 @@ const CVInfo = {
       github: "https://github.com/Bioinformatics-UM6P/GeneLM",
       steps: [
         ["(Briefings in Bioinformatics)", "None"],
-        ["Submited in BiB 05/03", "None"],
+        ["Submitted in BiB 05/03", "None"],
         ["Accepted 09/06 ", "CONFETI"]
       ],
     },
@@ -720,7 +720,7 @@ const CVInfo = {
                   {step[1] === "CONFETI" && (
                     <>
                       <strong>{step[0]}</strong> —
-                      <span style="position: relative; display: inline-block; margin-left: 0.5em;">
+                      <span style="position: relative; display: inline-block;">
                         <a id={`confetti-trigger-${index}`} style="color: #007bff; font-weight: bold; cursor: pointer;">Congrats!</a>
                         <canvas 
                           id={`confetti-canvas-${index}`} 
@@ -872,7 +872,7 @@ const CVInfo = {
     ))}
     <ul><li style="list-style-type: disclosure-closed; position: relative; top: -1.3em; left: 1.1em; color: #8118a3; margin-top: 2.5em;">Personal</li></ul>
     {CVInfo.projects_personal.map(project => (
-      <div class="project" style="background-color: #f8f9fa;">
+      <div class="project" style="background-color: #f6fbff;">
         <div class="project-header">
           <div class="project-title">{project.title}</div>
           <div class="project-year">{project.year}</div>
