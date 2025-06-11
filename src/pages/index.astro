@@ -193,7 +193,6 @@ const CVInfo = {
       steps: [
         ["(Briefings in Bioinformatics)", "None"],
         ["Submited in BiB 05/03", "None"],
-        ["First Reveiw 20/05", "None"],
         ["Accepted 09/06 ", "CONFETI"]
       ],
     },
@@ -723,8 +722,11 @@ const CVInfo = {
                       <strong>{step[0]}</strong> —
                       <span style="position: relative; display: inline-block; margin-left: 0.5em;">
                         <a id={`confetti-trigger-${index}`} style="color: #007bff; font-weight: bold; cursor: pointer;">Congrats!</a>
-                        <canvas id={`confetti-canvas-${index}`} width="200" height="80"
-                          style="position: absolute; top: -40px; left: 0; pointer-events: none;"></canvas>
+                        <canvas 
+                          id={`confetti-canvas-${index}`} 
+                          width="200" height="80" 
+                          style="position: absolute; top: -40px; left: 0; pointer-events: none;">
+                        </canvas>
                       </span>
                       <script type="module">
                         setTimeout(() => {
@@ -732,21 +734,20 @@ const CVInfo = {
                           const canvas = document.getElementById("confetti-canvas-{index}");
                           if (!trigger || !canvas || !window.confetti) return;
 
-                          // Create confetti instance linked to local canvas
+                          // Create confetti
                           const myConfetti = window.confetti.create(canvas, {
                             resize: false,
                             useWorker: true
                           });
 
-                          // Trigger animation on hover
-                          trigger.addEventListener("mouseenter", () => {
+                          setInterval(() => {
                             myConfetti({
-                              particleCount: 70,
-                              spread: 70,
-                              startVelocity: 25,
-                              origin: { y: 0.5 },
+                              particleCount: 30,
+                              spread: 60,
+                              startVelocity: 20,
+                              origin: { y: 0.5 }
                             });
-                          });
+                          }, 500);
                         }, 300);
                       </script>
                     </>
