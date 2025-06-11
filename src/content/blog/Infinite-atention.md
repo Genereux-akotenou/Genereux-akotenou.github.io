@@ -1,5 +1,5 @@
 ---
-title: "Failed Attempt: Implementing Infini-attention from 'Leave No Context Behind'"
+title: "Failed Implementation: 'Leave No Context Behind, Infinite Context Transformers'"
 
 description: >
   This article reflects on a failed but insightful attempt to implement the Infini-attention mechanism proposed in 'Leave No Context Behind,' focusing on the challenges of extending context length in Transformer models through memory-efficient mechanisms.
