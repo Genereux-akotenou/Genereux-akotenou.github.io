@@ -724,32 +724,31 @@ const CVInfo = {
                         <a id={`confetti-trigger-${index}`} style="color: #007bff; font-weight: bold; cursor: pointer;">Congrats!</a>
                         <canvas 
                           id={`confetti-canvas-${index}`} 
-                          width="200" height="80" 
-                          style="position: absolute; top: -40px; left: 0; pointer-events: none;">
+                          width="400" height="200" 
+                          style="position: absolute; top: -80px; left: -50px; pointer-events: none;">
                         </canvas>
                       </span>
                       <script type="module">
                         setTimeout(() => {
-                        const canvas = document.getElementById("confetti-canvas-2");
-                        if (!canvas || !window.confetti) return;
-
-                        const myConfetti = window.confetti.create(canvas, {
-                          resize: false,
-                          useWorker: true
-                        });
-
-                        const run = () => {
-                          myConfetti({
-                            particleCount: 40,
-                            spread: 60,
-                            startVelocity: 25,
-                            origin: { x: 0.5, y: 0.5 }
+                          const canvas = document.getElementById("confetti-canvas-2");
+                          if (!canvas || !window.confetti) return;
+                          const myConfetti = window.confetti.create(canvas, {
+                            resize: true,
+                            useWorker: true
                           });
-                        };
 
-                        run();
-                        setInterval(run, 5000);
-                      }, 300);
+                          const run = () => {
+                            myConfetti({
+                              particleCount: 50,
+                              spread: 70,
+                              startVelocity: 30,
+                              origin: { x: 0.5, y: 0.5 }
+                            });
+                          };
+
+                          run();
+                          setInterval(run, 500);
+                        }, 300);
                       </script>
                     </>
                   )}
