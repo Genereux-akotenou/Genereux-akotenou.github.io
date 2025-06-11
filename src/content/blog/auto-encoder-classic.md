@@ -2,7 +2,7 @@
 title: "Encoder-Decoder Architecture: How Neural Networks Understand Sequences"
 description: >
   This article explores the core components of Encoder-Decoder models, their applications in sequence-to-sequence tasks, and how they enable powerful deep learning solutions for text translation, summarization, and more.
-pubDate: 2025-06-08T10:00:00.000Z
+pubDate: 2025-06-08T08:00:00.000Z
 heroImage: ../../assets/images/AutoEncoder/banner.png
 category: "AI"
 tags:
