@@ -189,7 +189,13 @@ const CVInfo = {
       venue: "bioRxiv Preprint 📌 ",
       link: "https://www.researchgate.net/publication/390107066_GENOMIC_LANGUAGE_MODELS_GLMS_DECODE_BACTERIAL_GENOMES_FOR_IMPROVED_GENE_PREDICTION_AND_TRANSLATION_INITIATION_SITE_IDENTIFICATION",
       type: "Preprint",
-      github: "https://github.com/Bioinformatics-UM6P/GeneLM"
+      github: "https://github.com/Bioinformatics-UM6P/GeneLM",
+      steps: [
+        ["Briefings in Bioinformatics", "None"]
+        ["Submited in BiB 05/03", "None"],
+        ["1rst Reveiw 20/05", "None"],
+        []"Accepted 09/06 ", "CONFETI"]
+      ]
     },
     {
       title: "<b>GRAILSOLVER, à la dernière itération de l'obtention du graal de la programmation</b> <i>V. R. Houndji, G. Akotenou, A. M. Kousse, K. Bonou Selegbe.</i> <b>Accepted at Journées Francophones de Programmation par Contraintes (JFPC), 2023, Strasbourg, France.</b> GrailSolver is a Constraint Programming (CP) solver that automates the analysis, modeling, and solving processes using a combination of GPT NLP model and Google's OR-Tools CP solver.",
@@ -704,6 +710,32 @@ const CVInfo = {
     <div class="row clearfix layout layout-left border-no">
       <div class="col-xs-12 col-sm-3 col-md-3 col-print-12 details">
         <h4 class="h4_style">{pub.venue}</h4>
+        {pub.steps && pub.steps.length > 0 && (
+          <ul style="padding-left: 1.2em; margin-top: 0.5em;">
+            {pub.steps.map((step, index) => (
+              step.length > 0 && (
+                <li key={index}>
+                  <strong>{step[0]}</strong>{step[1] && ` — ${step[1]}`}
+                </li>
+              )
+            ))}
+          </ul>
+        )}
+      </div>
+      <div class="col-xs-12 col-sm-9 col-md-9 col-print-12 content">
+        <p style="text-align:justify;">
+          <a href={pub.link} target="_blank" style="color: #477dca; position: relative; top: -0.1em;">[{pub.type}]</a>
+          <a href={pub.github} target="_blank" style="color: #477dca; position: relative; top: -0.1em;">[Github]</a>&nbsp;
+          <span set:html={pub.title} />
+        </p>
+      </div>
+    </div>
+  ))}
+  <!--<h3 class="separator">Publications</h3>
+  {CVInfo.publications.map(pub => (
+    <div class="row clearfix layout layout-left border-no">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-print-12 details">
+        <h4 class="h4_style">{pub.venue}</h4>
       </div>
       <div class="col-xs-12 col-sm-9 col-md-9 col-print-12 content">
         <p style="text-align:justify;">
@@ -713,7 +745,7 @@ const CVInfo = {
         </p>
       </div>
     </div>
-  ))}
+  ))}-->
 
   <!-- section4 -->
   <h3 class="separator">Prizes</h3>
