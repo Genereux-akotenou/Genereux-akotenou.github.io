@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -49,6 +49,164 @@
         }
       })();
     });
+  </script>
+
+</body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Local Confetti Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2em;
+    }
+    li {
+      font-size: 1rem;
+      margin-bottom: 1.2em;
+    }
+    .confetti-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-left: 0.5em;
+    }
+    canvas {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      pointer-events: none;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Publication Steps</h2>
+  <ul style="padding-left: 1.2em; list-style: circle;">
+    <li>
+      <strong>Accepted 09/06</strong> —
+      <span class="confetti-wrapper">
+        <a style="color: #007bff; font-weight: bold; cursor: default;">Congrats!</a>
+        <canvas id="confetti-canvas-2" width="200" height="500"></canvas>
+      </span>
+    </li>
+  </ul>
+
+  <script type="module">
+    setTimeout(() => {
+      const canvas = document.getElementById("confetti-canvas-2");
+      if (!canvas || !window.confetti) return;
+
+      const myConfetti = window.confetti.create(canvas, {
+        resize: true,
+        useWorker: true
+      });
+
+      const run = () => {
+        myConfetti({
+          particleCount: 5,
+          angle: 60,
+          spread: 55,
+        //   startVelocity: 30,
+        //   scalar: 0.7,
+          origin: { x: 0.5, y: 1 }
+        });
+
+        // Optionally remove and re-add the canvas (simulate reset)
+        // canvas.remove();
+        // setTimeout(() => document.body.appendChild(canvas), 100);
+      };
+
+      run(); // first burst
+      setInterval(run, 2000); // every 2 seconds
+    }, 300);
+  </script>
+
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dual-Side Local Confetti</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2em;
+    }
+    li {
+      font-size: 1rem;
+      margin-bottom: 1.2em;
+    }
+    .confetti-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-left: 0.5em;
+    }
+    canvas {
+      position: absolute;
+      top: -100px;
+      pointer-events: none;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Publication Steps</h2>
+  <ul style="padding-left: 1.2em; list-style: circle;">
+    <li>
+      <strong>Accepted 09/06</strong> —
+      <span class="confetti-wrapper">
+        <a style="color: #007bff; font-weight: bold; cursor: default;">🎉 Congrats!</a>
+        <canvas id="confetti-canvas-2" width="200" height="120"></canvas>
+      </span>
+    </li>
+  </ul>
+
+  <script type="module">
+    setTimeout(() => {
+      const canvas = document.getElementById("confetti-canvas-2");
+      if (!canvas || !window.confetti) return;
+
+      const myConfetti = window.confetti.create(canvas, {
+        resize: true,
+        useWorker: true
+      });
+
+      const run = () => {
+        const duration = 150;
+        const end = Date.now() + duration;
+
+        (function frame() {
+          myConfetti({
+            particleCount: 5,
+            angle: 50,
+            spread: 55,
+            ticks: 250,
+            origin: { x: 0, y: 1 }
+          });
+
+          if (Date.now() < end) {
+            requestAnimationFrame(frame);
+          }
+        })();
+      };
+
+      run(); // first burst
+      setInterval(run, 3000); // every 3s
+    }, 500);
   </script>
 
 </body>
