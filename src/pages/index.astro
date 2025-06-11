@@ -720,40 +720,37 @@ const CVInfo = {
                   {step[1] === "CONFETI" && (
                     <>
                       <strong>{step[0]}</strong> —
-                      <span style="position: relative; display: inline-block;">
-                        <a style="color: #007bff; font-weight: bold; cursor: default;">Congrats!</a>
+                      <span style="position: relative; display: inline-block; margin-left: 0.5em;">
+                        <a id={`confetti-trigger-${index}`} style="color: #007bff; font-weight: bold; cursor: pointer;">Congrats!</a>
                         <canvas 
                           id={`confetti-canvas-${index}`} 
-                          width="200" 
-                          height="80" 
+                          width="200" height="80" 
                           style="position: absolute; top: -40px; left: 0; pointer-events: none;">
                         </canvas>
                       </span>
-                      <script dangerouslySetInnerHTML={{
-                        __html: `
-                          setTimeout(() => {
-                            const canvas = document.getElementById("confetti-canvas-${index}");
-                            if (!canvas || !window.confetti) return;
+                      <script type="module">
+                        setTimeout(() => {
+                        const canvas = document.getElementById("confetti-canvas-2");
+                        if (!canvas || !window.confetti) return;
 
-                            const myConfetti = window.confetti.create(canvas, {
-                              resize: false,
-                              useWorker: true
-                            });
+                        const myConfetti = window.confetti.create(canvas, {
+                          resize: false,
+                          useWorker: true
+                        });
 
-                            const run = () => {
-                              myConfetti({
-                                particleCount: 40,
-                                spread: 60,
-                                startVelocity: 25,
-                                origin: { x: 0.5, y: 0.5 }
-                              });
-                            };
+                        const run = () => {
+                          myConfetti({
+                            particleCount: 40,
+                            spread: 60,
+                            startVelocity: 25,
+                            origin: { x: 0.5, y: 0.5 }
+                          });
+                        };
 
-                            run();
-                            setInterval(run, 5000);
-                          }, 300);
-                        `
-                      }} />
+                        run();
+                        setInterval(run, 5000);
+                      }, 300);
+                      </script>
                     </>
                   )}
                 </li>
