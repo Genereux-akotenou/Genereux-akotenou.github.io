@@ -21,10 +21,8 @@ In this blog, we explore how a denoising autoencoder can clean up noisy grayscal
 
 The goal of this task is to train a **Denoising Autoencoder** using a small dataset of grayscale natural images. An autoencoder is a type of neural network that learns to compress and reconstruct input data. It consists of an encoder that compresses the data into a lower-dimensional representation, and a decoder that reconstructs the original data from the compressed representation as illustrated by the image 1
 
-<div>
-  <img src="../../assets/images/AutoEncoder/autoenc.png"/>
-  <span><b>Image 1: Denoising Autoencoder Architecture <a href="https://lilianweng.github.io/posts/2018-08-12-vae/" target="_blank">(source)</a></b></span>
-</div>
+![Encoder-decoder](../../assets/images/AutoEncoder/autoenc.png)  
+**Image 1: Denoising Autoencoder Architecture <a href="https://lilianweng.github.io/posts/2018-08-12-vae/" target="_blank">(source)</a>**
 
 ## How the Autoencoder Sees
 
