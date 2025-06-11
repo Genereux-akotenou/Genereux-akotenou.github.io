@@ -2,15 +2,11 @@
 title: "Encoder-Decoder Architecture: How Neural Networks Understand Sequences"
 description: >
   This article explores the core components of Encoder-Decoder models, their applications in sequence-to-sequence tasks, and how they enable powerful deep learning solutions for text translation, summarization, and more.
-pubDate: 2024-11-08T22:00:00.000Z
+pubDate: 2025-06-08T10:00:00.000Z
 heroImage: ../../assets/images/AutoEncoder/banner.png
 category: "AI"
 tags:
   - Encoder-Decoder
-  - Sequence-to-Sequence
-  - Text Generation
-  - Neural Networks
-  - Autoencoders
   - Image Denoising
 draft: false
 ---
@@ -25,8 +21,10 @@ In this blog, we explore how a denoising autoencoder can clean up noisy grayscal
 
 The goal of this task is to train a **Denoising Autoencoder** using a small dataset of grayscale natural images. An autoencoder is a type of neural network that learns to compress and reconstruct input data. It consists of an encoder that compresses the data into a lower-dimensional representation, and a decoder that reconstructs the original data from the compressed representation as illustrated by the image 1
 
-![Encoder-decoder](../../assets/images/AutoEncoder/autoenc.png)  
-**Image 1: Denoising Autoencoder Architecture <a href="https://lilianweng.github.io/posts/2018-08-12-vae/" target="_blank">(source)</a>**
+<div>
+  <img src="../../assets/images/AutoEncoder/autoenc.png"/>
+  <span><b>Image 1: Denoising Autoencoder Architecture <a href="https://lilianweng.github.io/posts/2018-08-12-vae/" target="_blank">(source)</a></b></span>
+</div>
 
 ## How the Autoencoder Sees
 
@@ -45,7 +43,7 @@ For this denoising task, we choose **Mean Squared Error** as the loss function a
 Now that we have a clear idea, let's start with the code.
 
 
-**Import Utils**
+## Import Utils
 ```python
 import torch, glob, random
 import torch.nn as nn
@@ -95,7 +93,8 @@ class Helper:
         plt.tight_layout()
         plt.show()
 ```
-**Dataset**: Load → Transform → Train-Test Split
+## Dataset: 
+Load → Transform → Train-Test Split
 
 For this assignment, we chose the CIFAR-10 dataset. Since the original images are 32×32 in resolution, we first resize them to 64×64 to match the task requirements and convert them to grayscale. We then take a sample of 100 images and split them into training and testing sets using the classic 80/20 split to ensure separation between the two. Finally, we prepare the corresponding data loaders for training and testing.
 ```python
@@ -174,7 +173,7 @@ Helper.show_images(original_batch, noisy_batch, reconstructed_batch, n=1, title=
 
 Conclusion: For our experiement we will use `noise_level=0.3`
 
-**Model**
+## Model
 
 DenoisingAutoencoder uses a convolutional encoder-decoder architecture with a fully connected latent bottleneck layer. The encoder compresses a 64x64 grayscale image into a low-dimensional latent vector (default size: 128), and the decoder reconstructs the image from this latent space. ReLU and Sigmoid activations help learn non-linear representations and normalize output pixel values.
 ```python
@@ -183,11 +182,11 @@ class DenoisingAutoencoder(nn.Module):
         super().__init__()
 
         self.encoder = nn.Sequential(
-            nn.Conv2d(input_channels, 32, kernel_size=3, stride=2, padding=1),  # 64x64 → 32x32
+            nn.Conv2d(input_channels, 32, kernel_size=3, stride=2, padding=1),
             nn.ReLU(),
-            nn.Conv2d(32, 64, kernel_size=3, stride=2, padding=1),              # 32x32 → 16x16
+            nn.Conv2d(32, 64, kernel_size=3, stride=2, padding=1),              
             nn.ReLU(),
-            nn.Conv2d(64, 128, kernel_size=3, stride=2, padding=1),             # 16x16 → 8x8
+            nn.Conv2d(64, 128, kernel_size=3, stride=2, padding=1),    
             nn.ReLU()
         )
         
@@ -197,11 +196,11 @@ class DenoisingAutoencoder(nn.Module):
         self.unflatten = nn.Unflatten(1, (128, 8, 8))   
         
         self.decoder = nn.Sequential(
-            nn.ConvTranspose2d(128, 64, kernel_size=3, stride=2, padding=1, output_padding=1),  # 8x8 → 16x16
+            nn.ConvTranspose2d(128, 64, kernel_size=3, stride=2, padding=1, output_padding=1), 
             nn.ReLU(),
-            nn.ConvTranspose2d(64, 32, kernel_size=3, stride=2, padding=1, output_padding=1),   # 16x16 → 32x32
+            nn.ConvTranspose2d(64, 32, kernel_size=3, stride=2, padding=1, output_padding=1), 
             nn.ReLU(),
-            nn.ConvTranspose2d(32, input_channels, kernel_size=3, stride=2, padding=1, output_padding=1),  # 32x32 → 64x64
+            nn.ConvTranspose2d(32, input_channels, kernel_size=3, stride=2, padding=1, output_padding=1), 
             nn.Sigmoid()
         )
 
@@ -216,34 +215,9 @@ class DenoisingAutoencoder(nn.Module):
 ```
 ```python
 model = DenoisingAutoencoder()
-print(model)
-```
-```text
-DenoisingAutoencoder(
-  (encoder): Sequential(
-    (0): Conv2d(1, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
-    (1): ReLU()
-    (2): Conv2d(32, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
-    (3): ReLU()
-    (4): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
-    (5): ReLU()
-  )
-  (flatten): Flatten(start_dim=1, end_dim=-1)
-  (latent): Linear(in_features=8192, out_features=128, bias=True)
-  (unlatent): Linear(in_features=128, out_features=8192, bias=True)
-  (unflatten): Unflatten(dim=1, unflattened_size=(128, 8, 8))
-  (decoder): Sequential(
-    (0): ConvTranspose2d(128, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), output_padding=(1, 1))
-    (1): ReLU()
-    (2): ConvTranspose2d(64, 32, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), output_padding=(1, 1))
-    (3): ReLU()
-    (4): ConvTranspose2d(32, 1, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), output_padding=(1, 1))
-    (5): Sigmoid()
-  )
-)
 ```
 
-**Trainer**
+## Trainer
 
 This class manages training and evaluation of the denoising autoencoder model. It includes a compile step to define the loss and optimizer, and supports Gaussian noise injection, loss tracking, and optional early stopping.
 ```python
@@ -341,7 +315,7 @@ trainer.train(num_epochs=200, early_stopping_patience=10)
 ```
 Early stopping triggered at epoch 98
 
-**Results Analysis**
+## Results Analysis
 ```python
 plt.plot(train_losses, label="Train Loss")
 plt.plot(test_losses, label="Test Loss")
