@@ -1,0 +1,1 @@
+import{a as t}from"./hoisted.Ch-l9h2A.js";window.dataLayer=window.dataLayer||[];function a(){dataLayer.push(arguments)}a("js",new Date);a("config","G-DH96NXG1WV");const o=localStorage.getItem("animations")==="true";o&&t(".title",{y:[80,0],opacity:[0,1]},{duration:2.5,opacity:{duration:3},offset:[0,.55,.75]});
