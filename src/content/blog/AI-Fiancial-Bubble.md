@@ -239,6 +239,10 @@ Thus, the acceleration of CapEx does not reflect only speculative euphoria, but 
 
 To evaluate the nature of the current cycle, it is useful to apply Hyman Minsky's theoretical framework, which describes five typical phases of speculative cycles: displacement, boom, euphoria, profit-taking, and panic.
 
+![AI_Fiancial_Trends](../../assets/images/ai-bubble/minsky.png)  
+**Image 9: What is a bubble by Hyman Minsky**
+
+
 #### Application of the Minsky cycle to the AI cycle
 
 "Displacement" corresponds to the emergence of a major innovation, here generative AI. The "boom" manifested through the explosion of investments and the multiplication of strategic announcements. "Euphoria" was characterized by record valuations and rapid expansion of financial leverage.
