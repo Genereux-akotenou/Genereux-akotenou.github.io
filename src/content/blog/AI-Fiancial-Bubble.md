@@ -52,18 +52,21 @@ In 2012, AlexNet—a convolutional neural network architecture developed for ima
 
 Alongside this capacity increase, the tasks made possible have evolved. Below a certain threshold of computational capacity, models excelled mainly in supervised recognition tasks (2012–2016, image classification and object recognition). Beyond a first critical threshold, the increase in the number of parameters and training data allowed for the emergence of coherent generative capacities (2017–2020, machine translation, coherent text generation). A second scaling threshold made more structured behaviors possible: chain-of-thought reasoning, code generation, multimodal integration between 2020–2023. Today, additional computational scaling seems to favor the appearance of agentic behaviors, including planning, prolonged interaction, and partial autonomy. This increase in capacity is not explained solely by internal technological logic. It also responds to an explosion in usage demand.
 
+![AI_Fiancial_Trends](../../assets/images/ai-bubble/AI_Fiancial_Trends-Page-3.png)  
 **Image 1: Growth in the number of users and the volume of tokens processed by major AI players. Source: UnderstandingAI.org (2025)**
 
 As illustrated in Figure 1, the adoption of generative AI systems is experiencing an unprecedented acceleration. The number of weekly active users of certain services now exceeds several hundred million, while the volume of tokens processed monthly reaches orders of magnitude in the quadrillions. This exponential growth in demand mechanically imposes a continuous expansion of computing capacities. Unlike previous technological cycles, where infrastructure followed adoption progressively, generative AI imposes a near-instantaneous adaptation of material capacities to avoid system saturation.
 
 This transformation does not remain abstract: it materializes in commercial flows and construction dynamics. Figure 2 shows a marked increase in imports of large computer systems into the United States, alongside an acceleration in construction spending dedicated to data centers. While investments in traditional offices stagnate or decrease, digital infrastructures are undergoing rapid expansion.
 
+![AI_Fiancial_Trends](../../assets/images/ai-bubble/AI_Fiancial_Trends-Page-2.png)
 **Image 2: Explosion of imports of large computer systems and growth of data center construction spending. Source: U.S. Census Bureau (2025)**
 
 This sectoral shift illustrates a structural rebalancing of physical capital toward assets directly linked to artificial intelligence. AI is therefore not only a software or financial phenomenon: it leads to a tangible reconfiguration of industrial supply chains and real estate investments.
 
 Figure 3 visually illustrates this trajectory of computational escalation. We observe a quasi-exponential growth in the volume of computation mobilized for the training of the most notable models since 2010, with a significant annual multiplicative factor.
 
+![AI_Fiancial_Trends](../../assets/images/ai-bubble/compute-trend-post-2010.png)  
 **Image 3: Evolution of AI model scale: growth of parameters and capabilities**
 
 This trend reflects not just an incremental increase in performance, but a structural transformation of the technological paradigm: each generation of models requires orders of magnitude more in material resources. In other words, the frontier of innovation in AI no longer depends solely on algorithmic advances, but on the ability to mobilize massive computing and energy infrastructures. This growing dependence on physical capital profoundly reconfigures the economy of the sector, favoring actors capable of absorbing these exponential costs. Consequently, the technical evolution of models cannot be dissociated from the evolution of the investments necessary to develop them. The observed rise in computational power is mechanically accompanied by a concentration of capital and an intensification of spending on strategic infrastructure.
@@ -84,6 +87,7 @@ Panel **(B)** places these amounts in historical perspective by comparing them t
 
 Panel **(C)** finally projects the aggregated evolution of investment spending by large technology companies through 2026–2027. Revised estimates indicate a potential move from already high levels (about `$`390 billion USD in 2024) to amounts between `$`600 and `$`800 billion USD in the coming years. Relative to US GDP, this spending could represent between 1.7% and 2.2% per year, which would place AI among the most important industrial investment cycles of the post-WWII era.
 
+![AI_Fiancial_Trends](../../assets/images/ai-bubble/AI_Fiancial_Trends-1.png)  
 **Image 4: Recent evolution of capital expenditure (CapEx) of large technology companies and historical comparison as a percentage of US GDP. Source: Carson Investment Research, UnderstandingAI (2026)**
 
 It should be noted that not all technology company CapEx is exclusively devoted to artificial intelligence. Nevertheless, public statements by executives indicate that an increasing and now majority share of this spending is oriented toward AI-related capacity expansion, including the construction of data centers, the acquisition of advanced GPUs, and the development of adapted energy infrastructures. The CEO of Amazon stated that AI investment represented "the vast majority" of recent CapEx, while Meta explicitly identifies increasing generative AI capacities as the primary driver of the planned spending increase in 2026.
@@ -96,6 +100,7 @@ Figure 5 highlights this dual dynamic. Panel (A) illustrates the marked increase
 
 The case of Oracle is particularly revealing. After issuing `$`18 billion in bonds in September 2025, the company announced additional financing intended to accelerate the construction of data centers. This strategy was accompanied by a deterioration in credit risk perception: CDS reached their highest level in three years, while the stock recorded increased volatility.
 
+![AI_Fiancial_Trends](../../assets/images/ai-bubble/AI_Fiancial_Trends-Page-4.png)  
 **Image 5: (A) Debt raised by major technology companies to finance AI; (B) Evolution of Oracle's five-year CDS spreads, a credit risk indicator. Source: Bloomberg (2025)**
 
 This phenomenon reflects an evolution in the risk profile of the technology sector. The AI ecosystem is no longer limited to companies with the strongest balance sheets; it now includes more heavily indebted and interconnected actors. This growing interdependence between chip suppliers, data center operators, hyperscalers, and AI startups introduces a potential for systemic transmission in the event of a slowdown in revenue flows or a lag between investment spending and profitability.
@@ -108,13 +113,14 @@ Beyond the scale of the amounts invested, the uniqueness of the current cycle li
 
 Figure 6 illustrates this dynamic. Nvidia invests up to `$`100 billion in OpenAI to support the construction of massive data centers. OpenAI, in return, commits to equipping these infrastructures with millions of Nvidia chips. Simultaneously, OpenAI enters into a `$`300 billion agreement with Oracle for the deployment of data centers, which are themselves largely powered by Nvidia processors.
 
+![AI_Fiancial_Trends](../../assets/images/ai-bubble/deal-1.png) 
 **Image 6: Network of financial and industrial interconnections between Nvidia, OpenAI, and their partners. Circles are proportional to market capitalization. Source: Bloomberg News reporting (2025)**
 
 This pattern creates a financial feedback loop: the investor becomes the supplier, the beneficiary becomes the customer, and flows circulate within a restricted network of dominant actors. Massive contractual commitments that can cumulatively exceed one trillion dollars reinforce the interdependence between semiconductor suppliers, cloud hyperscalers, and model developers.
 
 Figure 7 highlights the quantitative scale of these transactions: capital investments, multi-year cloud contracts, cross-shareholdings, and massive GPU purchases. These agreements are not simple traditional commercial partnerships; they form a dense contractual mesh that links the financial trajectories of multiple companies.
 
-[Image showing specific billion-dollar strategic deals in AI ecosystem]
+![AI_Fiancial_Trends](../../assets/images/ai-bubble/deal-2.png)  
 **Image 7: Selection of strategic agreements and associated amounts within the AI ecosystem. Source: Bloomberg News reporting (2025)**
 
 This structure has several macro-financial implications, such as the compression of expansion timelines; the artificial securing of revenues (a portion of sales may come from capital reinjected within the same network); and increased interdependence.
@@ -137,6 +143,7 @@ The "tech giants"—Alphabet, Amazon, Apple, Meta, Microsoft, Nvidia, and Tesla�
 
 However, the market has recently begun a phase of reassessment. As illustrated in Figure 8, the stock market rally (In finance, a stock market rally refers to: A period of strong, rapid, and sustained rise in stock prices. It is thus a phase of optimism where markets rise sharply over a relatively short period) of major tech stocks has eased since the end of 2025, reflecting an increased requirement for justification of the return on invested capital. Simultaneously, the earnings growth gap between tech giants and the rest of the S&P 500 tends to narrow.
 
+![AI_Fiancial_Trends](../../assets/images/ai-bubble/AI_Fiancial_Trends-Page-63.png)  
 **Image 8: (A) Recent cooling of the "Magnificent Seven" stock rally; (B) Progressive reduction of the earnings growth gap between tech giants and the rest of the S&P 500; (C) Operational cash flows of large tech companies remaining higher than their capital expenditures (CapEx). Source: Bloomberg (2026)**
 
 This dual dynamic suggests a regime change: investors no longer value only the technological promise but demand tangible proof of sustainable profitability.
