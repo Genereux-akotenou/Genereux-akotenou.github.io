@@ -1,5 +1,5 @@
 ---
-title: "A Structural and Financial Analysis of the Artificial Intelligence Investment Cycle"
+title: "A Structural Analysis: AI, industrial revolution or speculative mirage? "
 
 description: >
   An in-depth financial and macroeconomic analysis of the current artificial intelligence boom. 
