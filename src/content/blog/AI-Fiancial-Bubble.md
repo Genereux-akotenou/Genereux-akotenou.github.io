@@ -1,5 +1,5 @@
 ---
-title: "AI Boom or AI Bubble? A Financial and Structural Analysis of the Artificial Intelligence Investment Cycle"
+title: "A Structural and Financial Analysis of the Artificial Intelligence Investment Cycle"
 
 description: >
   An in-depth financial and macroeconomic analysis of the current artificial intelligence boom. 
